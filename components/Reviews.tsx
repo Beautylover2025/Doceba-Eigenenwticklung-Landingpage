@@ -7,18 +7,15 @@ import { Play, Pause } from "lucide-react";
 const B2B_REVIEWS = [
     {
         name: "LuHair",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4",
-        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Thumbnail.jpg"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4"
     },
     {
         name: "Mesinger",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4",
-        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Thumbnail.jpg"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4"
     },
     {
         name: "Waxhofer",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4",
-        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer_Thumbnail.jpg"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4"
     },
 ];
 
@@ -67,10 +64,11 @@ export default function Reviews() {
                                 className="relative group aspect-[9/16] rounded-3xl overflow-hidden bg-gray-100 border border-gray-200 shadow-xl"
                             >
                                 <video
-                                    ref={(el) => (videoRefs.current[i] = el)}
+                                    ref={(el) => {
+                                        videoRefs.current[i] = el;
+                                    }}
                                     playsInline
                                     preload="metadata"
-                                    poster={review.thumbnail}
                                     className="w-full h-full object-cover"
                                     onEnded={() => setPlayingVideo(null)}
                                 >
