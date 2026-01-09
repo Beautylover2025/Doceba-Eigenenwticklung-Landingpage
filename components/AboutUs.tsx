@@ -33,6 +33,7 @@ export default function AboutUs() {
                                 muted
                                 loop
                                 playsInline
+                                poster="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/IMAGE%201.0%20(1).mp4#t=0.1"
                                 className="w-full h-full object-cover"
                             >
                                 <source src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/IMAGE%201.0%20(1).mp4" type="video/mp4" />

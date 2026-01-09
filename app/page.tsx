@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Barriers from "@/components/Barriers";
@@ -17,6 +21,10 @@ import MobileFAB from "@/components/MobileFAB";
 import SocialProofToast from "@/components/SocialProofToast";
 
 export default function Home() {
+  useEffect(() => {
+    trackEvent('page_view', { page: 'landing' });
+  }, []);
+
   return (
     <main className="min-h-screen">
       <Header />

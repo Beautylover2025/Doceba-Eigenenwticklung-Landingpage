@@ -1,8 +1,16 @@
+"use client";
+
+import { useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import QuizFunnel from "@/components/QuizFunnel";
 import Link from "next/link";
 import { X } from "lucide-react";
 
 export default function QuizPage() {
+    useEffect(() => {
+        trackEvent('quiz_start', {});
+    }, []);
+
     return (
         <main className="min-h-screen bg-white flex flex-col">
             {/* Minimal Header */}

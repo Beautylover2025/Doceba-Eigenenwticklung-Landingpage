@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
 import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
+import { trackQuizAnswer } from "@/lib/analytics";
 import Link from "next/link";
 
 type FunnelData = {

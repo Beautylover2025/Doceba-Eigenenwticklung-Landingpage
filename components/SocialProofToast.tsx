@@ -75,7 +75,7 @@ export default function SocialProofToast() {
                     animate={{ opacity: 1, y: 0, x: 0 }}
                     exit={{ opacity: 0, y: 20, x: -20 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="fixed bottom-24 md:bottom-6 left-6 z-40 bg-white border border-gray-100 shadow-xl rounded-2xl px-5 py-4 max-w-sm"
+                    className="fixed bottom-32 md:bottom-6 left-6 z-40 bg-white border border-gray-100 shadow-xl rounded-2xl px-5 py-4 max-w-sm"
                 >
                     <div className="flex items-start gap-3">
                         {/* Live indicator */}

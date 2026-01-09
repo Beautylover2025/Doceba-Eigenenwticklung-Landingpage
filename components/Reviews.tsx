@@ -47,6 +47,7 @@ export default function Reviews() {
                                     muted
                                     loop
                                     playsInline
+                                    poster={review.url + "#t=0.1"}
                                     className="w-full h-full object-cover transition-all duration-700"
                                     onMouseOver={(e) => (e.target as HTMLVideoElement).play()}
                                     onMouseOut={(e) => (e.target as HTMLVideoElement).pause()}

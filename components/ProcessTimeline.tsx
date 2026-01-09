@@ -128,7 +128,7 @@ export default function ProcessTimeline() {
 
                 {/* Circular Timeline */}
                 <div className="flex flex-col items-center">
-                    <div className="relative w-[500px] h-[500px] flex items-center justify-center mb-12">
+                    <div className="relative w-[350px] h-[350px] md:w-[500px] md:h-[500px] flex items-center justify-center mb-12">
                         {/* SVG Circle */}
                         <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 400 400">
                             {/* Background Track */}
@@ -234,10 +234,10 @@ export default function ProcessTimeline() {
                                     key={index}
                                     onClick={() => handleStepClick(index)}
                                     className={`w-2 h-2 rounded-full transition-all ${index === currentStep
-                                            ? "w-8 bg-medical-blue"
-                                            : index <= currentStep
-                                                ? "bg-cyan-400"
-                                                : "bg-gray-300"
+                                        ? "w-8 bg-medical-blue"
+                                        : index <= currentStep
+                                            ? "bg-cyan-400"
+                                            : "bg-gray-300"
                                         }`}
                                 />
                             ))}
