@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { LogOut, TrendingUp, Users, MousePointerClick, MessageSquare } from "lucide-react";
 import { getStartOfToday, getEndOfToday, getStartOfYesterday, getEndOfYesterday, formatGermanDate } from "@/lib/dateUtils";
 
-type TimeFilter = "today" | "yesterday" | "custom";
+type TimeFilter = "today" | "yesterday" | "last7days" | "last14days" | "last30days" | "last45days" | "last60days" | "custom";
 
 type MetricCard = {
     title: string;
@@ -19,6 +19,8 @@ export default function AdminDashboard() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
     const [timeFilter, setTimeFilter] = useState<TimeFilter>("today");
+    const [customStartDate, setCustomStartDate] = useState("");
+    const [customEndDate, setCustomEndDate] = useState("");
     const [metrics, setMetrics] = useState({
         pageViews: 0,
         quizStarts: 0,
@@ -52,11 +54,39 @@ export default function AdminDashboard() {
     };
 
     const getDateRange = () => {
+        const now = new Date();
+
         if (timeFilter === "today") {
             return { start: getStartOfToday(), end: getEndOfToday() };
         } else if (timeFilter === "yesterday") {
             return { start: getStartOfYesterday(), end: getEndOfYesterday() };
+        } else if (timeFilter === "last7days") {
+            const start = new Date(now);
+            start.setDate(start.getDate() - 7);
+            return { start: start.toISOString(), end: getEndOfToday() };
+        } else if (timeFilter === "last14days") {
+            const start = new Date(now);
+            start.setDate(start.getDate() - 14);
+            return { start: start.toISOString(), end: getEndOfToday() };
+        } else if (timeFilter === "last30days") {
+            const start = new Date(now);
+            start.setDate(start.getDate() - 30);
+            return { start: start.toISOString(), end: getEndOfToday() };
+        } else if (timeFilter === "last45days") {
+            const start = new Date(now);
+            start.setDate(start.getDate() - 45);
+            return { start: start.toISOString(), end: getEndOfToday() };
+        } else if (timeFilter === "last60days") {
+            const start = new Date(now);
+            start.setDate(start.getDate() - 60);
+            return { start: start.toISOString(), end: getEndOfToday() };
+        } else if (timeFilter === "custom" && customStartDate && customEndDate) {
+            return {
+                start: new Date(customStartDate).toISOString(),
+                end: new Date(customEndDate + "T23:59:59").toISOString()
+            };
         }
+
         return { start: getStartOfToday(), end: getEndOfToday() };
     };
 
@@ -155,22 +185,72 @@ export default function AdminDashboard() {
 
             <main className="max-w-7xl mx-auto px-6 py-8">
                 {/* Time Filter */}
-                <div className="mb-8 flex items-center gap-4">
-                    <span className="text-sm font-bold text-gray-700">Zeitraum:</span>
-                    <div className="flex gap-2">
-                        {(["today", "yesterday"] as TimeFilter[]).map((filter) => (
+                <div className="mb-8">
+                    <span className="text-sm font-bold text-gray-700 mb-3 block">Zeitraum:</span>
+
+                    {/* Preset Filters */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {[
+                            { value: "today", label: "Heute" },
+                            { value: "yesterday", label: "Gestern" },
+                            { value: "last7days", label: "Letzte 7 Tage" },
+                            { value: "last14days", label: "Letzte 14 Tage" },
+                            { value: "last30days", label: "Letzte 30 Tage" },
+                            { value: "last45days", label: "Letzte 45 Tage" },
+                            { value: "last60days", label: "Letzte 60 Tage" },
+                        ].map((filter) => (
                             <button
-                                key={filter}
-                                onClick={() => setTimeFilter(filter)}
-                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${timeFilter === filter
+                                key={filter.value}
+                                onClick={() => setTimeFilter(filter.value as TimeFilter)}
+                                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${timeFilter === filter.value
                                         ? "bg-medical-blue text-white shadow-lg"
                                         : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                                     }`}
                             >
-                                {filter === "today" ? "Heute" : "Gestern"}
+                                {filter.label}
                             </button>
                         ))}
+                        <button
+                            onClick={() => setTimeFilter("custom")}
+                            className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${timeFilter === "custom"
+                                    ? "bg-medical-blue text-white shadow-lg"
+                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                                }`}
+                        >
+                            Benutzerdefiniert
+                        </button>
                     </div>
+
+                    {/* Custom Date Range Picker */}
+                    {timeFilter === "custom" && (
+                        <div className="bg-white rounded-xl p-4 border border-gray-200 flex items-center gap-4">
+                            <div className="flex items-center gap-2">
+                                <label className="text-sm font-medium text-gray-700">Von:</label>
+                                <input
+                                    type="date"
+                                    value={customStartDate}
+                                    onChange={(e) => setCustomStartDate(e.target.value)}
+                                    className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-medical-blue focus:border-transparent"
+                                />
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <label className="text-sm font-medium text-gray-700">Bis:</label>
+                                <input
+                                    type="date"
+                                    value={customEndDate}
+                                    onChange={(e) => setCustomEndDate(e.target.value)}
+                                    className="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-medical-blue focus:border-transparent"
+                                />
+                            </div>
+                            <button
+                                onClick={() => fetchAnalytics()}
+                                disabled={!customStartDate || !customEndDate}
+                                className="px-4 py-2 bg-medical-blue text-white rounded-lg font-medium text-sm hover:bg-cyan-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                Anwenden
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Metrics Cards */}
