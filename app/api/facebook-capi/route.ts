@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 
-const PIXEL_ID = "2108236542811664";
-const ACCESS_TOKEN = "EAAGBZC0HrhxEBQdoN8qK1fJ9fTmEweBZAHZBpv1V2qIAZCMLy5QJEDdzaNHXjZC0uGiNAChQRf3cTfbshKzUf4yjgXv2NQ7Y0sVXkVs6KB7RxInfsOi15idqeBRnTyIGHftcLTIbaZBnUWvokd1ETQGsWbokvjQRZAgfrTkGl2WePGQZAB8CP1ZA0y6ivTVlr2mZAzUgZDZD";
+const PIXEL_ID = process.env.FB_PIXEL_ID;
+const ACCESS_TOKEN = process.env.FB_ACCESS_TOKEN;
 
 function hashData(data: string): string {
     return crypto.createHash("sha256").update(data).digest("hex");
