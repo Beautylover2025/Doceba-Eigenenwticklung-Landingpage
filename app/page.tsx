@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { trackFBPageView } from "@/components/FacebookPixel";
+import { sendFBCAPIEvent } from "@/lib/facebookCAPI";
 import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import Barriers from "@/components/Barriers";
@@ -19,10 +21,18 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import SocialProofToast from "@/components/SocialProofToast";
+import FacebookPixel from "@/components/FacebookPixel";
 
 export default function Home() {
   useEffect(() => {
+    // Analytics tracking
     trackEvent('page_view', { page: 'landing' });
+
+    // Facebook Pixel PageView
+    trackFBPageView();
+
+    // Facebook CAPI PageView
+    sendFBCAPIEvent("PageView", { content_name: "Landing Page" });
   }, []);
 
   return (
@@ -45,6 +55,7 @@ export default function Home() {
       <Footer />
       <MobileFAB />
       <SocialProofToast />
+      <FacebookPixel />
     </main>
   );
 }

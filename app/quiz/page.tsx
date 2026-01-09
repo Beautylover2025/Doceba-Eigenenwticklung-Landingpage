@@ -2,13 +2,22 @@
 
 import { useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { trackFBViewContent } from "@/components/FacebookPixel";
+import { sendFBCAPIEvent } from "@/lib/facebookCAPI";
 import QuizFunnel from "@/components/QuizFunnel";
 import Link from "next/link";
 import { X } from "lucide-react";
 
 export default function QuizPage() {
     useEffect(() => {
+        // Analytics tracking
         trackEvent('quiz_start', {});
+
+        // Facebook Pixel ViewContent
+        trackFBViewContent("Quiz Start");
+
+        // Facebook CAPI ViewContent
+        sendFBCAPIEvent("ViewContent", { content_name: "Quiz Start" });
     }, []);
 
     return (

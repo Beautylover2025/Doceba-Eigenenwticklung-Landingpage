@@ -1,26 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Script from "next/script";
-import { usePathname, useSearchParams } from "next/navigation";
+
+const PIXEL_ID = "2108236542811664";
+
+declare global {
+    interface Window {
+        fbq: any;
+    }
+}
 
 export default function FacebookPixel() {
-    const [loaded, setLoaded] = useState(false);
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-
-    useEffect(() => {
-        // Only load if consent is given or if needed (GDPR caution)
-        // For this MVP, we load it.
-        if (!loaded) return;
-    }, [loaded]);
-
     return (
         <>
             <Script
                 id="fb-pixel"
                 strategy="afterInteractive"
-                onLoad={() => setLoaded(true)}
                 dangerouslySetInnerHTML={{
                     __html: `
             !function(f,b,e,v,n,t,s)
@@ -31,11 +27,29 @@ export default function FacebookPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '123456789'); // Placeholder ID
-            fbq('track', 'PageView');
+            fbq('init', '${PIXEL_ID}');
           `,
                 }}
             />
         </>
     );
+}
+
+// Helper functions to track events
+export function trackFBEvent(eventName: string, data: any = {}) {
+    if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", eventName, data);
+    }
+}
+
+export function trackFBPageView() {
+    trackFBEvent("PageView");
+}
+
+export function trackFBViewContent(contentName: string) {
+    trackFBEvent("ViewContent", { content_name: contentName });
+}
+
+export function trackFBLead() {
+    trackFBEvent("Lead");
 }
