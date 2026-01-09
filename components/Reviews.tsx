@@ -1,24 +1,48 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { Play, Pause } from "lucide-react";
 
 const B2B_REVIEWS = [
-    { name: "LuHair", url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4" },
-    { name: "Mesinger", url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4" },
-    { name: "Waxhofer", url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4" },
+    {
+        name: "LuHair",
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Thumbnail.jpg"
+    },
+    {
+        name: "Mesinger",
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Thumbnail.jpg"
+    },
+    {
+        name: "Waxhofer",
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer_Thumbnail.jpg"
+    },
 ];
 
 export default function Reviews() {
-    const [activeVideo, setActiveVideo] = useState<number | null>(null);
+    const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+    const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-    const openVideo = (index: number) => {
-        setActiveVideo(index);
-    };
+    const togglePlay = (index: number) => {
+        const video = videoRefs.current[index];
+        if (!video) return;
 
-    const closeVideo = () => {
-        setActiveVideo(null);
+        if (playingVideo === index) {
+            // Pause current video
+            video.pause();
+            setPlayingVideo(null);
+        } else {
+            // Pause any currently playing video
+            if (playingVideo !== null && videoRefs.current[playingVideo]) {
+                videoRefs.current[playingVideo]?.pause();
+            }
+            // Play selected video
+            video.play();
+            setPlayingVideo(index);
+        }
     };
 
     return (
@@ -40,30 +64,35 @@ export default function Reviews() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.2 }}
-                                className="relative group aspect-[9/16] rounded-3xl overflow-hidden bg-gray-100 border border-gray-200 shadow-xl cursor-pointer"
-                                onClick={() => openVideo(i)}
+                                className="relative group aspect-[9/16] rounded-3xl overflow-hidden bg-gray-100 border border-gray-200 shadow-xl"
                             >
                                 <video
-                                    muted
-                                    loop
+                                    ref={(el) => (videoRefs.current[i] = el)}
                                     playsInline
-                                    poster={review.url + "#t=0.1"}
-                                    className="w-full h-full object-cover transition-all duration-700"
-                                    onMouseOver={(e) => (e.target as HTMLVideoElement).play()}
-                                    onMouseOut={(e) => (e.target as HTMLVideoElement).pause()}
+                                    preload="metadata"
+                                    poster={review.thumbnail}
+                                    className="w-full h-full object-cover"
+                                    onEnded={() => setPlayingVideo(null)}
                                 >
                                     <source src={review.url} type="video/mp4" />
                                 </video>
 
-                                {/* Play Button Overlay */}
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                                {/* Play/Pause Button Overlay */}
+                                <div
+                                    className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors flex items-center justify-center cursor-pointer"
+                                    onClick={() => togglePlay(i)}
+                                >
                                     <div className="w-20 h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-medical-blue border-2 border-white shadow-2xl group-hover:scale-110 transition-transform">
-                                        <Play className="w-8 h-8 fill-current ml-1" />
+                                        {playingVideo === i ? (
+                                            <Pause className="w-8 h-8 fill-current" />
+                                        ) : (
+                                            <Play className="w-8 h-8 fill-current ml-1" />
+                                        )}
                                     </div>
                                 </div>
 
                                 {/* Label */}
-                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white translate-y-2 group-hover:translate-y-0 transition-transform">
+                                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none">
                                     <div className="font-display font-bold text-xl">{review.name}</div>
                                     <div className="text-sm opacity-80 uppercase tracking-widest font-medium">Markeninhaber Feedback</div>
                                 </div>
@@ -73,43 +102,6 @@ export default function Reviews() {
                 </div>
 
             </div>
-
-            {/* Video Modal */}
-            <AnimatePresence>
-                {activeVideo !== null && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-6"
-                        onClick={closeVideo}
-                    >
-                        <button
-                            onClick={closeVideo}
-                            className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors z-10"
-                        >
-                            <X className="w-6 h-6" />
-                        </button>
-
-                        <motion.div
-                            initial={{ scale: 0.9 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.9 }}
-                            className="relative max-w-2xl w-full aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <video
-                                autoPlay
-                                controls
-                                playsInline
-                                className="w-full h-full object-cover"
-                            >
-                                <source src={B2B_REVIEWS[activeVideo].url} type="video/mp4" />
-                            </video>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </section>
     );
 }
