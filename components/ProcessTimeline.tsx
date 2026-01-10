@@ -204,13 +204,13 @@ export default function ProcessTimeline() {
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: progressColor }}>
+                                    <p className="text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2 md:mb-4" style={{ color: progressColor }}>
                                         PHASE {STEPS[currentStep].phase} • {STEPS[currentStep].phaseLabel} • STEP {String(STEPS[currentStep].step).padStart(2, '0')}
                                     </p>
-                                    <h3 className="text-3xl font-display font-bold mb-4 text-gray-900">
+                                    <h3 className="text-xl md:text-3xl font-display font-bold mb-2 md:mb-4 text-gray-900">
                                         {STEPS[currentStep].title}
                                     </h3>
-                                    <p className="text-gray-600 leading-relaxed">
+                                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                                         {STEPS[currentStep].description}
                                     </p>
                                 </motion.div>

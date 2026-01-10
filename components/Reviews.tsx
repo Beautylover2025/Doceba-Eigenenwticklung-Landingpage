@@ -70,6 +70,7 @@ export default function Reviews() {
                                     }}
                                     playsInline
                                     preload="metadata"
+                                    poster={`${review.url}#t=0.1`}
                                     className="w-full h-full object-cover"
                                     onEnded={() => setPlayingVideo(null)}
                                 >
