@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQS = [
     {
@@ -39,6 +40,7 @@ const FAQS = [
 ];
 
 export default function FAQ() {
+    const { t } = useLanguage();
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggleFAQ = (index: number) => {
@@ -56,13 +58,13 @@ export default function FAQ() {
                     className="text-center mb-16"
                 >
                     <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">
-                        Häufige Fragen
+                        {t.faq.badge}
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">
-                        Alles, was du wissen musst.
+                        {t.faq.headline}
                     </h2>
                     <p className="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
-                        Transparenz ist Teil unserer DNA. Hier findest du Antworten auf die wichtigsten Fragen.
+                        {t.faq.subheadline}
                     </p>
                 </motion.div>
 

@@ -2,26 +2,29 @@
 
 import { motion } from "framer-motion";
 import { BarChart3, FlaskConical, ShieldAlert } from "lucide-react";
-
-const BARRIERS = [
-    {
-        icon: BarChart3,
-        title: "Exorbitante Hürden",
-        description: "Die meisten Hersteller fordern Mindestmengen (MOQs) von 5.000 oder 10.000 Stück. Ein Investitionsrisiko, das Innovation oft sofort im Keim erstickt."
-    },
-    {
-        icon: FlaskConical,
-        title: "Fehlende Expertise",
-        description: "Du hast das Marketing-Gen, aber kein Chemielabor. Ohne tiefes Verständnis für Inhaltsstoffe bist du blind und auf Gedeih und Verderb auf Dritte angewiesen."
-    },
-    {
-        icon: ShieldAlert,
-        title: "Ablehnung & Rechtsunsicherheit",
-        description: "Etablierte Hersteller ignorieren kleinere Anfragen oft komplett. Dazu kommt die ständige Angst vor der strengen EU-Regulatorik: Wer haftet bei Fehlern? Ohne den richtigen Partner trägst du das volle Risiko allein."
-    }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Barriers() {
+    const { t } = useLanguage();
+
+    const BARRIERS = [
+        {
+            icon: BarChart3,
+            title: t.barriers.barrier1Title,
+            description: t.barriers.barrier1Text
+        },
+        {
+            icon: FlaskConical,
+            title: t.barriers.barrier2Title,
+            description: t.barriers.barrier2Text
+        },
+        {
+            icon: ShieldAlert,
+            title: t.barriers.barrier3Title,
+            description: t.barriers.barrier3Text
+        }
+    ];
+
     return (
         <section className="py-24 px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
             {/* Subtle Alert Glow */}
@@ -36,7 +39,7 @@ export default function Barriers() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">
-                        Deine Vision. <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Ausgebremst von der Realität.</span>
+                        {t.barriers.headline} <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">{t.barriers.headlineGradient}</span>
                     </h2>
 
                     {/* Introductory Hook */}
@@ -47,11 +50,11 @@ export default function Barriers() {
                         transition={{ delay: 0.3, duration: 0.6 }}
                         className="text-base lg:text-lg text-gray-600 font-normal max-w-3xl mx-auto leading-relaxed mb-8"
                     >
-                        Du trägst die Vision deiner eigenen, exklusiven Kosmetikmarke bereits in dir – ein Produkt, das nicht nur deine Handschrift trägt, sondern durch kompromisslose Qualität und echte Ergebnisse überzeugt. Doch der Weg von der Idee zum eigenen Asset ist oft steiniger als erwartet.
+                        {t.barriers.intro}
                     </motion.p>
 
                     <p className="text-lg text-gray-600 font-medium max-w-3xl mx-auto">
-                        Bevor du überhaupt starten kannst, stellt dir der Markt drei massive Hürden in den Weg.
+                        {t.barriers.subheadline}
                     </p>
                 </motion.div>
 
@@ -139,7 +142,7 @@ export default function Barriers() {
                     className="text-center mt-16"
                 >
                     <p className="text-sm text-gray-400 italic">
-                        Und selbst wenn du diese Hürden überwindest...
+                        {t.barriers.transition}
                     </p>
                 </motion.div>
             </div>

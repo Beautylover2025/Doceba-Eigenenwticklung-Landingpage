@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BadgeCheck, FileCheck, FlaskConical, Shield, Scale, Sparkles, Package } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SAFETY_POINTS = [
     {
@@ -27,6 +28,8 @@ const SAFETY_POINTS = [
 ];
 
 export default function Solution() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-24 px-6 bg-white border-y border-gray-100" id="solution">
             <div className="max-w-6xl mx-auto">
@@ -34,18 +37,17 @@ export default function Solution() {
                 {/* Original Content */}
                 <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
                     <div className="lg:w-1/2 text-center lg:text-left">
-                        <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">Unser Ansatz</span>
+                        <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">{t.solution.badge}</span>
                         <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 text-[#111111]">
-                            Wir drehen den Spieß um. <br />
-                            Investiere in ein Asset.
+                            {t.solution.headline} <br />
+                            {t.solution.headline2}
                         </h2>
                         <div className="prose text-gray-500 leading-relaxed mb-8">
                             <p className="mb-4">
-                                Wir glauben an radikale Fairness. Eine Marke ist nur dann wertvoll, wenn sie die volle Kontrolle über ihr Herzstück hat: Das Produkt.
+                                {t.solution.text1}
                             </p>
                             <p>
-                                Deshalb haben wir unser Modell kompromisslos auf <strong>Ownership (Eigentum)</strong> ausgerichtet.
-                                Sobald die Rezeptur steht, gehört sie dir. Zu 100%. Ohne Wenn und Aber.
+                                {t.solution.text2}
                             </p>
                         </div>
                     </div>

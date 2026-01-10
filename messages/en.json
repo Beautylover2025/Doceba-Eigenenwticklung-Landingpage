@@ -12,77 +12,72 @@
         "descriptionBold": "With 100% ownership rights.",
         "cta": "Request Development"
     },
+    "barriers": {
+        "headline": "Your Vision.",
+        "headlineGradient": "Held Back by Reality.",
+        "intro": "You carry the vision of your own exclusive cosmetics brand inside you - a product that not only bears your signature but convinces through uncompromising quality and real results. But the path from idea to your own asset is often rockier than expected.",
+        "subheadline": "Before you can even start, the market puts three massive hurdles in your way.",
+        "barrier1Title": "Exorbitant Barriers",
+        "barrier1Text": "Most manufacturers demand minimum order quantities (MOQs) of 5,000 or 10,000 units. An investment risk that often kills innovation before it starts.",
+        "barrier2Title": "Missing Expertise",
+        "barrier2Text": "You have the marketing gene, but no chemistry lab. Without deep understanding of ingredients, you are blind and completely dependent on third parties.",
+        "barrier3Title": "Rejection and Legal Uncertainty",
+        "barrier3Text": "Established manufacturers often completely ignore smaller inquiries. Add to that the constant fear of strict EU regulations: Who is liable for errors? Without the right partner, you bear all the risk alone.",
+        "transition": "And even if you overcome these hurdles..."
+    },
+    "solution": {
+        "badge": "Our Approach",
+        "headline": "We turn the tables.",
+        "headline2": "Invest in an Asset.",
+        "text1": "We believe in radical fairness. A brand is only valuable when it has full control over its core: The product.",
+        "text2": "That is why we have uncompromisingly aligned our model with Ownership. Once the formula is complete, it belongs to you. 100%. No ifs or buts.",
+        "box1Title": "No Blackbox",
+        "box1Text": "We develop in the Glass Lab. You know exactly what is inside.",
+        "box2Title": "No Buyout",
+        "box2Text": "The development fee is flat-rate. The formula belongs to you.",
+        "box3Title": "Made in Germany (GMP)",
+        "box3Text": "Development according to ISO 22716. Insurance against quality problems.",
+        "assetHeadline": "From Product to Business Value.",
+        "assetText": "Your own brand is more than just a nice label. In today's world, independence is the hardest currency. When you own the formula, you own the intellectual property (IP) of your company. This not only makes you independent from manufacturers but multiplies the value of your brand in a potential exit. You are not building a business on rented ground - you are building a fortress.",
+        "safetyHeadline": "We secure your success inside and out.",
+        "safety1Title": "100% IP Ownership",
+        "safety1Text": "You are the sole rights holder of the development. We hand over the formula completely. No hidden fees, no vendor lock-in.",
+        "safety2Title": "Regulatory Pre-Check and Safety",
+        "safety2Text": "Safety is no coincidence. We conduct a pre-check according to EU Cosmetics Regulation. We know what is allowed domestically and abroad, and protect you from warnings.",
+        "safety3Title": "The Core (Formulation)",
+        "safety3Text": "High-efficacy ingredients (like our Pure Bright C7) are the heart. We develop textures that not only work but leave a luxurious skin feel.",
+        "safety4Title": "The Extras (Full Service)",
+        "safety4Text": "We advise you on choosing primary packaging and ensure that content and container form a perfect, marketable unit."
+    },
     "problem": {
         "headline": "The Problem with Traditional Private Label Models.",
-        "subheadline": "Most \"own brands\" are legally just borrowed. Traditional manufacturers keep the formula as a trade secret. This means: If you want to switch producers, you lose your product and start from scratch. We call this the \"Vendor Lock-in\" trap – an artificial dependency that blocks your growth.",
-        "text1": "You're ready for the next step. You're investing in your vision to create something lasting. But without ownership of your formula, you're building your house on rented ground.",
-        "text2": "We believe: Whoever makes the investment must also be the owner. No more opaque contracts and hidden dependencies. We develop – you own. This way, we secure your growth together without obstacles being placed in your way later.",
-        "box1Title": "The \"Vendor Lock-in\" Trap",
+        "subheadline": "Most own brands are legally just borrowed. Traditional manufacturers keep the formula as a trade secret. This means: If you want to switch producers, you lose your product and start from scratch. We call this the Vendor Lock-in trap - an artificial dependency that blocks your growth.",
+        "text1": "You are ready for the next step. You invest in your vision to create something lasting. But without ownership of your formula, you build your house on rented ground.",
+        "text2": "We believe: Whoever makes the investment must also be the owner. No more opaque contracts and hidden dependencies. We develop - you own. This is how we secure your growth together, without obstacles being placed in your way later.",
+        "box1Title": "The Vendor Lock-in Trap",
         "box1Text": "If you want to switch manufacturers, you lose your product. The formula stays with the lab.",
-        "box2Title": "Starting from Scratch",
-        "box2Text": "Without the formula, you have to redevelop the product elsewhere – at your own risk.",
+        "box2Title": "You Start from Zero",
+        "box2Text": "Without the formula, you have to redevelop the product elsewhere - by luck.",
         "box3Title": "The Buyout Extortion",
-        "box3Text": "Often €5,000 - €10,000 buyout fees are charged just to get a piece of paper."
+        "box3Text": "Often 5,000 - 10,000 Euro buyout fees are charged just to get a piece of paper."
     },
     "aboutUs": {
         "badge": "The Team Behind DOCEBA",
         "headline": "Laboratory Expertise:",
         "headlineGradient": "Your Success is Our Standard.",
-        "text1": "DOCEBA is backed by decades of experience in cosmetic research and development. For over 10 years, our focus has been on formulating highly effective formulations with German engineering excellence. We have already realized complex active ingredient concepts for numerous renowned brands, applying the highest scientific standards.",
-        "text2": "We don't just talk about success, we prove it: With our expertise, we've led our own brand into the Top 10 on TikTok in Germany. We use this deep understanding of both the market and chemistry to develop products for you that don't just shine on paper, but deliver real results. In our GMP-certified laboratory in Bielefeld, we combine cosmetic precision with modern brand understanding.",
+        "text1": "Behind DOCEBA is decades of experience in cosmetic research and development. For over 10 years, our focus has been on formulating highly effective recipes with German engineering excellence.",
+        "text2": "We do not just talk about success, we prove it: With our expertise, we have led our own brand into the Top 10 on TikTok in Germany.",
         "gmpAlt": "GMP Certificate"
     },
     "efficacy": {
         "badge": "Proof of Efficacy",
-        "headline": "Science You Can See.",
-        "description": "\"Science you can see. The Pure Bright C7 Serum serves as a demonstration example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas. It's proof of how highly concentrated active ingredients lead to real, visible results – a standard we develop individually for your brand and your target audience.\""
+        "headline": "Science you can see.",
+        "description": "The Pure Bright C7 Serum serves as an example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas."
     },
     "process": {
         "badge": "The Process",
         "headline": "Market Success in 8 Development Cycles.",
-        "subheadline": "A structured timeline for scientific precision and maximum safety. We view product development not as a simple list, but as interconnected cycles – from the first molecular idea to final stability testing and market readiness.",
-        "steps": [
-            {
-                "phase": "CREATION",
-                "title": "Strategic Initial Consultation",
-                "description": "We analyze your vision. Are we a good fit?"
-            },
-            {
-                "phase": "CREATION",
-                "title": "Technical Pre-Check",
-                "description": "Immediate feasibility and EU compliance review."
-            },
-            {
-                "phase": "CREATION",
-                "title": "Sample Development",
-                "description": "You receive a physical sample. <br />Feel, smell, test."
-            },
-            {
-                "phase": "CREATION",
-                "title": "Final Approval",
-                "description": "Optimization until you're <br />100% satisfied."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Stability Test (3 Months)",
-                "description": "The stress test for 30 months shelf life (mandatory)."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Microbiology",
-                "description": "Laboratory tests for microbial contamination and purity."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Safety Report (CPSR)",
-                "description": "Preparation of legal documents <br />for EU sales."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Production",
-                "description": "Start of filling in our GMP laboratory in Bielefeld."
-            }
-        ],
+        "subheadline": "A structured timeline for scientific precision and maximum safety.",
         "autoPlayPause": "Pause Auto-Play"
     },
     "reviews": {
@@ -93,8 +88,11 @@
     "finalCta": {
         "badge": "Investment in Excellence",
         "headline": "Ready to Realize Your Vision?",
-        "text": "Let's build your brand together – with scientific precision, regulatory security, and 100% ownership rights.",
+        "text": "Let us build your brand together - with scientific precision, regulatory security, and 100% ownership rights.",
         "cta": "Schedule Initial Consultation Now"
+    },
+    "readyCta": {
+        "cta": "Book Free Consultation Now"
     },
     "quiz": {
         "progress": "ANALYSIS PROGRESS",
@@ -102,37 +100,37 @@
             {
                 "question": "Where are you currently with your project?",
                 "options": [
-                    "Just starting (Idea & Concept)",
+                    "Just starting (Idea and Concept)",
                     "Already self-employed (Cosmetician/Practitioner)",
                     "Entrepreneur / E-Commerce Brand Owner",
-                    "Already have a brand (Planning to switch)",
+                    "Already have a brand (Switching)",
                     "Influencer / Creator"
                 ]
             },
             {
                 "question": "Which product type interests you most?",
                 "options": [
-                    "Facial Care (Serums, Creams)",
+                    "Face Care (Serums, Creams)",
                     "Body Care (Lotions, Oils)",
                     "Hair Care (Shampoos, Conditioners)",
                     "Specialty Products (Anti-Aging, Acne)",
-                    "Still unsure / Want consultation"
+                    "Still unsure / Need consultation"
                 ]
             },
             {
-                "question": "What's your biggest challenge?",
+                "question": "What is your biggest challenge?",
                 "options": [
-                    "I don't know where to start",
+                    "I do not know where to start",
                     "I need a high-quality formula",
                     "I want full control over my product",
-                    "I'm looking for a trustworthy partner",
+                    "I am looking for a trustworthy partner",
                     "Regulatory requirements overwhelm me"
                 ]
             },
             {
                 "question": "Have you budgeted for development?",
                 "options": [
-                    "Yes, I'm ready to invest",
+                    "Yes, I am ready to invest",
                     "Still unsure, need guidance",
                     "No, looking for affordable options"
                 ]
@@ -157,13 +155,13 @@
             "terms": "I accept the",
             "privacy": "Privacy Policy",
             "and": "and",
-            "agb": "Terms & Conditions",
+            "agb": "Terms and Conditions",
             "trustIndicator": "Your data will be treated confidentially.",
             "cta": "Secure Free Consultation Now"
         },
         "success": {
             "headline": "Analysis Complete!",
-            "subheadline": "We've received your answers and will contact you shortly.",
+            "subheadline": "We have received your answers and will contact you shortly.",
             "cta": "Back to Homepage"
         },
         "back": "Back"
@@ -174,5 +172,39 @@
         "privacy": "Privacy",
         "terms": "Terms",
         "imprint": "Imprint"
+    },
+    "faq": {
+        "badge": "Frequently Asked Questions",
+        "headline": "Everything You Need to Know.",
+        "subheadline": "Transparency is part of our DNA. Here you find answers to the most important questions."
+    },
+    "pricing": {
+        "headline": "Investment in Excellence.",
+        "subheadline": "Transparent development packages without hidden costs.",
+        "tier1Name": "The IP Builder",
+        "tier1Price": "5,000",
+        "tier1Desc": "For visionaries who want to lay the foundation.",
+        "tier1Cta": "Request Development",
+        "tier2Name": "The Market Launch",
+        "tier2Price": "7,500",
+        "tier2Badge": "Hero Offer",
+        "tier2Desc": "Doers. You want real products for launch.",
+        "tier2Cta": "Secure Your Spot",
+        "tier3Name": "Enterprise and Scale",
+        "tier3Price": "Custom",
+        "tier3Desc": "For established brands and series.",
+        "tier3Cta": "Book Consultation",
+        "currency": "net"
+    },
+    "finalCtaPage": {
+        "headline": "Stop searching.",
+        "headlineGradient": "Start owning.",
+        "text": "You can spend more weeks searching for the perfect manufacturer - or you make the decision now that will change your business forever. We do not just develop a product. We build you an asset that belongs to you.",
+        "cta": "Book Free Initial Consultation",
+        "disclaimer": "No obligation. Free. In 15 minutes you will know if we are a good fit."
+    },
+    "efficacyLabels": {
+        "before": "Before: Hyper-Pigmentation",
+        "after": "After: Even Skin Tone"
     }
 }

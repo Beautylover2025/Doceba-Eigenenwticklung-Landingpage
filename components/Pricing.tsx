@@ -1,14 +1,17 @@
 "use client";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Pricing() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-24 px-6 bg-white" id="pricing">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">Investition in Exzellenz.</h2>
-                    <p className="text-gray-500">Transparente Entwicklungspakete ohne versteckte Kosten.</p>
+                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-4 tracking-tight">{t.pricing.headline}</h2>
+                    <p className="text-gray-500">{t.pricing.subheadline}</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">

@@ -12,6 +12,43 @@
         "descriptionBold": "Mit 100% Eigentumsrecht.",
         "cta": "Entwicklung anfragen"
     },
+    "barriers": {
+        "headline": "Deine Vision.",
+        "headlineGradient": "Ausgebremst von der Realitaet.",
+        "intro": "Du traegst die Vision deiner eigenen, exklusiven Kosmetikmarke bereits in dir - ein Produkt, das nicht nur deine Handschrift traegt, sondern durch kompromisslose Qualitaet und echte Ergebnisse ueberzeugt. Doch der Weg von der Idee zum eigenen Asset ist oft steiniger als erwartet.",
+        "subheadline": "Bevor du ueberhaupt starten kannst, stellt dir der Markt drei massive Huerden in den Weg.",
+        "barrier1Title": "Exorbitante Huerden",
+        "barrier1Text": "Die meisten Hersteller fordern Mindestmengen (MOQs) von 5.000 oder 10.000 Stueck. Ein Investitionsrisiko, das Innovation oft sofort im Keim erstickt.",
+        "barrier2Title": "Fehlende Expertise",
+        "barrier2Text": "Du hast das Marketing-Gen, aber kein Chemielabor. Ohne tiefes Verstaendnis fuer Inhaltsstoffe bist du blind und auf Gedeih und Verderb auf Dritte angewiesen.",
+        "barrier3Title": "Ablehnung und Rechtsunsicherheit",
+        "barrier3Text": "Etablierte Hersteller ignorieren kleinere Anfragen oft komplett. Dazu kommt die staendige Angst vor der strengen EU-Regulatorik: Wer haftet bei Fehlern? Ohne den richtigen Partner traegst du das volle Risiko allein.",
+        "transition": "Und selbst wenn du diese Huerden ueberwindest..."
+    },
+    "solution": {
+        "badge": "Unser Ansatz",
+        "headline": "Wir drehen den Spiess um.",
+        "headline2": "Investiere in ein Asset.",
+        "text1": "Wir glauben an radikale Fairness. Eine Marke ist nur dann wertvoll, wenn sie die volle Kontrolle ueber ihr Herzstueck hat: Das Produkt.",
+        "text2": "Deshalb haben wir unser Modell kompromisslos auf Ownership (Eigentum) ausgerichtet. Sobald die Rezeptur steht, gehoert sie dir. Zu 100%. Ohne Wenn und Aber.",
+        "box1Title": "Keine Blackbox",
+        "box1Text": "Wir entwickeln im Glass Lab. Du weisst genau, was drin ist.",
+        "box2Title": "Kein Buyout",
+        "box2Text": "Die Entwicklungsgebuehr ist pauschal. Die Rezeptur gehoert dir.",
+        "box3Title": "Made in Germany (GMP)",
+        "box3Text": "Entwicklung nach ISO 22716. Versicherung gegen Qualitaetsprobleme.",
+        "assetHeadline": "Vom Produkt zum Unternehmenswert.",
+        "assetText": "Eine eigene Marke ist mehr als ein schoenes Etikett. In der heutigen Zeit ist Unabhaengigkeit die haerteste Waehrung. Wenn du die Rezeptur besitzt, besitzt du das geistige Eigentum (IP) deines Unternehmens. Das macht dich nicht nur unabhaengig von Herstellern, sondern vervielfacht den Wert deiner Brand bei einem potenziellen Exit. Du baust kein Geschaeft auf gemietetem Grund - du baust eine Festung.",
+        "safetyHeadline": "Wir sichern deinen Erfolg nach innen und aussen ab.",
+        "safety1Title": "100% IP Ownership",
+        "safety1Text": "Du bist der alleinige Rechtsinhaber der Entwicklung. Wir haendigen dir die Rezeptur vollstaendig aus. Keine versteckten Gebuehren, kein Vendor Lock-in.",
+        "safety2Title": "Regulatory Pre-Check and Safety",
+        "safety2Text": "Sicherheit ist kein Zufall. Wir fuehren einen Pre-Check gemaess EU-Kosmetikverordnung durch. Wir wissen, was im In- und Ausland erlaubt ist, und schuetzen dich vor Abmahnungen.",
+        "safety3Title": "Das Innenleben (Formulierung)",
+        "safety3Text": "Hochwirksame Inhaltsstoffe (wie unser Pure Bright C7) sind das Herzstueck. Wir entwickeln Texturen, die nicht nur wirken, sondern ein luxurioeses Hautgefuehl hinterlassen.",
+        "safety4Title": "Das Drumherum (Full Service)",
+        "safety4Text": "Wir beraten dich bei der Wahl der Primaerverpackung und sorgen dafuer, dass Inhalt und Huelle eine perfekte, verkehrsfaehige Einheit bilden."
+    },
     "problem": {
         "headline": "Das Problem herkoemmlicher Private-Label-Modelle.",
         "subheadline": "Die meisten eigenen Marken sind rechtlich gesehen nur geliehen. Herkoemmliche Hersteller behalten die Rezeptur als Betriebsgeheimnis unter Verschluss. Das bedeutet: Wenn du den Produzenten wechseln willst, verlierst du dein Produkt und faengst bei Null an. Wir nennen das die Vendor Lock-in Falle - eine kuenstliche Abhaengigkeit, die dein Wachstum blockiert.",
@@ -41,48 +78,6 @@
         "badge": "Der Prozess",
         "headline": "In 8 Development-Zyklen zum Markterfolg.",
         "subheadline": "Ein strukturierter Zeitplan fuer wissenschaftliche Praezision und maximale Sicherheit.",
-        "steps": [
-            {
-                "phase": "CREATION",
-                "title": "Strategisches Erstgespraech",
-                "description": "Wir analysieren deine Vision. Passen wir zusammen?"
-            },
-            {
-                "phase": "CREATION",
-                "title": "Technischer Pre-Check",
-                "description": "Sofortige Pruefung der Machbarkeit und EU-Konformitaet."
-            },
-            {
-                "phase": "CREATION",
-                "title": "Entwicklung Sample",
-                "description": "Du erhaeltst ein physisches Muster."
-            },
-            {
-                "phase": "CREATION",
-                "title": "Finale Freigabe",
-                "description": "Optimierung bis zu deiner 100%igen Zufriedenheit."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Stabilitaetstest (3 Monate)",
-                "description": "Der Haertetest fuer 30 Monate Haltbarkeit (Pflicht)."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Mikrobiologie",
-                "description": "Labortests auf Keimbelastung und Reinheit."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Sicherheitsbericht (CPSR)",
-                "description": "Erstellung der gesetzlichen Dokumente fuer den EU-Verkauf."
-            },
-            {
-                "phase": "VALIDATION",
-                "title": "Produktion",
-                "description": "Start der Abfuellung in unserem GMP-Labor in Bielefeld."
-            }
-        ],
         "autoPlayPause": "Auto-Play pausieren"
     },
     "reviews": {
@@ -95,6 +90,9 @@
         "headline": "Bereit, deine Vision zu verwirklichen?",
         "text": "Lass uns gemeinsam deine Marke aufbauen - mit wissenschaftlicher Praezision, regulatorischer Sicherheit und 100% Eigentumsrecht.",
         "cta": "Jetzt Erstgespraech vereinbaren"
+    },
+    "readyCta": {
+        "cta": "Jetzt kostenloses Gespraech buchen"
     },
     "quiz": {
         "progress": "ANALYSE FORTSCHRITT",
@@ -174,5 +172,39 @@
         "privacy": "Datenschutz",
         "terms": "AGB",
         "imprint": "Impressum"
+    },
+    "faq": {
+        "badge": "Haeufige Fragen",
+        "headline": "Alles, was du wissen musst.",
+        "subheadline": "Transparenz ist Teil unserer DNA. Hier findest du Antworten auf die wichtigsten Fragen."
+    },
+    "pricing": {
+        "headline": "Investition in Exzellenz.",
+        "subheadline": "Transparente Entwicklungspakete ohne versteckte Kosten.",
+        "tier1Name": "The IP Builder",
+        "tier1Price": "5.000",
+        "tier1Desc": "Fuer Visionaere, die das Fundament legen wollen.",
+        "tier1Cta": "Entwicklung anfragen",
+        "tier2Name": "The Market Launch",
+        "tier2Price": "7.500",
+        "tier2Badge": "Hero Offer",
+        "tier2Desc": "Macher. Du willst echte Ware fuer den Start.",
+        "tier2Cta": "Platz sichern",
+        "tier3Name": "Enterprise and Scale",
+        "tier3Price": "Custom",
+        "tier3Desc": "Fuer etablierte Brands und Serien.",
+        "tier3Cta": "Beratung buchen",
+        "currency": "netto"
+    },
+    "finalCtaPage": {
+        "headline": "Hoer auf zu suchen.",
+        "headlineGradient": "Fang an zu besitzen.",
+        "text": "Du kannst noch Wochen damit verbringen, den perfekten Hersteller zu suchen - oder du triffst jetzt die Entscheidung, die dein Business fuer immer veraendert. Wir entwickeln nicht nur ein Produkt. Wir bauen dir ein Asset, das dir gehoert.",
+        "cta": "Kostenloses Erstgespraech buchen",
+        "disclaimer": "Unverbindlich. Kostenlos. In 15 Minuten weisst du, ob wir zusammenpassen."
+    },
+    "efficacyLabels": {
+        "before": "Vorher: Hyper-Pigmentierung",
+        "after": "Nachher: Ebenmaeessiges Hautbild"
     }
 }

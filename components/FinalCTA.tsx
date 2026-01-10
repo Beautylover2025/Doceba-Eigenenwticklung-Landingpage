@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { trackButtonClick } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FinalCTA() {
+    const { t } = useLanguage();
+
     return (
         <section className="relative py-32 px-6 bg-gradient-to-b from-[#111111] to-[#1a1a1a] overflow-hidden">
             {/* Holographic Background Elements */}
@@ -64,9 +67,9 @@ export default function FinalCTA() {
                     transition={{ delay: 0.2, duration: 0.6 }}
                     className="text-5xl lg:text-7xl font-display font-black mb-8 text-white leading-tight"
                 >
-                    Hör auf zu suchen.{" "}
+                    {t.finalCtaPage.headline}{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                        Fang an zu besitzen.
+                        {t.finalCtaPage.headlineGradient}
                     </span>
                 </motion.h2>
 
@@ -77,7 +80,7 @@ export default function FinalCTA() {
                     transition={{ delay: 0.4, duration: 0.6 }}
                     className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
-                    Du kannst noch Wochen damit verbringen, den „perfekten" Hersteller zu suchen – oder du triffst jetzt die Entscheidung, die dein Business für immer verändert. Wir entwickeln nicht nur ein Produkt. Wir bauen dir ein Asset, das dir gehört.
+                    {t.finalCtaPage.text}
                 </motion.p>
 
                 <motion.div
@@ -91,7 +94,7 @@ export default function FinalCTA() {
                         onClick={() => trackButtonClick("Final CTA", "Final Section")}
                         className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-12 py-6 rounded-full text-xl font-black transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] hover:scale-105 relative overflow-hidden"
                     >
-                        <span className="relative z-10">Kostenloses Erstgespräch buchen</span>
+                        <span className="relative z-10">{t.finalCtaPage.cta}</span>
                         <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2 relative z-10" />
 
                         {/* Hover Glow Effect */}
@@ -100,7 +103,7 @@ export default function FinalCTA() {
 
                     <p className="mt-6 text-sm text-gray-400 flex items-center justify-center gap-2">
                         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        Unverbindlich. Kostenlos. In 15 Minuten weißt du, ob wir zusammenpassen.
+                        {t.finalCtaPage.disclaimer}
                     </p>
                 </motion.div>
             </motion.div>
