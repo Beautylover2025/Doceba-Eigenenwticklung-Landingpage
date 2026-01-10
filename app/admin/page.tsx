@@ -27,6 +27,7 @@ export default function AdminDashboard() {
         conversionRate: 0,
     });
     const [quizAnswers, setQuizAnswers] = useState<any[]>([]);
+    const [buttonClicks, setButtonClicks] = useState<any[]>([]);
 
     useEffect(() => {
         checkAuth();
@@ -117,6 +118,14 @@ export default function AdminDashboard() {
             .lte("created_at", end)
             .order("created_at", { ascending: false });
 
+        // Button Clicks
+        const { data: clicksData } = await supabase
+            .from("button_clicks")
+            .select("*")
+            .gte("created_at", start)
+            .lte("created_at", end)
+            .order("created_at", { ascending: false });
+
         const conversionRate = pageViewCount ? ((quizStartCount || 0) / pageViewCount) * 100 : 0;
 
         setMetrics({
@@ -126,6 +135,7 @@ export default function AdminDashboard() {
         });
 
         setQuizAnswers(answersData || []);
+        setButtonClicks(clicksData || []);
     };
 
     if (loading) {
@@ -203,8 +213,8 @@ export default function AdminDashboard() {
                                 key={filter.value}
                                 onClick={() => setTimeFilter(filter.value as TimeFilter)}
                                 className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${timeFilter === filter.value
-                                        ? "bg-medical-blue text-white shadow-lg"
-                                        : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                                    ? "bg-medical-blue text-white shadow-lg"
+                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                                     }`}
                             >
                                 {filter.label}
@@ -213,8 +223,8 @@ export default function AdminDashboard() {
                         <button
                             onClick={() => setTimeFilter("custom")}
                             className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${timeFilter === "custom"
-                                    ? "bg-medical-blue text-white shadow-lg"
-                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                                ? "bg-medical-blue text-white shadow-lg"
+                                : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                                 }`}
                         >
                             Benutzerdefiniert
@@ -291,6 +301,61 @@ export default function AdminDashboard() {
                             />
                         </div>
                     </div>
+                </div>
+
+                {/* Button Clicks Section */}
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8">
+                    <h2 className="text-2xl font-display font-bold text-gray-900 mb-6">Button Klicks</h2>
+                    {buttonClicks.length === 0 ? (
+                        <p className="text-gray-500 text-center py-8">Keine Button-Klicks im gewählten Zeitraum</p>
+                    ) : (
+                        <div className="space-y-6">
+                            {/* Button Click Statistics */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {(() => {
+                                    const clicksByButton = buttonClicks.reduce((acc: any, click: any) => {
+                                        acc[click.button_name] = (acc[click.button_name] || 0) + 1;
+                                        return acc;
+                                    }, {});
+
+                                    return Object.entries(clicksByButton).map(([buttonName, count]: [string, any]) => (
+                                        <div key={buttonName} className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                                            <div className="text-sm font-medium text-gray-600 mb-1">{buttonName}</div>
+                                            <div className="text-3xl font-display font-bold text-gray-900">{count}</div>
+                                            <div className="text-xs text-gray-500 mt-1">Klicks</div>
+                                        </div>
+                                    ));
+                                })()}
+                            </div>
+
+                            {/* Recent Clicks Table */}
+                            <div className="overflow-x-auto">
+                                <h3 className="text-lg font-bold text-gray-900 mb-4">Letzte Klicks</h3>
+                                <table className="w-full">
+                                    <thead>
+                                        <tr className="border-b border-gray-200">
+                                            <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Zeit</th>
+                                            <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Button</th>
+                                            <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Position</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {buttonClicks.slice(0, 20).map((click, index) => (
+                                            <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                                                <td className="py-3 px-4 text-sm text-gray-600">
+                                                    {formatGermanDate(new Date(click.created_at), "dd.MM.yyyy HH:mm")}
+                                                </td>
+                                                <td className="py-3 px-4 text-sm text-gray-900 font-medium">
+                                                    {click.button_name}
+                                                </td>
+                                                <td className="py-3 px-4 text-sm text-gray-700">{click.button_location}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    )}
                 </div>
 
                 {/* Quiz Answers Table */}

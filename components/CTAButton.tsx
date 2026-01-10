@@ -1,9 +1,11 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
+import { trackButtonClick } from "@/lib/analytics";
 
 export default function CTAButton() {
     const scrollToPricing = () => {
+        trackButtonClick("CTA Button", "Mid-Page");
         const pricingSection = document.getElementById('pricing');
         if (pricingSection) {
             pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });

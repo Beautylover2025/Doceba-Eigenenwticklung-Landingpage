@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { trackButtonClick } from "@/lib/analytics";
 
 export default function FinalCTA() {
     return (
@@ -87,6 +88,7 @@ export default function FinalCTA() {
                 >
                     <Link
                         href="/quiz"
+                        onClick={() => trackButtonClick("Final CTA", "Final Section")}
                         className="group inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-12 py-6 rounded-full text-xl font-black transition-all hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] hover:scale-105 relative overflow-hidden"
                     >
                         <span className="relative z-10">Kostenloses Erstgespräch buchen</span>

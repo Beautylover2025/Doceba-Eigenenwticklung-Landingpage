@@ -64,3 +64,26 @@ export async function trackQuizAnswer(
         console.error('Failed to track quiz answer:', err);
     }
 }
+
+/**
+ * Track a button click
+ */
+export async function trackButtonClick(buttonName: string, buttonLocation: string) {
+    try {
+        const sessionId = getOrCreateSessionId();
+
+        const { error } = await supabase
+            .from('button_clicks')
+            .insert({
+                session_id: sessionId,
+                button_name: buttonName,
+                button_location: buttonLocation,
+            });
+
+        if (error) {
+            console.error('Button click tracking error:', error);
+        }
+    } catch (err) {
+        console.error('Failed to track button click:', err);
+    }
+}

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Award } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { trackButtonClick } from "@/lib/analytics";
 
 const INGREDIENTS = ["Ectoin", "Niedermolekulares Hyaluron", "Peptide"];
 
@@ -62,6 +63,7 @@ export default function Hero() {
 
                     <Link
                         href="/quiz"
+                        onClick={() => trackButtonClick("Hero CTA", "Hero Section")}
                         className="group inline-flex items-center gap-3 bg-[#111111] text-white px-10 py-5 rounded-full text-lg font-bold transition-all hover:bg-medical-blue hover:shadow-xl hover:shadow-medical-blue/20 hover:-translate-y-1 relative overflow-hidden"
                     >
                         <span className="relative z-10">Entwicklung anfragen</span>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { trackButtonClick } from "@/lib/analytics";
 
 export default function MobileFAB() {
     const [isVisible, setIsVisible] = useState(false);
@@ -21,6 +22,10 @@ export default function MobileFAB() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleClick = () => {
+        trackButtonClick("Mobile FAB", "Sticky Bottom");
+    };
+
     return (
         <AnimatePresence>
             {isVisible && (
@@ -33,6 +38,7 @@ export default function MobileFAB() {
                 >
                     <Link
                         href="/quiz"
+                        onClick={handleClick}
                         className="group flex items-center gap-3 bg-white backdrop-blur-md px-6 py-3 rounded-full shadow-2xl border-2 border-gray-100 hover:border-cyan-500 transition-all hover:scale-105"
                     >
                         {/* Avatar */}
