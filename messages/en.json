@@ -1,178 +1,178 @@
 {
-    "header": {
-        "logoAlt": "DOCEBA Logo"
+    \"header\": {
+        \"logoAlt\": \"DOCEBA Logo\"
     },
-    "hero": {
-        "badge1": "GMP Certified",
-        "badge2": "Made in Germany",
-        "headline": "COSMETIC ENGINEERING",
-        "headlineGradient": "WITHOUT REGULATORY STRESS.",
-        "subheadline": "Your Brand. Your Formula.",
-        "description": "Develop your own high-end cosmetics in our GMP-certified laboratory. No restrictive contracts. No buyout costs.",
-        "descriptionBold": "With 100% ownership rights.",
-        "cta": "Request Development"
+    \"hero\": {
+        \"badge1\": \"GMP Certified\",
+        \"badge2\": \"Made in Germany\",
+        \"headline\": \"COSMETIC ENGINEERING\",
+        \"headlineGradient\": \"WITHOUT REGULATORY STRESS.\",
+        \"subheadline\": \"Your Brand. Your Formula.\",
+        \"description\": \"Develop your own high-end cosmetics in our GMP-certified laboratory. No restrictive contracts. No buyout costs.\",
+        \"descriptionBold\": \"With 100% ownership rights.\",
+        \"cta\": \"Request Development\"
     },
-    "problem": {
-        "headline": "The Problem with Traditional Private Label Models.",
-        "subheadline": "Most \"own brands\" are legally just borrowed. Traditional manufacturers keep the formula as a trade secret. This means: If you want to switch producers, you lose your product and start from scratch. We call this the \"Vendor Lock-in\" trap – an artificial dependency that blocks your growth.",
-        "text1": "You're ready for the next step. You're investing in your vision to create something lasting. But without ownership of your formula, you're building your house on rented ground.",
-        "text2": "We believe: Whoever makes the investment must also be the owner. No more opaque contracts and hidden dependencies. We develop – you own. This way, we secure your growth together without obstacles being placed in your way later.",
-        "box1Title": "The \"Vendor Lock-in\" Trap",
-        "box1Text": "If you want to switch manufacturers, you lose your product. The formula stays with the lab.",
-        "box2Title": "Starting from Scratch",
-        "box2Text": "Without the formula, you have to redevelop the product elsewhere – at your own risk.",
-        "box3Title": "The Buyout Extortion",
-        "box3Text": "Often €5,000 - €10,000 buyout fees are charged just to get a piece of paper."
+    \"problem\": {
+        \"headline\": \"The Problem with Traditional Private Label Models.\",
+        \"subheadline\": \"Most \\"own brands\\" are legally just borrowed. Traditional manufacturers keep the formula as a trade secret. This means: If you want to switch producers, you lose your product and start from scratch. We call this the \\"Vendor Lock-in\\" trap – an artificial dependency that blocks your growth.\",
+        \"text1\": \"You're ready for the next step. You're investing in your vision to create something lasting. But without ownership of your formula, you're building your house on rented ground.\",
+        \"text2\": \"We believe: Whoever makes the investment must also be the owner. No more opaque contracts and hidden dependencies. We develop – you own. This way, we secure your growth together without obstacles being placed in your way later.\",
+        \"box1Title\": \"The \\"Vendor Lock-in\\" Trap\",
+        \"box1Text\": \"If you want to switch manufacturers, you lose your product. The formula stays with the lab.\",
+        \"box2Title\": \"Starting from Scratch\",
+        \"box2Text\": \"Without the formula, you have to redevelop the product elsewhere – at your own risk.\",
+        \"box3Title\": \"The Buyout Extortion\",
+        \"box3Text\": \"Often €5,000 - €10,000 buyout fees are charged just to get a piece of paper.\"
     },
-    "aboutUs": {
-        "badge": "The Team Behind DOCEBA",
-        "headline": "Laboratory Expertise:",
-        "headlineGradient": "Your Success is Our Standard.",
-        "text1": "DOCEBA is backed by decades of experience in cosmetic research and development. For over 10 years, our focus has been on formulating highly effective formulations with German engineering excellence. We have already realized complex active ingredient concepts for numerous renowned brands, applying the highest scientific standards.",
-        "text2": "We don't just talk about success, we prove it: With our expertise, we've led our own brand into the Top 10 on TikTok in Germany. We use this deep understanding of both the market and chemistry to develop products for you that don't just shine on paper, but deliver real results. In our GMP-certified laboratory in Bielefeld, we combine cosmetic precision with modern brand understanding.",
-        "gmpAlt": "GMP Certificate"
+    \"aboutUs\": {
+        \"badge\": \"The Team Behind DOCEBA\",
+        \"headline\": \"Laboratory Expertise:\",
+        \"headlineGradient\": \"Your Success is Our Standard.\",
+        \"text1\": \"DOCEBA is backed by decades of experience in cosmetic research and development. For over 10 years, our focus has been on formulating highly effective formulations with German engineering excellence. We have already realized complex active ingredient concepts for numerous renowned brands, applying the highest scientific standards.\",
+        \"text2\": \"We don't just talk about success, we prove it: With our expertise, we've led our own brand into the Top 10 on TikTok in Germany. We use this deep understanding of both the market and chemistry to develop products for you that don't just shine on paper, but deliver real results. In our GMP-certified laboratory in Bielefeld, we combine cosmetic precision with modern brand understanding.\",
+        \"gmpAlt\": \"GMP Certificate\"
     },
-    "efficacy": {
-        "badge": "Proof of Efficacy",
-        "headline": "Science You Can See.",
-        "description": "\"Science you can see. The Pure Bright C7 Serum serves as a demonstration example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas. It's proof of how highly concentrated active ingredients lead to real, visible results – a standard we develop individually for your brand and your target audience.\""
+    \"efficacy\": {
+        \"badge\": \"Proof of Efficacy\",
+        \"headline\": \"Science You Can See.\",
+        \"description\": \"\\"Science you can see. The Pure Bright C7 Serum serves as a demonstration example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas. It's proof of how highly concentrated active ingredients lead to real, visible results – a standard we develop individually for your brand and your target audience.\\"\"
     },
-    "process": {
-        "badge": "The Process",
-        "headline": "Market Success in 8 Development Cycles.",
-        "subheadline": "A structured timeline for scientific precision and maximum safety. We view product development not as a simple list, but as interconnected cycles – from the first molecular idea to final stability testing and market readiness.",
-        "steps": [
+    \"process\": {
+        \"badge\": \"The Process\",
+        \"headline\": \"Market Success in 8 Development Cycles.\",
+        \"subheadline\": \"A structured timeline for scientific precision and maximum safety. We view product development not as a simple list, but as interconnected cycles – from the first molecular idea to final stability testing and market readiness.\",
+        \"steps\": [
             {
-                "phase": "CREATION",
-                "title": "Strategic Initial Consultation",
-                "description": "We analyze your vision. Are we a good fit?"
+                \"phase\": \"CREATION\",
+                \"title\": \"Strategic Initial Consultation\",
+                \"description\": \"We analyze your vision. Are we a good fit?\"
             },
             {
-                "phase": "CREATION",
-                "title": "Technical Pre-Check",
-                "description": "Immediate feasibility and EU compliance review."
+                \"phase\": \"CREATION\",
+                \"title\": \"Technical Pre-Check\",
+                \"description\": \"Immediate feasibility and EU compliance review.\"
             },
             {
-                "phase": "CREATION",
-                "title": "Sample Development",
-                "description": "You receive a physical sample. <br />Feel, smell, test."
+                \"phase\": \"CREATION\",
+                \"title\": \"Sample Development\",
+                \"description\": \"You receive a physical sample. <br />Feel, smell, test.\"
             },
             {
-                "phase": "CREATION",
-                "title": "Final Approval",
-                "description": "Optimization until you're <br />100% satisfied."
+                \"phase\": \"CREATION\",
+                \"title\": \"Final Approval\",
+                \"description\": \"Optimization until you're <br />100% satisfied.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Stability Test (3 Months)",
-                "description": "The stress test for 30 months shelf life (mandatory)."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Stability Test (3 Months)\",
+                \"description\": \"The stress test for 30 months shelf life (mandatory).\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Microbiology",
-                "description": "Laboratory tests for microbial contamination and purity."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Microbiology\",
+                \"description\": \"Laboratory tests for microbial contamination and purity.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Safety Report (CPSR)",
-                "description": "Preparation of legal documents <br />for EU sales."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Safety Report (CPSR)\",
+                \"description\": \"Preparation of legal documents <br />for EU sales.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Production",
-                "description": "Start of filling in our GMP laboratory in Bielefeld."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Production\",
+                \"description\": \"Start of filling in our GMP laboratory in Bielefeld.\"
             }
         ],
-        "autoPlayPause": "Pause Auto-Play"
+        \"autoPlayPause\": \"Pause Auto-Play\"
     },
-    "reviews": {
-        "badge": "B2B Reviews",
-        "headline": "What Our Partners Say.",
-        "subtext": "Real voices from brands that realized their vision with us."
+    \"reviews\": {
+        \"badge\": \"B2B Reviews\",
+        \"headline\": \"What Our Partners Say.\",
+        \"subtext\": \"Real voices from brands that realized their vision with us.\"
     },
-    "finalCta": {
-        "badge": "Investment in Excellence",
-        "headline": "Ready to Realize Your Vision?",
-        "text": "Let's build your brand together – with scientific precision, regulatory security, and 100% ownership rights.",
-        "cta": "Schedule Initial Consultation Now"
+    \"finalCta\": {
+        \"badge\": \"Investment in Excellence\",
+        \"headline\": \"Ready to Realize Your Vision?\",
+        \"text\": \"Let's build your brand together – with scientific precision, regulatory security, and 100% ownership rights.\",
+        \"cta\": \"Schedule Initial Consultation Now\"
     },
-    "quiz": {
-        "progress": "ANALYSIS PROGRESS",
-        "questions": [
+    \"quiz\": {
+        \"progress\": \"ANALYSIS PROGRESS\",
+        \"questions\": [
             {
-                "question": "Where are you currently with your project?",
-                "options": [
-                    "Just starting (Idea & Concept)",
-                    "Already self-employed (Cosmetician/Practitioner)",
-                    "Entrepreneur / E-Commerce Brand Owner",
-                    "Already have a brand (Planning to switch)",
-                    "Influencer / Creator"
+                \"question\": \"Where are you currently with your project?\",
+                \"options\": [
+                    \"Just starting (Idea & Concept)\",
+                    \"Already self-employed (Cosmetician/Practitioner)\",
+                    \"Entrepreneur / E-Commerce Brand Owner\",
+                    \"Already have a brand (Planning to switch)\",
+                    \"Influencer / Creator\"
                 ]
             },
             {
-                "question": "Which product type interests you most?",
-                "options": [
-                    "Facial Care (Serums, Creams)",
-                    "Body Care (Lotions, Oils)",
-                    "Hair Care (Shampoos, Conditioners)",
-                    "Specialty Products (Anti-Aging, Acne)",
-                    "Still unsure / Want consultation"
+                \"question\": \"Which product type interests you most?\",
+                \"options\": [
+                    \"Facial Care (Serums, Creams)\",
+                    \"Body Care (Lotions, Oils)\",
+                    \"Hair Care (Shampoos, Conditioners)\",
+                    \"Specialty Products (Anti-Aging, Acne)\",
+                    \"Still unsure / Want consultation\"
                 ]
             },
             {
-                "question": "What's your biggest challenge?",
-                "options": [
-                    "I don't know where to start",
-                    "I need a high-quality formula",
-                    "I want full control over my product",
-                    "I'm looking for a trustworthy partner",
-                    "Regulatory requirements overwhelm me"
+                \"question\": \"What's your biggest challenge?\",
+                \"options\": [
+                    \"I don't know where to start\",
+                    \"I need a high-quality formula\",
+                    \"I want full control over my product\",
+                    \"I'm looking for a trustworthy partner\",
+                    \"Regulatory requirements overwhelm me\"
                 ]
             },
             {
-                "question": "Have you budgeted for development?",
-                "options": [
-                    "Yes, I'm ready to invest",
-                    "Still unsure, need guidance",
-                    "No, looking for affordable options"
+                \"question\": \"Have you budgeted for development?\",
+                \"options\": [
+                    \"Yes, I'm ready to invest\",
+                    \"Still unsure, need guidance\",
+                    \"No, looking for affordable options\"
                 ]
             },
             {
-                "question": "When would you like to start?",
-                "options": [
-                    "As soon as possible",
-                    "Within the next 3 months",
-                    "In 6-12 months",
-                    "Just gathering information"
+                \"question\": \"When would you like to start?\",
+                \"options\": [
+                    \"As soon as possible\",
+                    \"Within the next 3 months\",
+                    \"In 6-12 months\",
+                    \"Just gathering information\"
                 ]
             }
         ],
-        "leadCapture": {
-            "headline": "Almost There.",
-            "subheadline": "Where can we reach you to discuss your concept?",
-            "firstName": "First Name",
-            "lastName": "Last Name",
-            "email": "Email Address",
-            "phone": "Mobile Number (for inquiries)",
-            "terms": "I accept the",
-            "privacy": "Privacy Policy",
-            "and": "and",
-            "agb": "Terms & Conditions",
-            "trustIndicator": "Your data will be treated confidentially.",
-            "cta": "Secure Free Consultation Now"
+        \"leadCapture\": {
+            \"headline\": \"Almost There.\",
+            \"subheadline\": \"Where can we reach you to discuss your concept?\",
+            \"firstName\": \"First Name\",
+            \"lastName\": \"Last Name\",
+            \"email\": \"Email Address\",
+            \"phone\": \"Mobile Number (for inquiries)\",
+            \"terms\": \"I accept the\",
+            \"privacy\": \"Privacy Policy\",
+            \"and\": \"and\",
+            \"agb\": \"Terms & Conditions\",
+            \"trustIndicator\": \"Your data will be treated confidentially.\",
+            \"cta\": \"Secure Free Consultation Now\"
         },
-        "success": {
-            "headline": "Analysis Complete!",
-            "subheadline": "We've received your answers and will contact you shortly.",
-            "cta": "Back to Homepage"
+        \"success\": {
+            \"headline\": \"Analysis Complete!\",
+            \"subheadline\": \"We've received your answers and will contact you shortly.\",
+            \"cta\": \"Back to Homepage\"
         },
-        "back": "Back"
+        \"back\": \"Back\"
     },
-    "footer": {
-        "tagline": "Premium Cosmetic Development. Made in Germany.",
-        "rights": "All rights reserved.",
-        "privacy": "Privacy",
-        "terms": "Terms",
-        "imprint": "Imprint"
+    \"footer\": {
+        \"tagline\": \"Premium Cosmetic Development. Made in Germany.\",
+        \"rights\": \"All rights reserved.\",
+        \"privacy\": \"Privacy\",
+        \"terms\": \"Terms\",
+        \"imprint\": \"Imprint\"
     }
 }

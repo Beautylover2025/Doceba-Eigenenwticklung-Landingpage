@@ -1,178 +1,178 @@
 {
-    "header": {
-        "logoAlt": "DOCEBA Logo"
+    \"header\": {
+        \"logoAlt\": \"DOCEBA Logo\"
     },
-    "hero": {
-        "badge1": "GMP Zertifiziert",
-        "badge2": "Made in Germany",
-        "headline": "COSMETIC ENGINEERING",
-        "headlineGradient": "OHNE REGULATORISCHEN STRESS.",
-        "subheadline": "Deine Marke. Deine Rezeptur.",
-        "description": "Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor. Ohne Knebelverträge. Ohne Buyout-Kosten.",
-        "descriptionBold": "Mit 100% Eigentumsrecht.",
-        "cta": "Entwicklung anfragen"
+    \"hero\": {
+        \"badge1\": \"GMP Zertifiziert\",
+        \"badge2\": \"Made in Germany\",
+        \"headline\": \"COSMETIC ENGINEERING\",
+        \"headlineGradient\": \"OHNE REGULATORISCHEN STRESS.\",
+        \"subheadline\": \"Deine Marke. Deine Rezeptur.\",
+        \"description\": \"Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor. Ohne Knebelverträge. Ohne Buyout-Kosten.\",
+        \"descriptionBold\": \"Mit 100% Eigentumsrecht.\",
+        \"cta\": \"Entwicklung anfragen\"
     },
-    "problem": {
-        "headline": "Das Problem herkömmlicher Private-Label-Modelle.",
-        "subheadline": "Die meisten „eigenen Marken" sind rechtlich gesehen nur geliehen. Herkömmliche Hersteller behalten die Rezeptur als Betriebsgeheimnis unter Verschluss. Das bedeutet: Wenn du den Produzenten wechseln willst, verlierst du dein Produkt und fängst bei Null an. Wir nennen das die „Vendor Lock-in" Falle – eine künstliche Abhängigkeit, die dein Wachstum blockiert.",
-        "text1": "Du bist bereit für den nächsten Schritt. Du investierst in deine Vision, um etwas Bleibendes zu schaffen. Doch ohne Eigentum an deiner Rezeptur baust du dein Haus auf gemietetem Grund.",
-        "text2": "Wir finden: Wer das Investment tätigt, muss auch der Inhaber sein. Schluss mit intransparenten Verträgen und versteckten Abhängigkeiten. Wir entwickeln – du besitzt. So sichern wir gemeinsam dein Wachstum, ohne dass dir später Steine in den Weg gelegt werden.",
-        "box1Title": "Die \"Vendor-Lock-in\" Falle",
-        "box1Text": "Willst du den Hersteller wechseln, verlierst du dein Produkt. Die Rezeptur bleibt beim Labor.",
-        "box2Title": "Du fängst bei Null an",
-        "box2Text": "Ohne Rezeptur musst du das Produkt woanders neu entwickeln lassen – auf gut Glück.",
-        "box3Title": "Die Buyout-Erpressung",
-        "box3Text": "Oft werden 5.000€ - 10.000€ Ablöse fällig, nur um ein Blatt Papier zu erhalten."
+    \"problem\": {
+        \"headline\": \"Das Problem herkömmlicher Private-Label-Modelle.\",
+        \"subheadline\": \"Die meisten \\"eigenen Marken\" sind rechtlich gesehen nur geliehen. Herkömmliche Hersteller behalten die Rezeptur als Betriebsgeheimnis unter Verschluss. Das bedeutet: Wenn du den Produzenten wechseln willst, verlierst du dein Produkt und fängst bei Null an. Wir nennen das die \\"Vendor Lock-in\" Falle – eine künstliche Abhängigkeit, die dein Wachstum blockiert.\",
+        \"text1\": \"Du bist bereit für den nächsten Schritt. Du investierst in deine Vision, um etwas Bleibendes zu schaffen. Doch ohne Eigentum an deiner Rezeptur baust du dein Haus auf gemietetem Grund.\",
+        \"text2\": \"Wir finden: Wer das Investment tätigt, muss auch der Inhaber sein. Schluss mit intransparenten Verträgen und versteckten Abhängigkeiten. Wir entwickeln – du besitzt. So sichern wir gemeinsam dein Wachstum, ohne dass dir später Steine in den Weg gelegt werden.\",
+        \"box1Title\": \"Die \\"Vendor-Lock-in\\" Falle\",
+        \"box1Text\": \"Willst du den Hersteller wechseln, verlierst du dein Produkt. Die Rezeptur bleibt beim Labor.\",
+        \"box2Title\": \"Du fängst bei Null an\",
+        \"box2Text\": \"Ohne Rezeptur musst du das Produkt woanders neu entwickeln lassen – auf gut Glück.\",
+        \"box3Title\": \"Die Buyout-Erpressung\",
+        \"box3Text\": \"Oft werden 5.000€ - 10.000€ Ablöse fällig, nur um ein Blatt Papier zu erhalten.\"
     },
-    "aboutUs": {
-        "badge": "Das Team hinter DOCEBA",
-        "headline": "Expertise aus dem Labor:",
-        "headlineGradient": "Dein Erfolg ist unser Maßstab.",
-        "text1": "Hinter DOCEBA steht jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit über 10 Jahren konzentriert sich unser Fokus darauf, hochwirksame Rezepturen mit deutscher Entwicklungskunst zu formulieren. Wir haben bereits für zahlreiche namhafte Brands komplexe Wirkstoffkonzepte realisiert und setzen dabei höchste wissenschaftliche Standards an.",
-        "text2": "Wir reden nicht nur über Erfolg, wir belegen ihn: Mit unserer Expertise haben wir eine eigene Marke bis in die Top 10 in TikTok in Deutschland geführt. Dieses tiefgreifende Verständnis für den Markt und die Chemie nutzen wir auch, um für dich Produkte zu entwickeln, die nicht nur auf dem Papier glänzen, sondern echte Ergebnisse liefern. In unserem GMP-zertifizierten Labor in Bielefeld vereinen wir kosmetische Präzision mit modernem Markenverständnis.",
-        "gmpAlt": "GMP Zertifikat"
+    \"aboutUs\": {
+        \"badge\": \"Das Team hinter DOCEBA\",
+        \"headline\": \"Expertise aus dem Labor:\",
+        \"headlineGradient\": \"Dein Erfolg ist unser Maßstab.\",
+        \"text1\": \"Hinter DOCEBA steht jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit über 10 Jahren konzentriert sich unser Fokus darauf, hochwirksame Rezepturen mit deutscher Entwicklungskunst zu formulieren. Wir haben bereits für zahlreiche namhafte Brands komplexe Wirkstoffkonzepte realisiert und setzen dabei höchste wissenschaftliche Standards an.\",
+        \"text2\": \"Wir reden nicht nur über Erfolg, wir belegen ihn: Mit unserer Expertise haben wir eine eigene Marke bis in die Top 10 in TikTok in Deutschland geführt. Dieses tiefgreifende Verständnis für den Markt und die Chemie nutzen wir auch, um für dich Produkte zu entwickeln, die nicht nur auf dem Papier glänzen, sondern echte Ergebnisse liefern. In unserem GMP-zertifizierten Labor in Bielefeld vereinen wir kosmetische Präzision mit modernem Markenverständnis.\",
+        \"gmpAlt\": \"GMP Zertifikat\"
     },
-    "efficacy": {
-        "badge": "Proof of Efficacy",
-        "headline": "Wissenschaft, die man sehen kann.",
-        "description": "„Wissenschaft, die man sehen kann. Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln. Es ist der Beweis dafür, wie hochkonzentrierte Wirkstoffe zu echten, sichtbaren Ergebnissen führen – ein Standard, den wir individuell für deine Brand und deine Zielgruppe entwickeln."
+    \"efficacy\": {
+        \"badge\": \"Proof of Efficacy\",
+        \"headline\": \"Wissenschaft, die man sehen kann.\",
+        \"description\": \"\\"Wissenschaft, die man sehen kann. Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln. Es ist der Beweis dafür, wie hochkonzentrierte Wirkstoffe zu echten, sichtbaren Ergebnissen führen – ein Standard, den wir individuell für deine Brand und deine Zielgruppe entwickeln.\"
     },
-    "process": {
-        "badge": "Der Prozess",
-        "headline": "In 8 Development-Zyklen zum Markterfolg.",
-        "subheadline": "Ein strukturierter Zeitplan für wissenschaftliche Präzision und maximale Sicherheit. Wir betrachten die Produktentstehung nicht als einfache Liste, sondern als aufeinander aufbauende Zyklen – von der ersten molekularen Idee bis zur finalen Stabilitätsprüfung und Marktreife.",
-        "steps": [
+    \"process\": {
+        \"badge\": \"Der Prozess\",
+        \"headline\": \"In 8 Development-Zyklen zum Markterfolg.\",
+        \"subheadline\": \"Ein strukturierter Zeitplan für wissenschaftliche Präzision und maximale Sicherheit. Wir betrachten die Produktentstehung nicht als einfache Liste, sondern als aufeinander aufbauende Zyklen – von der ersten molekularen Idee bis zur finalen Stabilitätsprüfung und Marktreife.\",
+        \"steps\": [
             {
-                "phase": "CREATION",
-                "title": "Strategisches Erstgespräch",
-                "description": "Wir analysieren deine Vision. Passen wir zusammen?"
+                \"phase\": \"CREATION\",
+                \"title\": \"Strategisches Erstgespräch\",
+                \"description\": \"Wir analysieren deine Vision. Passen wir zusammen?\"
             },
             {
-                "phase": "CREATION",
-                "title": "Technischer Pre-Check",
-                "description": "Sofortige Prüfung der Machbarkeit und EU-Konformität."
+                \"phase\": \"CREATION\",
+                \"title\": \"Technischer Pre-Check\",
+                \"description\": \"Sofortige Prüfung der Machbarkeit und EU-Konformität.\"
             },
             {
-                "phase": "CREATION",
-                "title": "Entwicklung Sample",
-                "description": "Du erhältst ein physisches Muster. <br />Fühlen, Riechen, Testen."
+                \"phase\": \"CREATION\",
+                \"title\": \"Entwicklung Sample\",
+                \"description\": \"Du erhältst ein physisches Muster. <br />Fühlen, Riechen, Testen.\"
             },
             {
-                "phase": "CREATION",
-                "title": "Finale Freigabe",
-                "description": "Optimierung bis zu deiner <br />100%igen Zufriedenheit."
+                \"phase\": \"CREATION\",
+                \"title\": \"Finale Freigabe\",
+                \"description\": \"Optimierung bis zu deiner <br />100%igen Zufriedenheit.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Stabilitätstest (3 Monate)",
-                "description": "Der Härtetest für 30 Monate Haltbarkeit (Pflicht)."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Stabilitätstest (3 Monate)\",
+                \"description\": \"Der Härtetest für 30 Monate Haltbarkeit (Pflicht).\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Mikrobiologie",
-                "description": "Labortests auf Keimbelastung und Reinheit."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Mikrobiologie\",
+                \"description\": \"Labortests auf Keimbelastung und Reinheit.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Sicherheitsbericht (CPSR)",
-                "description": "Erstellung der gesetzlichen Dokumente <br />für den EU-Verkauf."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Sicherheitsbericht (CPSR)\",
+                \"description\": \"Erstellung der gesetzlichen Dokumente <br />für den EU-Verkauf.\"
             },
             {
-                "phase": "VALIDATION",
-                "title": "Produktion",
-                "description": "Start der Abfüllung in unserem GMP-Labor in Bielefeld."
+                \"phase\": \"VALIDATION\",
+                \"title\": \"Produktion\",
+                \"description\": \"Start der Abfüllung in unserem GMP-Labor in Bielefeld.\"
             }
         ],
-        "autoPlayPause": "Auto-Play pausieren"
+        \"autoPlayPause\": \"Auto-Play pausieren\"
     },
-    "reviews": {
-        "badge": "B2B Rezensionen",
-        "headline": "Was unsere Partner sagen.",
-        "subtext": "Echte Stimmen von Brands, die mit uns ihre Vision verwirklicht haben."
+    \"reviews\": {
+        \"badge\": \"B2B Rezensionen\",
+        \"headline\": \"Was unsere Partner sagen.\",
+        \"subtext\": \"Echte Stimmen von Brands, die mit uns ihre Vision verwirklicht haben.\"
     },
-    "finalCta": {
-        "badge": "Investition in Exzellenz",
-        "headline": "Bereit, deine Vision zu verwirklichen?",
-        "text": "Lass uns gemeinsam deine Marke aufbauen – mit wissenschaftlicher Präzision, regulatorischer Sicherheit und 100% Eigentumsrecht.",
-        "cta": "Jetzt Erstgespräch vereinbaren"
+    \"finalCta\": {
+        \"badge\": \"Investition in Exzellenz\",
+        \"headline\": \"Bereit, deine Vision zu verwirklichen?\",
+        \"text\": \"Lass uns gemeinsam deine Marke aufbauen – mit wissenschaftlicher Präzision, regulatorischer Sicherheit und 100% Eigentumsrecht.\",
+        \"cta\": \"Jetzt Erstgespräch vereinbaren\"
     },
-    "quiz": {
-        "progress": "ANALYSE FORTSCHRITT",
-        "questions": [
+    \"quiz\": {
+        \"progress\": \"ANALYSE FORTSCHRITT\",
+        \"questions\": [
             {
-                "question": "Wo stehst du aktuell mit deinem Vorhaben?",
-                "options": [
-                    "Ich bin ganz am Anfang (Idee & Konzept)",
-                    "Ich bin bereits selbstständig (Kosmetikerin/Heilpraktiker)",
-                    "Unternehmer / E-Commerce Brand-Owner",
-                    "Ich habe bereits eine Marke (Wechsel)",
-                    "Influencer / Creator"
+                \"question\": \"Wo stehst du aktuell mit deinem Vorhaben?\",
+                \"options\": [
+                    \"Ich bin ganz am Anfang (Idee & Konzept)\",
+                    \"Ich bin bereits selbstständig (Kosmetikerin/Heilpraktiker)\",
+                    \"Unternehmer / E-Commerce Brand-Owner\",
+                    \"Ich habe bereits eine Marke (Wechsel)\",
+                    \"Influencer / Creator\"
                 ]
             },
             {
-                "question": "Welcher Produkttyp interessiert dich am meisten?",
-                "options": [
-                    "Gesichtspflege (Seren, Cremes)",
-                    "Körperpflege (Lotions, Öle)",
-                    "Haarpflege (Shampoos, Conditioner)",
-                    "Spezialprodukte (Anti-Aging, Akne)",
-                    "Noch unsicher / Beratung gewünscht"
+                \"question\": \"Welcher Produkttyp interessiert dich am meisten?\",
+                \"options\": [
+                    \"Gesichtspflege (Seren, Cremes)\",
+                    \"Körperpflege (Lotions, Öle)\",
+                    \"Haarpflege (Shampoos, Conditioner)\",
+                    \"Spezialprodukte (Anti-Aging, Akne)\",
+                    \"Noch unsicher / Beratung gewünscht\"
                 ]
             },
             {
-                "question": "Was ist deine größte Herausforderung?",
-                "options": [
-                    "Ich weiß nicht, wo ich anfangen soll",
-                    "Ich brauche eine hochwertige Rezeptur",
-                    "Ich will volle Kontrolle über mein Produkt",
-                    "Ich suche einen vertrauenswürdigen Partner",
-                    "Regulatorische Anforderungen überfordern mich"
+                \"question\": \"Was ist deine größte Herausforderung?\",
+                \"options\": [
+                    \"Ich weiß nicht, wo ich anfangen soll\",
+                    \"Ich brauche eine hochwertige Rezeptur\",
+                    \"Ich will volle Kontrolle über mein Produkt\",
+                    \"Ich suche einen vertrauenswürdigen Partner\",
+                    \"Regulatorische Anforderungen überfordern mich\"
                 ]
             },
             {
-                "question": "Hast du ein Budget für die Entwicklung eingeplant?",
-                "options": [
-                    "Ja, ich bin bereit zu investieren",
-                    "Noch unsicher, brauche Orientierung",
-                    "Nein, ich suche nach günstigen Optionen"
+                \"question\": \"Hast du ein Budget für die Entwicklung eingeplant?\",
+                \"options\": [
+                    \"Ja, ich bin bereit zu investieren\",
+                    \"Noch unsicher, brauche Orientierung\",
+                    \"Nein, ich suche nach günstigen Optionen\"
                 ]
             },
             {
-                "question": "Wann möchtest du starten?",
-                "options": [
-                    "So schnell wie möglich",
-                    "In den nächsten 3 Monaten",
-                    "In 6-12 Monaten",
-                    "Nur Informationen sammeln"
+                \"question\": \"Wann möchtest du starten?\",
+                \"options\": [
+                    \"So schnell wie möglich\",
+                    \"In den nächsten 3 Monaten\",
+                    \"In 6-12 Monaten\",
+                    \"Nur Informationen sammeln\"
                 ]
             }
         ],
-        "leadCapture": {
-            "headline": "Fast geschafft.",
-            "subheadline": "Wohin dürfen wir uns melden, um dein Konzept zu besprechen?",
-            "firstName": "Vorname",
-            "lastName": "Nachname",
-            "email": "E-Mail Adresse",
-            "phone": "Mobilnummer (für Rückfragen)",
-            "terms": "Ich akzeptiere die",
-            "privacy": "Datenschutzbestimmungen",
-            "and": "und",
-            "agb": "AGB",
-            "trustIndicator": "Deine Daten werden vertraulich behandelt.",
-            "cta": "Jetzt kostenlosen Termin sichern"
+        \"leadCapture\": {
+            \"headline\": \"Fast geschafft.\",
+            \"subheadline\": \"Wohin dürfen wir uns melden, um dein Konzept zu besprechen?\",
+            \"firstName\": \"Vorname\",
+            \"lastName\": \"Nachname\",
+            \"email\": \"E-Mail Adresse\",
+            \"phone\": \"Mobilnummer (für Rückfragen)\",
+            \"terms\": \"Ich akzeptiere die\",
+            \"privacy\": \"Datenschutzbestimmungen\",
+            \"and\": \"und\",
+            \"agb\": \"AGB\",
+            \"trustIndicator\": \"Deine Daten werden vertraulich behandelt.\",
+            \"cta\": \"Jetzt kostenlosen Termin sichern\"
         },
-        "success": {
-            "headline": "Analyse abgeschlossen!",
-            "subheadline": "Wir haben deine Antworten erhalten und melden uns in Kürze bei dir.",
-            "cta": "Zurück zur Startseite"
+        \"success\": {
+            \"headline\": \"Analyse abgeschlossen!\",
+            \"subheadline\": \"Wir haben deine Antworten erhalten und melden uns in Kürze bei dir.\",
+            \"cta\": \"Zurück zur Startseite\"
         },
-        "back": "Zurück"
+        \"back\": \"Zurück\"
     },
-    "footer": {
-        "tagline": "Premium Kosmetikentwicklung. Made in Germany.",
-        "rights": "Alle Rechte vorbehalten.",
-        "privacy": "Datenschutz",
-        "terms": "AGB",
-        "imprint": "Impressum"
+    \"footer\": {
+        \"tagline\": \"Premium Kosmetikentwicklung. Made in Germany.\",
+        \"rights\": \"Alle Rechte vorbehalten.\",
+        \"privacy\": \"Datenschutz\",
+        \"terms\": \"AGB\",
+        \"imprint\": \"Impressum\"
     }
 }
