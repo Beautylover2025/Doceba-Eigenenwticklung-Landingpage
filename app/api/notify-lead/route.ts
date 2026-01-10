@@ -4,7 +4,10 @@ import { NextRequest, NextResponse } from 'next/server';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Your email address where notifications will be sent
-const NOTIFICATION_EMAIL = process.env.LEAD_NOTIFICATION_EMAIL || 'your-email@example.com';
+const NOTIFICATION_EMAIL = process.env.LEAD_NOTIFICATION_EMAIL || 'rayyaboo@doceba.com';
+
+// Your verified Resend domain
+const FROM_EMAIL = 'DOCEBA Leads <leads@docebaskin-os.app>';
 
 export async function POST(request: NextRequest) {
     try {
@@ -92,7 +95,7 @@ export async function POST(request: NextRequest) {
         `;
 
         const { data: emailData, error } = await resend.emails.send({
-            from: 'DOCEBA Leads <leads@kosmetikentwicklung.com>',
+            from: FROM_EMAIL,
             to: [NOTIFICATION_EMAIL],
             subject: `🎯 Neuer Lead: ${firstName} ${lastName} (${locale === 'en' ? 'EN' : 'DE'})`,
             html: emailHtml,
