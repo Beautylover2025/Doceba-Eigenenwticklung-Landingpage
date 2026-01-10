@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { trackButtonClick } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MobileFAB() {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -54,8 +56,8 @@ export default function MobileFAB() {
 
                         {/* Text */}
                         <div className="flex flex-col items-start">
-                            <span className="text-[10px] text-gray-500 font-medium leading-tight">Anita antwortet dir</span>
-                            <span className="text-xs font-bold text-gray-900 leading-tight">Jetzt Termin sichern</span>
+                            <span className="text-[10px] text-gray-500 font-medium leading-tight">{t.fab?.subtext || "Anita responds"}</span>
+                            <span className="text-xs font-bold text-gray-900 leading-tight">{t.fab?.cta || "Secure appointment now"}</span>
                         </div>
 
                         {/* Arrow */}

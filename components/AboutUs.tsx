@@ -90,10 +90,10 @@ export default function AboutUs() {
                 >
                     <div className="text-center mb-12">
                         <h3 className="text-2xl lg:text-3xl font-display font-bold text-gray-900 mb-4">
-                            Echte Menschen. Echte Expertise.
+                            {t.aboutUs.galleryHeadline}
                         </h3>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Keine Stock-Fotos. Keine Kulisse. Das ist unser Labor, in dem deine Produkte entstehen.
+                            {t.aboutUs.gallerySubheadline}
                         </p>
                     </div>
 

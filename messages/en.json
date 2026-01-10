@@ -67,7 +67,13 @@
         "headlineGradient": "Your Success is Our Standard.",
         "text1": "Behind DOCEBA is decades of experience in cosmetic research and development. For over 10 years, our focus has been on formulating highly effective recipes with German engineering excellence.",
         "text2": "We do not just talk about success, we prove it: With our expertise, we have led our own brand into the Top 10 on TikTok in Germany.",
-        "gmpAlt": "GMP Certificate"
+        "gmpAlt": "GMP Certificate",
+        "galleryHeadline": "Real People. Real Expertise.",
+        "gallerySubheadline": "No stock photos. No backdrops. This is our laboratory where your products are created."
+    },
+    "fab": {
+        "subtext": "Anita responds",
+        "cta": "Secure appointment now"
     },
     "efficacy": {
         "badge": "Proof of Efficacy",
@@ -207,6 +213,10 @@
             "headline": "Analysis Complete!",
             "subheadline": "We have received your answers and will contact you shortly.",
             "cta": "Back to Homepage"
+        },
+        "disqualified": {
+            "headline": "Unfortunately, this does not fit right now.",
+            "text": "Since we develop each project individually, our service is only available from a budget of 5,000 Euro. We recommend our White Label partner list or our newsletter for starters."
         },
         "back": "Back"
     },

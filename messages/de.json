@@ -63,11 +63,17 @@
     },
     "aboutUs": {
         "badge": "Das Team hinter DOCEBA",
-        "headline": "Expertise aus dem Labor:",
-        "headlineGradient": "Dein Erfolg ist unser Massstab.",
-        "text1": "Hinter DOCEBA steht jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit ueber 10 Jahren konzentriert sich unser Fokus darauf, hochwirksame Rezepturen mit deutscher Entwicklungskunst zu formulieren.",
-        "text2": "Wir reden nicht nur ueber Erfolg, wir belegen ihn: Mit unserer Expertise haben wir eine eigene Marke bis in die Top 10 in TikTok in Deutschland gefuehrt.",
-        "gmpAlt": "GMP Zertifikat"
+        "headline": "Labor-Expertise:",
+        "headlineGradient": "Dein Erfolg ist unser Standard.",
+        "text1": "Hinter DOCEBA steckt jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit ueber 10 Jahren liegt unser Fokus auf der Formulierung hochwirksamer Rezepturen mit „Made in Germany\" Innovations-Anspruch.",
+        "text2": "Wir reden nicht nur von Erfolg, wir beweisen ihn: Mit unserer Expertise haben wir unsere eigene Marke in die Top 10 auf TikTok in Deutschland gefuehrt.",
+        "gmpAlt": "GMP Zertifikat",
+        "galleryHeadline": "Echte Menschen. Echte Expertise.",
+        "gallerySubheadline": "Keine Stock-Fotos. Keine Kulisse. Das ist unser Labor, in dem deine Produkte entstehen."
+    },
+    "fab": {
+        "subtext": "Anita antwortet dir",
+        "cta": "Jetzt Termin sichern"
     },
     "efficacy": {
         "badge": "Proof of Efficacy",
@@ -207,6 +213,10 @@
             "headline": "Analyse abgeschlossen!",
             "subheadline": "Wir haben deine Antworten erhalten und melden uns in Kuerze bei dir.",
             "cta": "Zurueck zur Startseite"
+        },
+        "disqualified": {
+            "headline": "Das passt aktuell leider nicht.",
+            "text": "Da wir jedes Projekt individuell entwickeln, ist unser Service erst ab einem Budget von 5.000 Euro moeglich. Wir empfehlen dir unsere White Label Partnerliste oder unseren Newsletter fuer Starter."
         },
         "back": "Zurueck"
     },
