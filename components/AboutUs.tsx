@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TEAM_IMAGES = [
     "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Anita&Alexandra_Labor_vor%20allen_Produkten.jpg",
@@ -12,6 +13,8 @@ const TEAM_IMAGES = [
 ];
 
 export default function AboutUs() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-24 px-6 bg-white relative overflow-hidden" id="about">
             {/* Background Glow */}
@@ -52,19 +55,19 @@ export default function AboutUs() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">
-                            Das Team hinter DOCEBA
+                            {t.aboutUs.badge}
                         </span>
                         <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 leading-tight">
-                            Expertise aus dem Labor:{" "}
+                            {t.aboutUs.headline}{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-medical-blue to-cyan-500">
-                                Dein Erfolg ist unser Maßstab.
+                                {t.aboutUs.headlineGradient}
                             </span>
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                            Hinter DOCEBA steht jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit über 10 Jahren konzentriert sich unser Fokus darauf, hochwirksame Rezepturen mit deutscher Entwicklungskunst zu formulieren. Wir haben bereits für zahlreiche namhafte Brands komplexe Wirkstoffkonzepte realisiert und setzen dabei höchste wissenschaftliche Standards an.
+                            {t.aboutUs.text1}
                         </p>
                         <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                            Wir reden nicht nur über Erfolg, wir belegen ihn: Mit unserer Expertise haben wir eine eigene Marke bis in die Top 10 in TikTok in Deutschland geführt. Dieses tiefgreifende Verständnis für den Markt und die Chemie nutzen wir auch, um für dich Produkte zu entwickeln, die nicht nur auf dem Papier glänzen, sondern echte Ergebnisse liefern. In unserem GMP-zertifizierten Labor in Bielefeld vereinen wir kosmetische Präzision mit modernem Markenverständnis.
+                            {t.aboutUs.text2}
                         </p>
 
                         {/* GMP Certificate */}
@@ -87,10 +90,10 @@ export default function AboutUs() {
                 >
                     <div className="text-center mb-12">
                         <h3 className="text-2xl lg:text-3xl font-display font-bold text-gray-900 mb-4">
-                            Echte Menschen. Echte Expertise.
+                            {t.aboutUs.galleryHeadline}
                         </h3>
                         <p className="text-gray-600 max-w-2xl mx-auto">
-                            Keine Stock-Fotos. Keine Kulisse. Das ist unser Labor, in dem deine Produkte entstehen.
+                            {t.aboutUs.gallerySubheadline}
                         </p>
                     </div>
 

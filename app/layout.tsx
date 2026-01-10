@@ -3,6 +3,7 @@ import "./globals.css";
 import { clsx } from "clsx";
 import FacebookPixel from "@/components/FacebookPixel";
 import { Suspense } from "react";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Exklusive Kosmetik Entwicklung | GMP Zertifiziert",
@@ -27,7 +28,9 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <FacebookPixel />
         </Suspense>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

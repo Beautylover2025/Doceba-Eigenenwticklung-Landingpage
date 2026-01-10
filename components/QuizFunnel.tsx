@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
 import { trackQuizAnswer } from "@/lib/analytics";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type FunnelData = {
     status: string;
@@ -15,19 +16,19 @@ type FunnelData = {
     budget: "yes" | "unsure" | "no";
     timeline: string;
     firstName: string;
-    lastName: string; // Added optional field for company/social
+    lastName: string;
     company: string;
     email: string;
     phone: string;
 };
 
-// Updated Steps based on new script
 const TOTAL_STEPS = 6;
 
 export default function QuizFunnel() {
     const { trackStep } = useFunnelTracker();
+    const { t, locale } = useLanguage();
 
-    const [currentStep, setCurrentStep] = useState(0); // 0-based index
+    const [currentStep, setCurrentStep] = useState(0);
     const [direction, setDirection] = useState(1);
     const [data, setData] = useState<FunnelData>({
         status: "",
@@ -44,15 +45,17 @@ export default function QuizFunnel() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [acceptedTerms, setAcceptedTerms] = useState(false);
 
+    // Get quiz questions from translations
+    const questions = t.quiz?.questions || [];
+
     const handleNext = (key: keyof FunnelData, value: any) => {
         setData((prev) => ({ ...prev, [key]: value }));
-        trackStep(`step_${currentStep + 1}`, { [key]: value });
+        trackStep(`step_${currentStep + 1}`, { [key]: value, locale });
 
-        // Logic: Budget Check (Step 3 -> 4 in 0-indexed terms)
-        // Script Question 4 is Index 3
+        // Budget Check (Step 3 -> 4)
         if (key === "budget" && value === "no") {
-            trackStep("dropout_budget_low", { budget: "no" });
-            setTimeout(() => setCurrentStep(99), 300); // 99 = Disqualified
+            trackStep("dropout_budget_low", { budget: "no", locale });
+            setTimeout(() => setCurrentStep(99), 300);
             return;
         }
 
@@ -67,10 +70,21 @@ export default function QuizFunnel() {
         setCurrentStep((prev) => Math.max(0, prev - 1));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        trackStep("submission_completed", data);
+        trackStep("submission_completed", { ...data, locale });
         setIsSubmitted(true);
+
+        // Send email notification
+        try {
+            await fetch('/api/notify-lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...data, locale }),
+            });
+        } catch (error) {
+            console.error('Failed to send lead notification:', error);
+        }
     };
 
     const variants = {
@@ -97,12 +111,21 @@ export default function QuizFunnel() {
                     </div>
                 )}
             </div>
-            {/* Subtle gradient overlay on hover */}
             {!selected && (
                 <div className="absolute inset-0 bg-gradient-to-br from-medical-blue/0 to-cyan-500/0 group-hover:from-medical-blue/5 group-hover:to-cyan-500/5 transition-all duration-300 rounded-2xl" />
             )}
         </button>
     );
+
+    // Question field mappings
+    const fieldKeys: (keyof FunnelData)[] = ["status", "interest", "painPoint", "budget", "timeline"];
+    const dataValues = [
+        ["idea", "self-employed", "ecommerce-owner", "brand-owner", "creator"],
+        ["skincare", "body", "base", "special", "unsure"],
+        ["ownership", "quality", "support", "speed"],
+        ["yes", "unsure", "no"],
+        ["fast", "medium", "slow", "info"]
+    ];
 
     return (
         <div className="w-full max-w-xl mx-auto min-h-[500px]">
@@ -113,25 +136,22 @@ export default function QuizFunnel() {
                     <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <X className="w-8 h-8 text-gray-500" />
                     </div>
-                    <h3 className="text-2xl font-display font-bold mb-4">Das passt aktuell leider nicht.</h3>
+                    <h3 className="text-2xl font-display font-bold mb-4">{t.quiz?.disqualified?.headline || "Das passt aktuell leider nicht."}</h3>
                     <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                        Da wir jedes Projekt individuell entwickeln, ist unser Service erst ab einem Budget von 5.000 € möglich.
-                        Wir empfehlen dir unsere "White Label" Partnerliste oder unseren Newsletter für Starter.
+                        {t.quiz?.disqualified?.text || "Da wir jedes Projekt individuell entwickeln, ist unser Service erst ab einem Budget von 5.000 € möglich."}
                     </p>
-                    <Link href="/" className="text-medical-blue font-medium hover:underline">Zurück zur Startseite</Link>
+                    <Link href="/" className="text-medical-blue font-medium hover:underline">{t.quiz?.success?.cta || "Zurück zur Startseite"}</Link>
                 </div>
             ) : isSubmitted ? (
-                // Calendly View
+                // Success View
                 <div className="text-center animate-in fade-in zoom-in duration-500 py-6">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Check className="w-8 h-8 text-green-600" />
                     </div>
-                    <h3 className="text-3xl font-display font-bold mb-4">Profil gespeichert.</h3>
+                    <h3 className="text-3xl font-display font-bold mb-4">{t.quiz?.success?.headline}</h3>
                     <p className="text-gray-600 mb-8">
-                        Vielen Dank, {data.firstName}. Unsere Experten-Slots sind begrenzt. <br />
-                        Bitte sichere dir jetzt dein 15-minütiges Strategie-Gespräch.
+                        {t.quiz?.success?.subheadline}
                     </p>
-                    {/* Calendly Inline Widget Placeholder */}
                     <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm h-[600px] flex items-center justify-center text-gray-400">
                         Calendly Inline Widget würde hier laden...
                     </div>
@@ -141,7 +161,7 @@ export default function QuizFunnel() {
                     {/* Progress Header */}
                     <div className="mb-10">
                         <div className="flex justify-between text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider">
-                            <span>Analyse Fortschritt</span>
+                            <span>{t.quiz?.progress}</span>
                             <span>{Math.round(((currentStep + 1) / TOTAL_STEPS) * 100)}%</span>
                         </div>
                         <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -157,97 +177,49 @@ export default function QuizFunnel() {
                     <div className="relative">
                         <AnimatePresence mode="wait" custom={direction}>
 
-                            {/* Question 1: Status Quo */}
-                            {currentStep === 0 && (
-                                <motion.div key="step0" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-8">Wo stehst du aktuell mit deinem Vorhaben?</h3>
+                            {/* Dynamic Questions (0-4) */}
+                            {currentStep < 5 && questions[currentStep] && (
+                                <motion.div key={`step${currentStep}`} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
+                                    <h3 className="text-3xl font-display font-bold mb-8">{questions[currentStep].question}</h3>
                                     <div className="space-y-4">
-                                        <OptionButton label="Ich bin ganz am Anfang (Idee & Konzept)" selected={data.status === "idea"} onClick={() => handleNext("status", "idea")} />
-                                        <OptionButton label="Ich bin bereits selbstständig (Kosmetikerin/Heilpraktiker)" selected={data.status === "self-employed"} onClick={() => handleNext("status", "self-employed")} />
-                                        <OptionButton label="Unternehmer / E-Commerce Brand-Owner" selected={data.status === "ecommerce-owner"} onClick={() => handleNext("status", "ecommerce-owner")} />
-                                        <OptionButton label="Ich habe bereits eine Marke (Wechsel)" selected={data.status === "brand-owner"} onClick={() => handleNext("status", "brand-owner")} />
-                                        <OptionButton label="Influencer / Creator" selected={data.status === "creator"} onClick={() => handleNext("status", "creator")} />
+                                        {questions[currentStep].options?.map((option: string, idx: number) => (
+                                            <OptionButton
+                                                key={idx}
+                                                label={option}
+                                                selected={data[fieldKeys[currentStep]] === dataValues[currentStep][idx]}
+                                                onClick={() => handleNext(fieldKeys[currentStep], dataValues[currentStep][idx])}
+                                            />
+                                        ))}
                                     </div>
                                 </motion.div>
                             )}
 
-                            {/* Question 2: Product Interest */}
-                            {currentStep === 1 && (
-                                <motion.div key="step1" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-8">In welche Richtung soll dein Produkt gehen?</h3>
-                                    <div className="space-y-4">
-                                        <OptionButton label="High-Performance Skincare (Anti-Aging, Problemhaut)" selected={data.interest === "skincare"} onClick={() => handleNext("interest", "skincare")} />
-                                        <OptionButton label="Body & Wellness" selected={data.interest === "body"} onClick={() => handleNext("interest", "body")} />
-                                        <OptionButton label="Reinigung & Basis-Pflege" selected={data.interest === "base"} onClick={() => handleNext("interest", "base")} />
-                                        <OptionButton label="Spezifische Spezial-Idee" selected={data.interest === "special"} onClick={() => handleNext("interest", "special")} />
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            {/* Question 3: Pain Point */}
-                            {currentStep === 2 && (
-                                <motion.div key="step2" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-8">Was ist dir am wichtigsten?</h3>
-                                    <div className="space-y-4">
-                                        <OptionButton label="100% Rezeptur-Eigentum (Kein Buyout)" selected={data.painPoint === "ownership"} onClick={() => handleNext("painPoint", "ownership")} />
-                                        <OptionButton label="Qualität Made in Germany & GMP" selected={data.painPoint === "quality"} onClick={() => handleNext("painPoint", "quality")} />
-                                        <OptionButton label="Regulatory & Sicherheits-Support" selected={data.painPoint === "support"} onClick={() => handleNext("painPoint", "support")} />
-                                        <OptionButton label="Schnelligkeit & Zuverlässigkeit" selected={data.painPoint === "speed"} onClick={() => handleNext("painPoint", "speed")} />
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            {/* Question 4: Budget Check (Filter) */}
-                            {currentStep === 3 && (
-                                <motion.div key="step3" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-2">Budget Check</h3>
-                                    <p className="text-lg text-gray-500 mb-8">Unsere individuelle Entwicklung (inkl. IP-Rechte & Labor) startet ab 5.000 € netto. Passt das?</p>
-                                    <div className="space-y-4">
-                                        <OptionButton label="Ja, ich investiere in Qualität." selected={data.budget === "yes"} onClick={() => handleNext("budget", "yes")} />
-                                        <OptionButton label="Ich bin mir unsicher, brauche Infos." selected={data.budget === "unsure"} onClick={() => handleNext("budget", "unsure")} />
-                                        <OptionButton label="Nein, ich suche günstige Standard-Lösungen." selected={data.budget === "no"} onClick={() => handleNext("budget", "no")} />
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            {/* Question 5: Timeline */}
-                            {currentStep === 4 && (
-                                <motion.div key="step4" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-8">Wann möchtest du launchen?</h3>
-                                    <div className="space-y-4">
-                                        <OptionButton label="So schnell wie möglich (3-6 Monate)" selected={data.timeline === "fast"} onClick={() => handleNext("timeline", "fast")} />
-                                        <OptionButton label="In den nächsten 6-12 Monaten" selected={data.timeline === "medium"} onClick={() => handleNext("timeline", "medium")} />
-                                        <OptionButton label="Noch kein fester Zeitplan" selected={data.timeline === "slow"} onClick={() => handleNext("timeline", "slow")} />
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            {/* Question 6: Lead Capture */}
+                            {/* Lead Capture (Step 5) */}
                             {currentStep === 5 && (
                                 <motion.div key="step5" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-                                    <h3 className="text-3xl font-display font-bold mb-2">Fast geschafft.</h3>
-                                    <p className="text-gray-500 mb-8">Wohin dürfen wir uns melden, um dein Konzept zu besprechen?</p>
+                                    <h3 className="text-3xl font-display font-bold mb-2">{t.quiz?.leadCapture?.headline}</h3>
+                                    <p className="text-gray-500 mb-8">{t.quiz?.leadCapture?.subheadline}</p>
 
                                     <form onSubmit={handleSubmit} className="space-y-4">
                                         <div className="grid grid-cols-2 gap-4">
                                             <input
-                                                type="text" required placeholder="Vorname"
+                                                type="text" required placeholder={t.quiz?.leadCapture?.firstName}
                                                 className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                                 value={data.firstName} onChange={e => setData({ ...data, firstName: e.target.value })}
                                             />
                                             <input
-                                                type="text" required placeholder="Nachname"
+                                                type="text" required placeholder={t.quiz?.leadCapture?.lastName}
                                                 className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                                 value={data.lastName} onChange={e => setData({ ...data, lastName: e.target.value })}
                                             />
                                         </div>
                                         <input
-                                            type="email" required placeholder="E-Mail Adresse"
+                                            type="email" required placeholder={t.quiz?.leadCapture?.email}
                                             className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                             value={data.email} onChange={e => setData({ ...data, email: e.target.value })}
                                         />
                                         <input
-                                            type="tel" required placeholder="Mobilnummer (für Rückfragen)"
+                                            type="tel" required placeholder={t.quiz?.leadCapture?.phone}
                                             className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                             value={data.phone} onChange={e => setData({ ...data, phone: e.target.value })}
                                         />
@@ -262,13 +234,13 @@ export default function QuizFunnel() {
                                                 className="mt-1 w-4 h-4 text-medical-blue border-gray-300 rounded focus:ring-medical-blue"
                                             />
                                             <span className="text-sm text-gray-600">
-                                                Ich akzeptiere die{" "}
+                                                {t.quiz?.leadCapture?.terms}{" "}
                                                 <a href="/datenschutz" target="_blank" className="text-medical-blue hover:underline">
-                                                    Datenschutzbestimmungen
+                                                    {t.quiz?.leadCapture?.privacy}
                                                 </a>
-                                                {" "}und{" "}
+                                                {" "}{t.quiz?.leadCapture?.and}{" "}
                                                 <a href="/agb" target="_blank" className="text-medical-blue hover:underline">
-                                                    AGB
+                                                    {t.quiz?.leadCapture?.agb}
                                                 </a>.
                                             </span>
                                         </label>
@@ -276,11 +248,11 @@ export default function QuizFunnel() {
                                         {/* Trust Indicator */}
                                         <div className="flex items-center justify-center gap-2 text-gray-500 text-xs">
                                             <Lock className="w-3 h-3" />
-                                            <span>Deine Daten werden vertraulich behandelt.</span>
+                                            <span>{t.quiz?.leadCapture?.trustIndicator}</span>
                                         </div>
 
                                         <button type="submit" className="w-full bg-[#111111] text-white font-bold py-5 rounded-xl mt-6 hover:bg-medical-blue transition-colors flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:-translate-y-1">
-                                            Jetzt kostenlosen Termin sichern
+                                            {t.quiz?.leadCapture?.cta}
                                             <ArrowRight className="w-5 h-5" />
                                         </button>
                                     </form>
@@ -293,7 +265,7 @@ export default function QuizFunnel() {
                     {currentStep < TOTAL_STEPS - 1 && currentStep !== 99 && !isSubmitted && currentStep > 0 && (
                         <div className="mt-8 flex justify-center">
                             <button onClick={handleBack} className="text-sm text-gray-400 hover:text-gray-600 transition-colors flex items-center gap-2">
-                                <ArrowRight className="w-4 h-4 rotate-180" /> Zurück
+                                <ArrowRight className="w-4 h-4 rotate-180" /> {t.quiz?.back}
                             </button>
                         </div>
                     )}

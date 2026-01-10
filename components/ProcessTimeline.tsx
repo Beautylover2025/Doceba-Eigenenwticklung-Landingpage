@@ -3,80 +3,37 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const STEPS = [
-    {
-        phase: 1,
-        phaseLabel: "CREATION",
-        step: 1,
-        title: "Strategisches Erstgespräch",
-        description: "Wir analysieren deine Vision. Passen wir zusammen?"
-    },
-    {
-        phase: 1,
-        phaseLabel: "CREATION",
-        step: 2,
-        title: "Technischer Pre-Check",
-        description: "Sofortige Prüfung der Machbarkeit und EU-Konformität."
-    },
-    {
-        phase: 1,
-        phaseLabel: "CREATION",
-        step: 3,
-        title: "Entwicklung Sample",
-        description: "Du erhältst ein physisches Muster. <br />Fühlen, Riechen, Testen."
-    },
-    {
-        phase: 1,
-        phaseLabel: "CREATION",
-        step: 4,
-        title: "Finale Freigabe",
-        description: "Optimierung bis zu deiner <br />100%igen Zufriedenheit."
-    },
-    {
-        phase: 2,
-        phaseLabel: "VALIDATION",
-        step: 5,
-        title: "Stabilitätstest (3 Monate)",
-        description: "Der Härtetest für 30 Monate Haltbarkeit (Pflicht)."
-    },
-    {
-        phase: 2,
-        phaseLabel: "VALIDATION",
-        step: 6,
-        title: "Mikrobiologie",
-        description: "Labortests auf Keimbelastung und Reinheit."
-    },
-    {
-        phase: 2,
-        phaseLabel: "VALIDATION",
-        step: 7,
-        title: "Sicherheitsbericht (CPSR)",
-        description: "Erstellung der gesetzlichen Dokumente <br />für den EU-Verkauf."
-    },
-    {
-        phase: 2,
-        phaseLabel: "VALIDATION",
-        step: 8,
-        title: "Produktion",
-        description: "Start der Abfüllung in unserem GMP-Labor in Bielefeld."
-    }
-];
+interface Step {
+    title: string;
+    description: string;
+}
 
 export default function ProcessTimeline() {
+    const { t } = useLanguage();
     const [currentStep, setCurrentStep] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
+    // Get steps from translations
+    const steps: Step[] = t.process?.steps || [];
+    const totalSteps = steps.length || 8;
+
+    // Define phase boundaries (steps 0-3 are Phase 1, steps 4-7 are Phase 2)
+    const getPhase = (stepIndex: number) => stepIndex < 4 ? 1 : 2;
+    const getPhaseLabel = (stepIndex: number) =>
+        stepIndex < 4 ? t.process?.phaseCreation || "CREATION" : t.process?.phaseValidation || "VALIDATION";
+
     // Auto-play functionality
     useEffect(() => {
-        if (!isAutoPlaying) return;
+        if (!isAutoPlaying || totalSteps === 0) return;
 
         const interval = setInterval(() => {
-            setCurrentStep((prev) => (prev + 1) % STEPS.length);
+            setCurrentStep((prev) => (prev + 1) % totalSteps);
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [isAutoPlaying]);
+    }, [isAutoPlaying, totalSteps]);
 
     const handleStepClick = (index: number) => {
         setIsAutoPlaying(false);
@@ -85,17 +42,17 @@ export default function ProcessTimeline() {
 
     const handleNext = () => {
         setIsAutoPlaying(false);
-        setCurrentStep((prev) => (prev + 1) % STEPS.length);
+        setCurrentStep((prev) => (prev + 1) % totalSteps);
     };
 
     const handlePrev = () => {
         setIsAutoPlaying(false);
-        setCurrentStep((prev) => (prev - 1 + STEPS.length) % STEPS.length);
+        setCurrentStep((prev) => (prev - 1 + totalSteps) % totalSteps);
     };
 
-    const progress = ((currentStep + 1) / STEPS.length) * 100;
-    const currentPhase = STEPS[currentStep].phase;
-    const progressColor = currentPhase === 1 ? "#06B6D4" : "#0047AB"; // Cyan for Phase 1, Blue for Phase 2
+    const progress = ((currentStep + 1) / totalSteps) * 100;
+    const currentPhase = getPhase(currentStep);
+    const progressColor = currentPhase === 1 ? "#06B6D4" : "#0047AB";
 
     // SVG Circle calculations
     const radius = 180;
@@ -116,13 +73,13 @@ export default function ProcessTimeline() {
                     className="text-center mb-16"
                 >
                     <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">
-                        Der Prozess
+                        {t.process.badge}
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">
-                        In 8 Development-Zyklen zum Markterfolg.
+                        {t.process.headline}
                     </h2>
                     <p className="text-lg text-gray-600 font-medium max-w-3xl mx-auto">
-                        Ein strukturierter Zeitplan für wissenschaftliche Präzision und maximale Sicherheit. Wir betrachten die Produktentstehung nicht als einfache Liste, sondern als aufeinander aufbauende Zyklen – von der ersten molekularen Idee bis zur finalen Stabilitätsprüfung und Marktreife.
+                        {t.process.subheadline}
                     </p>
                 </motion.div>
 
@@ -152,65 +109,64 @@ export default function ProcessTimeline() {
                                 strokeWidth="4"
                                 strokeLinecap="round"
                                 strokeDasharray={circumference}
-                                strokeDashoffset={strokeDashoffset}
-                                initial={{ strokeDashoffset: circumference }}
                                 animate={{ strokeDashoffset }}
                                 transition={{ duration: 0.8, ease: "easeInOut" }}
-                                style={{ filter: `drop-shadow(0 0 8px ${progressColor}40)` }}
                             />
-
-                            {/* Tick Marks */}
-                            {STEPS.map((_, index) => {
-                                const angle = (index / STEPS.length) * 360;
-                                const tickRadius = radius + 15;
-                                const x = 200 + tickRadius * Math.cos((angle - 90) * (Math.PI / 180));
-                                const y = 200 + tickRadius * Math.sin((angle - 90) * (Math.PI / 180));
-                                const isActive = index === currentStep;
-                                const isPassed = index <= currentStep;
-
-                                return (
-                                    <g key={index}>
-                                        <circle
-                                            cx={x}
-                                            cy={y}
-                                            r="6"
-                                            fill={isPassed ? progressColor : "#E5E7EB"}
-                                            className="cursor-pointer transition-all hover:scale-125"
-                                            onClick={() => handleStepClick(index)}
-                                        />
-                                        {isActive && (
-                                            <circle
-                                                cx={x}
-                                                cy={y}
-                                                r="10"
-                                                fill="none"
-                                                stroke={progressColor}
-                                                strokeWidth="2"
-                                                opacity="0.5"
-                                            />
-                                        )}
-                                    </g>
-                                );
-                            })}
                         </svg>
 
-                        {/* Center Content */}
-                        <div className="relative z-10 text-center max-w-sm">
+                        {/* Step Dots */}
+                        {steps.map((step, index) => {
+                            const angle = (index / totalSteps) * 360 - 90;
+                            const x = 200 + radius * Math.cos((angle * Math.PI) / 180);
+                            const y = 200 + radius * Math.sin((angle * Math.PI) / 180);
+                            const isActive = index === currentStep;
+                            const isPast = index < currentStep;
+
+                            return (
+                                <motion.button
+                                    key={index}
+                                    onClick={() => handleStepClick(index)}
+                                    className={`absolute w-4 h-4 rounded-full transition-all ${isActive
+                                        ? "bg-medical-blue scale-150 shadow-lg shadow-blue-500/50 ring-4 ring-white"
+                                        : isPast
+                                            ? "bg-cyan-400"
+                                            : "bg-gray-300 hover:bg-gray-400"
+                                        }`}
+                                    style={{
+                                        left: `${(x / 400) * 100}%`,
+                                        top: `${(y / 400) * 100}%`,
+                                        transform: "translate(-50%, -50%)"
+                                    }}
+                                    whileHover={{ scale: isActive ? 1.5 : 1.3 }}
+                                    whileTap={{ scale: 0.9 }}
+                                />
+                            );
+                        })}
+
+                        {/* Central Content */}
+                        <div className="absolute inset-0 flex items-center justify-center">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={currentStep}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
+                                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.9, y: -10 }}
                                     transition={{ duration: 0.4 }}
+                                    className="text-center px-8 max-w-[280px] md:max-w-sm"
                                 >
-                                    <p className="text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2 md:mb-4" style={{ color: progressColor }}>
-                                        PHASE {STEPS[currentStep].phase} • {STEPS[currentStep].phaseLabel} • STEP {String(STEPS[currentStep].step).padStart(2, '0')}
-                                    </p>
-                                    <h3 className="text-xl md:text-3xl font-display font-bold mb-2 md:mb-4 text-gray-900">
-                                        {STEPS[currentStep].title}
+                                    <span
+                                        className="text-xs font-bold tracking-widest uppercase mb-3 block"
+                                        style={{ color: progressColor }}
+                                    >
+                                        Phase {getPhase(currentStep)} • {getPhaseLabel(currentStep)} • Step {String(currentStep + 1).padStart(2, "0")}
+                                    </span>
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-3 text-gray-900">
+                                        {steps[currentStep]?.title}
                                     </h3>
-                                    <p className="text-sm md:text-base text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: STEPS[currentStep].description }} />
+                                    <p
+                                        className="text-gray-500 text-sm md:text-base"
+                                        dangerouslySetInnerHTML={{ __html: steps[currentStep]?.description || "" }}
+                                    />
                                 </motion.div>
                             </AnimatePresence>
                         </div>
@@ -220,22 +176,19 @@ export default function ProcessTimeline() {
                     <div className="flex items-center gap-6">
                         <button
                             onClick={handlePrev}
-                            className="group flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full hover:border-medical-blue hover:bg-medical-blue hover:text-white transition-all font-bold"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-gray-300 transition-all"
                         >
                             <ChevronLeft className="w-5 h-5" />
-                            <span>Zurück</span>
                         </button>
 
-                        <div className="flex items-center gap-2">
-                            {STEPS.map((_, index) => (
+                        <div className="flex gap-2">
+                            {steps.map((_, i) => (
                                 <button
-                                    key={index}
-                                    onClick={() => handleStepClick(index)}
-                                    className={`w-2 h-2 rounded-full transition-all ${index === currentStep
+                                    key={i}
+                                    onClick={() => handleStepClick(i)}
+                                    className={`h-1.5 rounded-full transition-all ${i === currentStep
                                         ? "w-8 bg-medical-blue"
-                                        : index <= currentStep
-                                            ? "bg-cyan-400"
-                                            : "bg-gray-300"
+                                        : "w-2 bg-gray-300 hover:bg-gray-400"
                                         }`}
                                 />
                             ))}
@@ -243,19 +196,21 @@ export default function ProcessTimeline() {
 
                         <button
                             onClick={handleNext}
-                            className="group flex items-center gap-2 px-6 py-3 bg-medical-blue text-white rounded-full hover:bg-cyan-500 transition-all font-bold shadow-lg"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-gray-300 transition-all"
                         >
-                            <span>Weiter</span>
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
 
-                    {/* Auto-play indicator */}
+                    {/* Auto-play toggle */}
                     <button
                         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                        className="mt-6 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                        className={`mt-6 text-xs font-medium px-4 py-2 rounded-full transition-colors ${isAutoPlaying
+                            ? "bg-cyan-100 text-cyan-700"
+                            : "bg-gray-100 text-gray-500"
+                            }`}
                     >
-                        {isAutoPlaying ? "⏸ Auto-Play pausieren" : "▶ Auto-Play starten"}
+                        {isAutoPlaying ? "⏸ " : "▶ "}{t.process.autoPlayPause}
                     </button>
                 </div>
             </div>

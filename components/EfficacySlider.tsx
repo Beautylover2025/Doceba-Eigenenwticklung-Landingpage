@@ -4,6 +4,7 @@ import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slide
 import { Scan, PlayCircle } from "lucide-react";
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const B2C_REVIEWS = [
     "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Endkunden_review1.jpg",
@@ -13,6 +14,7 @@ const B2C_REVIEWS = [
 ];
 
 export default function EfficacySlider() {
+    const { t } = useLanguage();
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
@@ -23,10 +25,10 @@ export default function EfficacySlider() {
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <div className="text-center mb-12">
-                    <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">Proof of Efficacy</span>
-                    <h2 className="text-3xl lg:text-4xl font-display font-extrabold mb-4">Wissenschaft, die man sehen kann.</h2>
+                    <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">{t.efficacy.badge}</span>
+                    <h2 className="text-3xl lg:text-4xl font-display font-extrabold mb-4">{t.efficacy.headline}</h2>
                     <p className="text-gray-500 font-medium max-w-2xl mx-auto">
-                        „Wissenschaft, die man sehen kann. Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln. Es ist der Beweis dafür, wie hochkonzentrierte Wirkstoffe zu echten, sichtbaren Ergebnissen führen – ein Standard, den wir individuell für deine Brand und deine Zielgruppe entwickeln."
+                        {t.efficacy.description}
                     </p>
                 </div>
 
@@ -48,37 +50,37 @@ export default function EfficacySlider() {
                                     </div>
                                 </div>
                             }
-                            itemOne={<ReactCompareSliderImage src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigemntflecke_Veranschulichung_nachher.png" alt="Vorher" />}
-                            itemTwo={<ReactCompareSliderImage src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigemntflecke_Veranschulichung_nachher(1).png" alt="Nachher" />}
+                            itemOne={<ReactCompareSliderImage src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigemntflecke_Veranschulichung_nachher.png" alt="Before" />}
+                            itemTwo={<ReactCompareSliderImage src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigemntflecke_Veranschulichung_nachher(1).png" alt="After" />}
                             className="h-full w-full object-cover"
                         />
 
                         {/* Labels */}
                         <div className="absolute bottom-6 left-6 bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-lg text-sm font-bold border border-white/10 pointer-events-none">
-                            Vorher: Hyper-Pigmentierung
+                            {t.efficacy.labelBefore}
                         </div>
                         <div className="absolute top-6 right-6 bg-white/80 backdrop-blur-md text-gray-900 px-4 py-2 rounded-lg text-sm font-bold border border-white/50 pointer-events-none shadow-sm">
-                            Nachher: Ebenmäßiges Hautbild
+                            {t.efficacy.labelAfter}
                         </div>
                     </div>
                 </motion.div>
 
                 <div className="text-center mb-24">
-                    <p className="text-xs text-gray-400 italic mb-6">Visualisierung der Wirkweise: Das Serum neutralisiert Verfärbungen in Echtzeit.</p>
+                    <p className="text-xs text-gray-400 italic mb-6">{t.efficacy.caption}</p>
                     <button
                         onClick={() => setIsVideoOpen(true)}
                         className="inline-flex items-center gap-2 text-gray-900 font-bold border-b-2 border-gray-900 hover:text-medical-blue hover:border-medical-blue transition-colors pb-1"
                     >
                         <PlayCircle className="w-5 h-5" />
-                        Das ganze Experiment ansehen (Video)
+                        {t.efficacy.videoButton}
                     </button>
                 </div>
 
                 {/* B2C Review Images (Directly below experiment) */}
                 <div className="pt-12 border-t border-gray-100">
                     <div className="text-center mb-10">
-                        <h3 className="text-2xl font-display font-bold">Ergebnisse am Kunden.</h3>
-                        <p className="text-sm text-gray-500 mt-2">Klicke auf ein Bild, um es zu vergrößern.</p>
+                        <h3 className="text-2xl font-display font-bold">{t.efficacy.customerHeadline}</h3>
+                        <p className="text-sm text-gray-500 mt-2">{t.efficacy.customerSubheadline}</p>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         {B2C_REVIEWS.map((url, i) => (
@@ -109,56 +111,54 @@ export default function EfficacySlider() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg flex items-center justify-center p-6"
+                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-6"
                         onClick={() => setIsVideoOpen(false)}
                     >
                         <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
+                            initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            className="w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black aspect-video relative"
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            className="relative max-w-5xl w-full rounded-2xl overflow-hidden shadow-2xl"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <video controls autoPlay className="w-full h-full">
-                                <source src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigmentflecken_Veranschaulichung.mp4" type="video/mp4" />
+                            <video
+                                autoPlay
+                                controls
+                                playsInline
+                                className="w-full h-auto"
+                            >
+                                <source src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Labor%20Video%20-%20Pure%20Bright%20C7%20Efficacy.mp4" type="video/mp4" />
                             </video>
-                            <button onClick={() => setIsVideoOpen(false)} className="absolute top-4 right-4 text-white/50 hover:text-white bg-black/50 rounded-full p-2 transition-colors">
-                                X
+                            <button
+                                onClick={() => setIsVideoOpen(false)}
+                                className="absolute top-4 right-4 text-white/70 hover:text-white w-10 h-10 rounded-full bg-black/50 flex items-center justify-center"
+                            >
+                                ✕
                             </button>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Image Lightbox Modal */}
+            {/* Image Lightbox */}
             <AnimatePresence>
                 {selectedImage !== null && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-6"
+                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-6"
                         onClick={() => setSelectedImage(null)}
                     >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
+                        <motion.img
+                            key={selectedImage}
+                            initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            className="relative max-w-4xl w-full"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <img
-                                src={B2C_REVIEWS[selectedImage]}
-                                alt={`Customer Review ${selectedImage + 1}`}
-                                className="w-full h-auto rounded-2xl shadow-2xl"
-                            />
-                            <button
-                                onClick={() => setSelectedImage(null)}
-                                className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                            >
-                                X
-                            </button>
-                        </motion.div>
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            src={B2C_REVIEWS[selectedImage]}
+                            alt="Enlarged review"
+                            className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain"
+                        />
                     </motion.div>
                 )}
             </AnimatePresence>

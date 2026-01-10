@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
+
     return (
         <footer className="bg-white border-t border-gray-100">
             {/* Main Footer */}
@@ -15,9 +19,9 @@ export default function Footer() {
                     <span className="text-gray-400">&copy; 2024 Made in Bielefeld.</span>
                 </div>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                    <a href="#" className="hover:text-gray-600 transition-colors">Impressum</a>
-                    <a href="#" className="hover:text-gray-600 transition-colors">Datenschutz</a>
-                    <a href="#" className="hover:text-gray-600 transition-colors">AGB</a>
+                    <a href="#" className="hover:text-gray-600 transition-colors">{t.footer.imprint}</a>
+                    <a href="#" className="hover:text-gray-600 transition-colors">{t.footer.privacy}</a>
+                    <a href="#" className="hover:text-gray-600 transition-colors">{t.footer.terms}</a>
                 </div>
             </div>
         </footer>

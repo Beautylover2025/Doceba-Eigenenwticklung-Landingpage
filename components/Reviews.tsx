@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const B2B_REVIEWS = [
     {
@@ -20,6 +21,7 @@ const B2B_REVIEWS = [
 ];
 
 export default function Reviews() {
+    const { t } = useLanguage();
     const [playingVideo, setPlayingVideo] = useState<number | null>(null);
     const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
@@ -49,9 +51,9 @@ export default function Reviews() {
                 {/* B2B Testimonials Section (Portrait Grid) */}
                 <div>
                     <div className="text-center mb-16">
-                        <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">B2B Partnerschaften</span>
-                        <h2 className="text-4xl lg:text-5xl font-display font-black mb-4 tracking-tight">Was Markeninhaber sagen.</h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">Das sind echte Menschen, die mit uns ihre eigene Marke umgesetzt haben.</p>
+                        <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">{t.reviews.badge}</span>
+                        <h2 className="text-4xl lg:text-5xl font-display font-black mb-4 tracking-tight">{t.reviews.headline}</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t.reviews.subtext}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
