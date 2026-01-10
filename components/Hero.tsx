@@ -166,6 +166,42 @@ export default function Hero() {
                         </defs>
                     </svg>
 
+                    {/* Premium Ingredient Labels - Floating around beaker */}
+                    <AnimatePresence>
+                        {visibleLabels.map((labelIndex, i) => {
+                            const positions = [
+                                { x: "15%", y: "20%" },
+                                { x: "70%", y: "25%" },
+                                { x: "20%", y: "65%" },
+                                { x: "75%", y: "70%" },
+                                { x: "10%", y: "45%" },
+                                { x: "80%", y: "50%" },
+                                { x: "25%", y: "80%" },
+                                { x: "65%", y: "15%" }
+                            ];
+                            const pos = positions[labelIndex % positions.length];
+
+                            return (
+                                <motion.div
+                                    key={`${labelIndex}-${i}`}
+                                    initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                                    exit={{ opacity: 0, scale: 0.8, x: 20 }}
+                                    transition={{ duration: 1, delay: i * 0.3 }}
+                                    className="absolute pointer-events-none"
+                                    style={{ left: pos.x, top: pos.y }}
+                                >
+                                    <div className="flex items-center gap-2 bg-cyan-500/10 backdrop-blur-sm border border-cyan-500/30 rounded-lg px-3 py-1.5 shadow-lg">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                                        <span className="text-[10px] font-mono font-bold text-cyan-300 uppercase tracking-wider">
+                                            {PREMIUM_INGREDIENTS[labelIndex]}
+                                        </span>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
+                    </AnimatePresence>
+
                     {/* Dynamic Glow */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
                 </motion.div>
