@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check, X, Lock } from "lucide-react";
 import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
 import { trackQuizAnswer } from "@/lib/analytics";
@@ -42,6 +42,7 @@ export default function QuizFunnel() {
         phone: "",
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
 
     const handleNext = (key: keyof FunnelData, value: any) => {
         setData((prev) => ({ ...prev, [key]: value }));
@@ -241,11 +242,6 @@ export default function QuizFunnel() {
                                             />
                                         </div>
                                         <input
-                                            type="text" placeholder="Firma / Social Media Handle (Optional)"
-                                            className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
-                                            value={data.company} onChange={e => setData({ ...data, company: e.target.value })}
-                                        />
-                                        <input
                                             type="email" required placeholder="E-Mail Adresse"
                                             className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                             value={data.email} onChange={e => setData({ ...data, email: e.target.value })}
@@ -256,8 +252,35 @@ export default function QuizFunnel() {
                                             value={data.phone} onChange={e => setData({ ...data, phone: e.target.value })}
                                         />
 
+                                        {/* Terms Checkbox */}
+                                        <label className="flex items-start gap-3 cursor-pointer">
+                                            <input
+                                                type="checkbox"
+                                                required
+                                                checked={acceptedTerms}
+                                                onChange={e => setAcceptedTerms(e.target.checked)}
+                                                className="mt-1 w-4 h-4 text-medical-blue border-gray-300 rounded focus:ring-medical-blue"
+                                            />
+                                            <span className="text-sm text-gray-600">
+                                                Ich akzeptiere die{" "}
+                                                <a href="/datenschutz" target="_blank" className="text-medical-blue hover:underline">
+                                                    Datenschutzbestimmungen
+                                                </a>
+                                                {" "}und{" "}
+                                                <a href="/agb" target="_blank" className="text-medical-blue hover:underline">
+                                                    AGB
+                                                </a>.
+                                            </span>
+                                        </label>
+
+                                        {/* Trust Indicator */}
+                                        <div className="flex items-center justify-center gap-2 text-gray-500 text-xs">
+                                            <Lock className="w-3 h-3" />
+                                            <span>Deine Daten werden vertraulich behandelt.</span>
+                                        </div>
+
                                         <button type="submit" className="w-full bg-[#111111] text-white font-bold py-5 rounded-xl mt-6 hover:bg-medical-blue transition-colors flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl hover:-translate-y-1">
-                                            Jetzt Analyse senden & Termin wählen
+                                            Jetzt kostenlosen Termin sichern
                                             <ArrowRight className="w-5 h-5" />
                                         </button>
                                     </form>
