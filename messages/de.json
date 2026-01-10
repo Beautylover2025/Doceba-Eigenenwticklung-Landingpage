@@ -210,8 +210,8 @@
             "cta": "Jetzt kostenlosen Termin sichern"
         },
         "success": {
-            "headline": "Analyse abgeschlossen!",
-            "subheadline": "Wir haben deine Antworten erhalten und melden uns in Kuerze bei dir.",
+            "headline": "Super, wir haben deine Antworten empfangen!",
+            "subheadline": "Sichere dir jetzt deinen Termin fuer ein kostenloses Erstgespraech.",
             "cta": "Zurueck zur Startseite"
         },
         "disqualified": {
