@@ -8,14 +8,40 @@ import { trackButtonClick } from "@/lib/analytics";
 
 const INGREDIENTS = ["Ectoin", "Niedermolekulares Hyaluron", "Peptide"];
 
+const PREMIUM_INGREDIENTS = [
+    "Biomimetische Exosomen",
+    "Verkapseltes Retinal",
+    "Kupfer-Tripeptide-1",
+    "Liposomales Vitamin C (THD)",
+    "Fermentiertes Resveratrol",
+    "Quadrupel-Peptid-Komplex",
+    "Phyto-Stammzellen",
+    "Mikrobiom-Modulatoren"
+];
+
 export default function Hero() {
     const [index, setIndex] = useState(0);
+    const [visibleLabels, setVisibleLabels] = useState<number[]>([0, 1]);
 
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prev) => (prev + 1) % INGREDIENTS.length);
         }, 3000);
         return () => clearInterval(timer);
+    }, []);
+
+    // Cycle through premium ingredient labels
+    useEffect(() => {
+        const labelTimer = setInterval(() => {
+            setVisibleLabels((prev) => {
+                const nextStart = (prev[0] + 1) % PREMIUM_INGREDIENTS.length;
+                const nextEnd = (nextStart + 2) % PREMIUM_INGREDIENTS.length;
+                return nextStart < nextEnd
+                    ? [nextStart, nextEnd]
+                    : [nextStart, (nextStart + 1) % PREMIUM_INGREDIENTS.length];
+            });
+        }, 4000);
+        return () => clearInterval(labelTimer);
     }, []);
 
     return (
