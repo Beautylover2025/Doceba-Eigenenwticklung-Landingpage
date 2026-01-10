@@ -76,19 +76,25 @@ export default function Reviews() {
                                     <source src={review.url} type="video/mp4" />
                                 </video>
 
-                                {/* Play/Pause Button Overlay */}
-                                <div
-                                    className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors flex items-center justify-center cursor-pointer"
-                                    onClick={() => togglePlay(i)}
-                                >
-                                    <div className="w-20 h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-medical-blue border-2 border-white shadow-2xl group-hover:scale-110 transition-transform">
-                                        {playingVideo === i ? (
-                                            <Pause className="w-8 h-8 fill-current" />
-                                        ) : (
+                                {/* Play Button Overlay - Only shown when NOT playing */}
+                                {playingVideo !== i && (
+                                    <div
+                                        className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-colors flex items-center justify-center cursor-pointer"
+                                        onClick={() => togglePlay(i)}
+                                    >
+                                        <div className="w-20 h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-medical-blue border-2 border-white shadow-2xl group-hover:scale-110 transition-transform">
                                             <Play className="w-8 h-8 fill-current ml-1" />
-                                        )}
+                                        </div>
                                     </div>
-                                </div>
+                                )}
+
+                                {/* Transparent clickable overlay when playing (for pause) */}
+                                {playingVideo === i && (
+                                    <div
+                                        className="absolute inset-0 cursor-pointer"
+                                        onClick={() => togglePlay(i)}
+                                    />
+                                )}
 
                                 {/* Label */}
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white translate-y-2 group-hover:translate-y-0 transition-transform pointer-events-none">
