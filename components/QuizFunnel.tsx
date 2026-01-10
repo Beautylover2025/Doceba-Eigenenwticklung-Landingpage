@@ -26,7 +26,7 @@ const TOTAL_STEPS = 6;
 
 export default function QuizFunnel() {
     const { trackStep } = useFunnelTracker();
-    const { t } = useLanguage();
+    const { t, locale } = useLanguage();
 
     const [currentStep, setCurrentStep] = useState(0);
     const [direction, setDirection] = useState(1);
@@ -50,11 +50,11 @@ export default function QuizFunnel() {
 
     const handleNext = (key: keyof FunnelData, value: any) => {
         setData((prev) => ({ ...prev, [key]: value }));
-        trackStep(`step_${currentStep + 1}`, { [key]: value });
+        trackStep(`step_${currentStep + 1}`, { [key]: value, locale });
 
         // Budget Check (Step 3 -> 4)
         if (key === "budget" && value === "no") {
-            trackStep("dropout_budget_low", { budget: "no" });
+            trackStep("dropout_budget_low", { budget: "no", locale });
             setTimeout(() => setCurrentStep(99), 300);
             return;
         }
@@ -72,7 +72,7 @@ export default function QuizFunnel() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        trackStep("submission_completed", data);
+        trackStep("submission_completed", { ...data, locale });
         setIsSubmitted(true);
     };
 
