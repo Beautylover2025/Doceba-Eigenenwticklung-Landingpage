@@ -39,27 +39,27 @@ export default function MobileFAB() {
                     <Link
                         href="/quiz"
                         onClick={handleClick}
-                        className="group flex items-center gap-3 bg-white backdrop-blur-md px-6 py-3 rounded-full shadow-2xl border-2 border-gray-100 hover:border-cyan-500 transition-all hover:scale-105"
+                        className="group flex items-center gap-2 bg-white backdrop-blur-md px-4 py-2 rounded-full shadow-2xl border-2 border-gray-100 hover:border-cyan-500 transition-all hover:scale-105"
                     >
                         {/* Avatar */}
-                        <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-500 flex-shrink-0">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-cyan-500 flex-shrink-0">
                             <img
                                 src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Anita%20Kopf.png"
                                 alt="Anita"
                                 className="w-full h-full object-cover"
                             />
                             {/* Online indicator */}
-                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white" />
+                            <div className="absolute bottom-0 right-0 w-2 h-2 bg-green-500 rounded-full border border-white" />
                         </div>
 
                         {/* Text */}
                         <div className="flex flex-col items-start">
-                            <span className="text-xs text-gray-500 font-medium">Anita antwortet dir</span>
-                            <span className="text-sm font-bold text-gray-900">Jetzt Termin sichern</span>
+                            <span className="text-[10px] text-gray-500 font-medium leading-tight">Anita antwortet dir</span>
+                            <span className="text-xs font-bold text-gray-900 leading-tight">Jetzt Termin sichern</span>
                         </div>
 
                         {/* Arrow */}
-                        <ArrowRight className="w-5 h-5 text-cyan-500 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight className="w-4 h-4 text-cyan-500 transition-transform group-hover:translate-x-1" />
                     </Link>
                 </motion.div>
             )}
