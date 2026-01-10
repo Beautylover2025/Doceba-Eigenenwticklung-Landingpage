@@ -5,24 +5,31 @@ import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import { trackFBLead } from "@/components/FacebookPixel";
 import { sendFBCAPIEvent } from "@/lib/facebookCAPI";
+import FacebookPixel from "@/components/FacebookPixel";
 
 export default function ThankYouPage() {
     const router = useRouter();
 
     useEffect(() => {
-        // Fire Lead event (Pixel)
-        trackFBLead();
+        // Small delay to ensure fbq is loaded
+        const timer = setTimeout(() => {
+            // Fire Lead event (Pixel)
+            trackFBLead();
 
-        // Fire Lead event (CAPI)
-        sendFBCAPIEvent("Lead", {
-            content_name: "Calendly Booking Completed",
-            value: 0,
-            currency: "EUR",
-        });
+            // Fire Lead event (CAPI)
+            sendFBCAPIEvent("Lead", {
+                content_name: "Calendly Booking Completed",
+                value: 0,
+                currency: "EUR",
+            });
+        }, 500);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
+            <FacebookPixel />
             <div className="max-w-2xl w-full bg-white rounded-3xl shadow-2xl p-12 text-center">
                 {/* Success Icon */}
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -74,6 +81,7 @@ export default function ThankYouPage() {
                     </a>
                 </p>
             </div>
+            <FacebookPixel />
         </div>
     );
 }
