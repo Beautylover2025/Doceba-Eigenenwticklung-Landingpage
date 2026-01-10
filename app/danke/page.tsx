@@ -73,13 +73,6 @@ export default function ThankYouPage() {
                     Zurück zur Startseite
                 </button>
 
-                {/* Footer Note */}
-                <p className="text-sm text-gray-500 mt-8">
-                    Fragen? Schreib uns an{" "}
-                    <a href="mailto:kontakt@doceba.de" className="text-medical-blue hover:underline">
-                        kontakt@doceba.de
-                    </a>
-                </p>
             </div>
             <FacebookPixel />
         </div>

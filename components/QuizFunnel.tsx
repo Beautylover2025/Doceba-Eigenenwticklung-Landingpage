@@ -52,6 +52,14 @@ export default function QuizFunnel() {
         setData((prev) => ({ ...prev, [key]: value }));
         trackStep(`step_${currentStep + 1}`, { [key]: value, locale });
 
+        // Also track to quiz_responses table for dashboard
+        if (currentStep < questions.length && questions[currentStep]) {
+            const question = questions[currentStep];
+            const optionIndex = question.options?.indexOf(value) ?? -1;
+            const answerText = optionIndex >= 0 ? value : String(value);
+            trackQuizAnswer(currentStep, question.question || `Step ${currentStep + 1}`, answerText);
+        }
+
         // Budget Check (Step 3 -> 4)
         if (key === "budget" && value === "no") {
             trackStep("dropout_budget_low", { budget: "no", locale });
