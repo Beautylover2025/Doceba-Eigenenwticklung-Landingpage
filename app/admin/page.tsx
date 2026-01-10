@@ -358,35 +358,58 @@ export default function AdminDashboard() {
                     )}
                 </div>
 
-                {/* Quiz Answers Table */}
+                {/* Quiz Answers Table - Aggregated */}
                 <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
                     <h2 className="text-2xl font-display font-bold text-gray-900 mb-6">Quiz Antworten</h2>
                     {quizAnswers.length === 0 ? (
                         <p className="text-gray-500 text-center py-8">Keine Antworten im gewählten Zeitraum</p>
                     ) : (
-                        <div className="overflow-x-auto">
-                            <table className="w-full">
-                                <thead>
-                                    <tr className="border-b border-gray-200">
-                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Zeit</th>
-                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Frage</th>
-                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Antwort</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {quizAnswers.map((answer, index) => (
-                                        <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                                            <td className="py-3 px-4 text-sm text-gray-600">
-                                                {formatGermanDate(new Date(answer.created_at), "dd.MM.yyyy HH:mm")}
-                                            </td>
-                                            <td className="py-3 px-4 text-sm text-gray-900 font-medium">
-                                                {answer.question_text}
-                                            </td>
-                                            <td className="py-3 px-4 text-sm text-gray-700">{answer.answer_text}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                        <div className="space-y-6">
+                            {/* Aggregate answers by question */}
+                            {(() => {
+                                // Group by question
+                                const aggregated: Record<string, Record<string, number>> = {};
+                                quizAnswers.forEach((answer) => {
+                                    const q = answer.question_text || 'Unbekannte Frage';
+                                    const a = answer.answer_text || 'Keine Antwort';
+                                    if (!aggregated[q]) aggregated[q] = {};
+                                    aggregated[q][a] = (aggregated[q][a] || 0) + 1;
+                                });
+
+                                return Object.entries(aggregated).map(([question, answers]) => {
+                                    const totalForQuestion = Object.values(answers).reduce((sum, count) => sum + count, 0);
+
+                                    return (
+                                        <div key={question} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                                            <h3 className="font-bold text-gray-900 mb-4 text-lg">{question}</h3>
+                                            <div className="space-y-3">
+                                                {Object.entries(answers)
+                                                    .sort((a, b) => b[1] - a[1]) // Sort by count descending
+                                                    .map(([answerText, count]) => {
+                                                        const percentage = Math.round((count / totalForQuestion) * 100);
+                                                        return (
+                                                            <div key={answerText} className="relative">
+                                                                <div className="flex justify-between items-center mb-1">
+                                                                    <span className="text-sm text-gray-700 font-medium">{answerText}</span>
+                                                                    <span className="text-sm font-bold text-gray-900">{count} ({percentage}%)</span>
+                                                                </div>
+                                                                <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                                                    <div
+                                                                        className="h-full bg-gradient-to-r from-medical-blue to-cyan-500 rounded-full transition-all duration-500"
+                                                                        style={{ width: `${percentage}%` }}
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                            </div>
+                                            <div className="mt-3 text-xs text-gray-500">
+                                                Gesamt: {totalForQuestion} Antworten
+                                            </div>
+                                        </div>
+                                    );
+                                });
+                            })()}
                         </div>
                     )}
                 </div>
