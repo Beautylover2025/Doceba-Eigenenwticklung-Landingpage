@@ -88,6 +88,8 @@ export function trackButtonClick(buttonName: string, buttonLocation: string) {
             button_location: buttonLocation,
         };
 
+        console.log('🔘 Tracking button click:', payload);
+
         // Use fetch with keepalive for reliable tracking even during page navigation
         const url = `${supabaseUrl}/rest/v1/button_clicks`;
 

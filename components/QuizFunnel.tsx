@@ -48,16 +48,15 @@ export default function QuizFunnel() {
     // Get quiz questions from translations
     const questions = t.quiz?.questions || [];
 
-    const handleNext = (key: keyof FunnelData, value: any) => {
+    const handleNext = (key: keyof FunnelData, value: any, displayedAnswerText?: string) => {
         setData((prev) => ({ ...prev, [key]: value }));
         trackStep(`step_${currentStep + 1}`, { [key]: value, locale });
 
-        // Also track to quiz_responses table for dashboard
+        // Also track to quiz_responses table for dashboard (use displayed text, not internal value)
         if (currentStep < questions.length && questions[currentStep]) {
             const question = questions[currentStep];
-            const optionIndex = question.options?.indexOf(value) ?? -1;
-            const answerText = optionIndex >= 0 ? value : String(value);
-            trackQuizAnswer(currentStep, question.question || `Step ${currentStep + 1}`, answerText);
+            const answerToSave = displayedAnswerText || String(value);
+            trackQuizAnswer(currentStep, question.question || `Step ${currentStep + 1}`, answerToSave);
         }
 
         // Budget Check (Step 3 -> 4)
@@ -202,7 +201,7 @@ export default function QuizFunnel() {
                                                 key={idx}
                                                 label={option}
                                                 selected={data[fieldKeys[currentStep]] === dataValues[currentStep][idx]}
-                                                onClick={() => handleNext(fieldKeys[currentStep], dataValues[currentStep][idx])}
+                                                onClick={() => handleNext(fieldKeys[currentStep], dataValues[currentStep][idx], option)}
                                             />
                                         ))}
                                     </div>
