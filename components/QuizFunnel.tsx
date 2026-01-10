@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
 import { trackQuizAnswer } from "@/lib/analytics";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type FunnelData = {
     status: string;
@@ -26,6 +27,7 @@ const TOTAL_STEPS = 6;
 
 export default function QuizFunnel() {
     const { trackStep } = useFunnelTracker();
+    const { t } = useLanguage();
 
     const [currentStep, setCurrentStep] = useState(0); // 0-based index
     const [direction, setDirection] = useState(1);
@@ -141,7 +143,7 @@ export default function QuizFunnel() {
                     {/* Progress Header */}
                     <div className="mb-10">
                         <div className="flex justify-between text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider">
-                            <span>Analyse Fortschritt</span>
+                            <span>{t.quiz.progress}</span>
                             <span>{Math.round(((currentStep + 1) / TOTAL_STEPS) * 100)}%</span>
                         </div>
                         <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
