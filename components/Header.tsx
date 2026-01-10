@@ -10,7 +10,7 @@ export default function Header() {
                     <img
                         src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/DOCEBA-alone-Black-HQ.png"
                         alt="DOCEBA Logo"
-                        className="h-12 w-auto object-contain"
+                        className="h-8 md:h-12 w-auto object-contain"
                     />
                 </Link>
             </div>

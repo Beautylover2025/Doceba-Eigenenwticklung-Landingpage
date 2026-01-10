@@ -73,7 +73,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    <h1 className="font-display text-5xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tight text-[#111111]">
+                    <h1 className="font-display text-4xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tight text-[#111111]">
                         COSMETIC ENGINEERING <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">OHNE REGULATORISCHEN STRESS.</span>
                     </h1>
