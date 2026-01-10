@@ -71,14 +71,56 @@
     },
     "efficacy": {
         "badge": "Proof of Efficacy",
-        "headline": "Science you can see.",
-        "description": "The Pure Bright C7 Serum serves as an example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas."
+        "headline": "Science You Can See.",
+        "description": "Science you can see. The Pure Bright C7 Serum serves as an example here: The immediate neutralization of hyperpigmentation in the laboratory experiment visualizes the molecular power of our formulas. It is proof of how highly concentrated active ingredients lead to real, visible results - a standard we develop individually for your brand and your target audience.",
+        "labelBefore": "Before: Hyper-Pigmentation",
+        "labelAfter": "After: Even Skin Tone",
+        "caption": "Visualization of efficacy: The serum neutralizes discoloration in real-time.",
+        "videoButton": "Watch the Full Experiment (Video)",
+        "customerHeadline": "Customer Results.",
+        "customerSubheadline": "Click on an image to enlarge."
     },
     "process": {
         "badge": "The Process",
         "headline": "Market Success in 8 Development Cycles.",
         "subheadline": "A structured timeline for scientific precision and maximum safety.",
-        "autoPlayPause": "Pause Auto-Play"
+        "autoPlayPause": "Pause Auto-Play",
+        "phaseCreation": "CREATION",
+        "phaseValidation": "VALIDATION",
+        "steps": [
+            {
+                "title": "Strategic Initial Consultation",
+                "description": "We analyze your vision. Are we a good fit?"
+            },
+            {
+                "title": "Technical Pre-Check",
+                "description": "Immediate review of feasibility and EU compliance."
+            },
+            {
+                "title": "Sample Development",
+                "description": "You receive a physical sample. Feel, smell, test."
+            },
+            {
+                "title": "Final Approval",
+                "description": "Optimization until you are 100% satisfied."
+            },
+            {
+                "title": "Stability Test (3 Months)",
+                "description": "The endurance test for 30-month shelf life (mandatory)."
+            },
+            {
+                "title": "Microbiology",
+                "description": "Lab tests for microbial contamination and purity."
+            },
+            {
+                "title": "Safety Report (CPSR)",
+                "description": "Creation of legal documents for EU market."
+            },
+            {
+                "title": "Production",
+                "description": "Start of filling in our GMP laboratory in Bielefeld."
+            }
+        ]
     },
     "reviews": {
         "badge": "B2B Reviews",
@@ -92,7 +134,9 @@
         "cta": "Schedule Initial Consultation Now"
     },
     "readyCta": {
-        "cta": "Book Free Consultation Now"
+        "headline": "Ready for Your Own Product?",
+        "subheadline": "Let us find out which package suits you. We will look at your idea and honestly tell you if it is feasible.",
+        "cta": "Book Free Initial Consultation"
     },
     "quiz": {
         "progress": "ANALYSIS PROGRESS",
@@ -176,25 +220,83 @@
     "faq": {
         "badge": "Frequently Asked Questions",
         "headline": "Everything You Need to Know.",
-        "subheadline": "Transparency is part of our DNA. Here you find answers to the most important questions."
+        "subheadline": "Transparency is part of our DNA. Here you find answers to the most important questions.",
+        "items": [
+            {
+                "question": "Who owns the formula in the end?",
+                "answer": "100% ownership for you. Unlike the industry standard, there is no renting of formulas with us. After completion of development, you are the sole rights holder of the IP (Intellectual Property). You receive the complete formula and can theoretically have it produced anywhere.",
+                "highlight": true
+            },
+            {
+                "question": "How do I know I will be satisfied with the product?",
+                "answer": "Security through Pre-Check. Before we accept an order or payment is made, we conduct a feasibility check. We only implement projects where we are sure they are technologically feasible. Through the physical lab samples, you can test and adjust the product until it 100% matches your vision.",
+                "highlight": true
+            },
+            {
+                "question": "Do I need to have chemical knowledge myself?",
+                "answer": "No. You bring the vision and the marketing gene, we provide the science. You just need to describe what your product should achieve or what skin feel you are aiming for. We translate your wishes into a highly effective formula.",
+                "highlight": false
+            },
+            {
+                "question": "Are products included in the IP Builder?",
+                "answer": "The IP Builder focuses on the core: the development of your unique formula including lab samples. If you want to start directly with a ready-to-sell batch (e.g., 100 units), the Market Launch package is the right choice for you.",
+                "highlight": false
+            },
+            {
+                "question": "Are the products safe?",
+                "answer": "Absolutely. Every product goes through the legally required tests (microbiology, stability, microbial load). We work strictly according to the EU Cosmetics Regulation and create the necessary safety report (CPSR) so that your product is legally compliant on the market.",
+                "highlight": true
+            },
+            {
+                "question": "How long does the process take?",
+                "answer": "A serious development including the legally recommended stability tests typically takes about 4 to 6 months. Quality and safety cannot be rushed if you want to build a long-term successful asset.",
+                "highlight": false
+            },
+            {
+                "question": "How much say do I have?",
+                "answer": "Full say with maximum honesty. We respect your wishes 100%. However, if a wish is not allowed by regulation (EU law) or is technologically unstable, we communicate this openly and immediately suggest working alternatives.",
+                "highlight": false
+            }
+        ]
     },
     "pricing": {
         "headline": "Investment in Excellence.",
         "subheadline": "Transparent development packages without hidden costs.",
+        "currency": "net",
         "tier1Name": "The IP Builder",
         "tier1Price": "5,000",
         "tier1Desc": "For visionaries who want to lay the foundation.",
         "tier1Cta": "Request Development",
+        "tier1Features": [
+            "Custom Formula (3 Iterations)",
+            "100% Formula Ownership",
+            "Regulatory Pre-Check",
+            "Premium Ingredient Selection",
+            "Final Lab Samples"
+        ],
         "tier2Name": "The Market Launch",
         "tier2Price": "7,500",
         "tier2Badge": "Hero Offer",
         "tier2Desc": "Doers. You want real products for launch.",
         "tier2Cta": "Secure Your Spot",
+        "tier2Features": [
+            "Everything from IP Builder",
+            "Pilot Batch Production (100 pcs.)",
+            "Filling in Standard Glass (White/Black)",
+            "Basic Labeling",
+            "Ready-to-Sell Delivery"
+        ],
         "tier3Name": "Enterprise and Scale",
         "tier3Price": "Custom",
         "tier3Desc": "For established brands and series.",
         "tier3Cta": "Book Consultation",
-        "currency": "net"
+        "tier3Features": [
+            "Complete Product Lines",
+            "Custom Molds (Packaging)",
+            "Scaling 10,000+ Units",
+            "Fulfillment Integration",
+            "Priority Lab Slot"
+        ]
     },
     "finalCtaPage": {
         "headline": "Stop searching.",

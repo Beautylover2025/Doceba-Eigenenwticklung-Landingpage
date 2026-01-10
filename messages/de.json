@@ -72,13 +72,55 @@
     "efficacy": {
         "badge": "Proof of Efficacy",
         "headline": "Wissenschaft, die man sehen kann.",
-        "description": "Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln."
+        "description": "Wissenschaft, die man sehen kann. Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln. Es ist der Beweis dafuer, wie hochkonzentrierte Wirkstoffe zu echten, sichtbaren Ergebnissen fuehren - ein Standard, den wir individuell fuer deine Brand und deine Zielgruppe entwickeln.",
+        "labelBefore": "Vorher: Hyper-Pigmentierung",
+        "labelAfter": "Nachher: Ebenmaessiges Hautbild",
+        "caption": "Visualisierung der Wirkweise: Das Serum neutralisiert Verfaerbungen in Echtzeit.",
+        "videoButton": "Das ganze Experiment ansehen (Video)",
+        "customerHeadline": "Ergebnisse am Kunden.",
+        "customerSubheadline": "Klicke auf ein Bild, um es zu vergroessern."
     },
     "process": {
         "badge": "Der Prozess",
         "headline": "In 8 Development-Zyklen zum Markterfolg.",
         "subheadline": "Ein strukturierter Zeitplan fuer wissenschaftliche Praezision und maximale Sicherheit.",
-        "autoPlayPause": "Auto-Play pausieren"
+        "autoPlayPause": "Auto-Play pausieren",
+        "phaseCreation": "CREATION",
+        "phaseValidation": "VALIDATION",
+        "steps": [
+            {
+                "title": "Strategisches Erstgespraech",
+                "description": "Wir analysieren deine Vision. Passen wir zusammen?"
+            },
+            {
+                "title": "Technischer Pre-Check",
+                "description": "Sofortige Pruefung der Machbarkeit und EU-Konformitaet."
+            },
+            {
+                "title": "Entwicklung Sample",
+                "description": "Du erhaeltst ein physisches Muster. Fuehlen, Riechen, Testen."
+            },
+            {
+                "title": "Finale Freigabe",
+                "description": "Optimierung bis zu deiner 100%igen Zufriedenheit."
+            },
+            {
+                "title": "Stabilitaetstest (3 Monate)",
+                "description": "Der Haertetest fuer 30 Monate Haltbarkeit (Pflicht)."
+            },
+            {
+                "title": "Mikrobiologie",
+                "description": "Labortests auf Keimbelastung und Reinheit."
+            },
+            {
+                "title": "Sicherheitsbericht (CPSR)",
+                "description": "Erstellung der gesetzlichen Dokumente fuer den EU-Verkauf."
+            },
+            {
+                "title": "Produktion",
+                "description": "Start der Abfuellung in unserem GMP-Labor in Bielefeld."
+            }
+        ]
     },
     "reviews": {
         "badge": "B2B Rezensionen",
@@ -92,7 +134,9 @@
         "cta": "Jetzt Erstgespraech vereinbaren"
     },
     "readyCta": {
-        "cta": "Jetzt kostenloses Gespraech buchen"
+        "headline": "Bereit fuer dein eigenes Produkt?",
+        "subheadline": "Lass uns herausfinden, welches Paket zu dir passt. Wir schauen uns deine Idee an und sagen dir ehrlich, ob sie machbar ist.",
+        "cta": "Kostenloses Erstgespraech buchen"
     },
     "quiz": {
         "progress": "ANALYSE FORTSCHRITT",
@@ -176,25 +220,83 @@
     "faq": {
         "badge": "Haeufige Fragen",
         "headline": "Alles, was du wissen musst.",
-        "subheadline": "Transparenz ist Teil unserer DNA. Hier findest du Antworten auf die wichtigsten Fragen."
+        "subheadline": "Transparenz ist Teil unserer DNA. Hier findest du Antworten auf die wichtigsten Fragen.",
+        "items": [
+            {
+                "question": "Wem gehoert am Ende die Rezeptur?",
+                "answer": "100% Eigentum fuer dich. Im Gegensatz zum Industriestandard gibt es bei uns kein Mieten von Rezepturen. Nach Abschluss der Entwicklung bist du der alleinige Rechtsinhaber der IP (Intellectual Property). Du erhaeltst die vollstaendige Formel und kannst damit theoretisch ueberall produzieren lassen.",
+                "highlight": true
+            },
+            {
+                "question": "Woher weiss ich, ob ich mit dem Produkt zufrieden sein werde?",
+                "answer": "Sicherheit durch Pre-Check. Bevor wir einen Auftrag annehmen oder eine Zahlung erfolgt, fuehren wir eine Machbarkeitspruefung durch. Wir setzen nur Projekte um, bei denen wir sicher sind, dass sie technologisch realisierbar sind. Durch die physischen Labormuster (Samples) kannst du das Produkt testen und anpassen, bis es zu 100% deiner Vision entspricht.",
+                "highlight": true
+            },
+            {
+                "question": "Muss ich selbst chemische Kenntnisse mitbringen?",
+                "answer": "Nein. Du bringst die Vision und das Marketing-Gen mit, wir liefern die Wissenschaft. Du musst uns lediglich beschreiben, was dein Produkt bewirken soll oder welches Hautgefuehl du anstrebst. Wir uebersetzen deine Wuensche in eine hochwirksame Rezeptur.",
+                "highlight": false
+            },
+            {
+                "question": "Sind beim IP Builder auch Produkte dabei?",
+                "answer": "Der IP Builder konzentriert sich auf das Herzstueck: die Entwicklung deiner einzigartigen Rezeptur inklusive Laborsamples. Moechtest du direkt mit einer verkaufsfertigen Charge (z.B. 100 Stueck) starten, ist das Paket Market Launch die richtige Wahl fuer dich.",
+                "highlight": false
+            },
+            {
+                "question": "Sind die Produkte sicher?",
+                "answer": "Absolut. Jedes Produkt durchlaeuft bei uns die gesetzlich vorgeschriebenen Tests (Mikrobiologie, Stabilitaet, Keimbelastung). Wir arbeiten strikt nach der EU-Kosmetikverordnung und erstellen den notwendigen Sicherheitsbericht (CPSR), damit dein Produkt rechtssicher auf dem Markt ist.",
+                "highlight": true
+            },
+            {
+                "question": "Wie lange dauert der Prozess?",
+                "answer": "Eine serioese Entwicklung inklusive der gesetzlich empfohlenen Stabilitaetstests dauert in der Regel ca. 4 bis 6 Monate. Qualitaet und Sicherheit lassen sich nicht abkuerzen, wenn du ein langfristig erfolgreiches Asset aufbauen willst.",
+                "highlight": false
+            },
+            {
+                "question": "Wie viel Mitspracherecht habe ich?",
+                "answer": "Volles Mitspracherecht bei maximaler Ehrlichkeit. Wir respektieren deine Wuensche zu 100%. Sollte ein Wunsch jedoch regulatorisch nicht erlaubt (EU-Recht) oder technologisch instabil sein, kommunizieren wir das offen und schlagen dir sofort funktionierende Alternativen vor.",
+                "highlight": false
+            }
+        ]
     },
     "pricing": {
         "headline": "Investition in Exzellenz.",
         "subheadline": "Transparente Entwicklungspakete ohne versteckte Kosten.",
+        "currency": "netto",
         "tier1Name": "The IP Builder",
         "tier1Price": "5.000",
         "tier1Desc": "Fuer Visionaere, die das Fundament legen wollen.",
         "tier1Cta": "Entwicklung anfragen",
+        "tier1Features": [
+            "Individuelle Rezeptur (3 Iterationen)",
+            "100% Rezeptur-Eigentum",
+            "Regulatory Pre-Check",
+            "Auswahl Premium-Rohstoffe",
+            "Finale Labor-Samples"
+        ],
         "tier2Name": "The Market Launch",
         "tier2Price": "7.500",
         "tier2Badge": "Hero Offer",
         "tier2Desc": "Macher. Du willst echte Ware fuer den Start.",
         "tier2Cta": "Platz sichern",
+        "tier2Features": [
+            "Alles aus IP Builder",
+            "Produktion Pilot-Charge (100 Stk.)",
+            "Abfuellung in Standard-Glas (White/Black)",
+            "Basis-Etikettierung",
+            "Ready-to-Sell Delivery"
+        ],
         "tier3Name": "Enterprise and Scale",
         "tier3Price": "Custom",
         "tier3Desc": "Fuer etablierte Brands und Serien.",
         "tier3Cta": "Beratung buchen",
-        "currency": "netto"
+        "tier3Features": [
+            "Ganze Produktserien",
+            "Custom Molds (Verpackung)",
+            "Skalierung 10.000+ Einheiten",
+            "Fulfillment Anbindung",
+            "Prio-Slot im Labor"
+        ]
     },
     "finalCtaPage": {
         "headline": "Hoer auf zu suchen.",

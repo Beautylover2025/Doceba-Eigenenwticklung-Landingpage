@@ -4,31 +4,31 @@ import { motion } from "framer-motion";
 import { BadgeCheck, FileCheck, FlaskConical, Shield, Scale, Sparkles, Package } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const SAFETY_POINTS = [
-    {
-        icon: Scale,
-        title: "100% IP Ownership",
-        description: "Du bist der alleinige Rechtsinhaber der Entwicklung. Wir händigen dir die Rezeptur vollständig aus. Keine versteckten Gebühren, kein Vendor Lock-in."
-    },
-    {
-        icon: Shield,
-        title: "Regulatory Pre-Check & Safety",
-        description: "Sicherheit ist kein Zufall. Wir führen einen Pre-Check gemäß EU-Kosmetikverordnung durch. Wir wissen, was im In- und Ausland erlaubt ist, und schützen dich vor Abmahnungen."
-    },
-    {
-        icon: Sparkles,
-        title: "Das \"Innenleben\" (Formulierung)",
-        description: "Hochwirksame Inhaltsstoffe (wie unser Pure Bright C7) sind das Herzstück. Wir entwickeln Texturen, die nicht nur wirken, sondern ein luxuriöses Hautgefühl hinterlassen."
-    },
-    {
-        icon: Package,
-        title: "Das \"Drumherum\" (Full Service)",
-        description: "Wir beraten dich bei der Wahl der Primärverpackung und sorgen dafür, dass Inhalt und Hülle eine perfekte, verkehrsfähige Einheit bilden."
-    }
-];
-
 export default function Solution() {
     const { t } = useLanguage();
+
+    const SAFETY_POINTS = [
+        {
+            icon: Scale,
+            title: t.solution.safety1Title,
+            description: t.solution.safety1Text
+        },
+        {
+            icon: Shield,
+            title: t.solution.safety2Title,
+            description: t.solution.safety2Text
+        },
+        {
+            icon: Sparkles,
+            title: t.solution.safety3Title,
+            description: t.solution.safety3Text
+        },
+        {
+            icon: Package,
+            title: t.solution.safety4Title,
+            description: t.solution.safety4Text
+        }
+    ];
 
     return (
         <section className="py-24 px-6 bg-white border-y border-gray-100" id="solution">
@@ -56,24 +56,24 @@ export default function Solution() {
                         <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 transition-hover hover:shadow-md">
                             <FlaskConical className="w-8 h-8 text-medical-blue mt-1" />
                             <div>
-                                <h3 className="font-bold text-gray-900 text-lg">Keine Blackbox</h3>
-                                <p className="text-sm text-gray-500 mt-1">Wir entwickeln im "Glass Lab". Du weißt genau, was drin ist.</p>
+                                <h3 className="font-bold text-gray-900 text-lg">{t.solution.box1Title}</h3>
+                                <p className="text-sm text-gray-500 mt-1">{t.solution.box1Text}</p>
                             </div>
                         </div>
 
                         <div className="flex items-start gap-4 p-6 bg-[#111111] rounded-2xl border border-gray-900 text-white shadow-xl transform lg:-translate-x-8">
                             <FileCheck className="w-8 h-8 text-medical-blue mt-1" />
                             <div>
-                                <h3 className="font-bold text-white text-lg">Kein Buyout</h3>
-                                <p className="text-sm text-gray-400 mt-1">Die Entwicklungsgebühr ist pauschal. Die Rezeptur gehört dir.</p>
+                                <h3 className="font-bold text-white text-lg">{t.solution.box2Title}</h3>
+                                <p className="text-sm text-gray-400 mt-1">{t.solution.box2Text}</p>
                             </div>
                         </div>
 
                         <div className="flex items-start gap-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 transition-hover hover:shadow-md">
                             <BadgeCheck className="w-8 h-8 text-medical-blue mt-1" />
                             <div>
-                                <h3 className="font-bold text-gray-900 text-lg">Made in Germany (GMP)</h3>
-                                <p className="text-sm text-gray-500 mt-1">Entwicklung nach ISO 22716. Versicherung gegen Qualitätsprobleme.</p>
+                                <h3 className="font-bold text-gray-900 text-lg">{t.solution.box3Title}</h3>
+                                <p className="text-sm text-gray-500 mt-1">{t.solution.box3Text}</p>
                             </div>
                         </div>
                     </div>
@@ -89,10 +89,10 @@ export default function Solution() {
                         className="lg:w-1/2 text-center lg:text-left"
                     >
                         <h3 className="text-3xl lg:text-4xl font-display font-bold mb-6 text-[#111111]">
-                            Vom Produkt zum Unternehmenswert.
+                            {t.solution.assetHeadline}
                         </h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            Eine eigene Marke ist mehr als ein schönes Etikett. In der heutigen Zeit ist Unabhängigkeit die härteste Währung. Wenn du die Rezeptur besitzt, besitzt du das geistige Eigentum (IP) deines Unternehmens. Das macht dich nicht nur unabhängig von Herstellern, sondern vervielfacht den Wert deiner Brand bei einem potenziellen Exit. Du baust kein Geschäft auf gemietetem Grund – du baust eine Festung.
+                            {t.solution.assetText}
                         </p>
                     </motion.div>
 
@@ -135,7 +135,7 @@ export default function Solution() {
                         className="text-center mb-12"
                     >
                         <h3 className="text-3xl lg:text-4xl font-display font-bold mb-4 text-[#111111]">
-                            Wir sichern deinen Erfolg nach innen und außen ab.
+                            {t.solution.safetyHeadline}
                         </h3>
                     </motion.div>
 
