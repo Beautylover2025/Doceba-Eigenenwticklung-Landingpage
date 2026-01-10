@@ -66,23 +66,44 @@ export async function trackQuizAnswer(
 }
 
 /**
- * Track a button click
+ * Track a button click - uses sendBeacon for reliable tracking before navigation
  */
-export async function trackButtonClick(buttonName: string, buttonLocation: string) {
+export function trackButtonClick(buttonName: string, buttonLocation: string) {
     try {
         const sessionId = getOrCreateSessionId();
+        if (!sessionId) return;
 
-        const { error } = await supabase
-            .from('button_clicks')
-            .insert({
-                session_id: sessionId,
-                button_name: buttonName,
-                button_location: buttonLocation,
-            });
+        // Get Supabase URL and key from environment
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+        const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-        if (error) {
-            console.error('Button click tracking error:', error);
+        if (!supabaseUrl || !supabaseKey) {
+            console.warn('Supabase not configured for button tracking');
+            return;
         }
+
+        const payload = {
+            session_id: sessionId,
+            button_name: buttonName,
+            button_location: buttonLocation,
+        };
+
+        console.log('🔘 Tracking button click:', payload);
+
+        // Use fetch with keepalive for reliable tracking even during page navigation
+        const url = `${supabaseUrl}/rest/v1/button_clicks`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`,
+                'Prefer': 'return=minimal',
+            },
+            body: JSON.stringify(payload),
+            keepalive: true, // This ensures the request completes even if page navigates
+        }).catch((err) => console.error('Button click tracking error:', err));
     } catch (err) {
         console.error('Failed to track button click:', err);
     }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackButtonClick } from "@/lib/analytics";
 
 export default function ReadyCTA() {
     const { t } = useLanguage();
@@ -17,6 +18,7 @@ export default function ReadyCTA() {
             </p>
             <Link
                 href="/quiz"
+                onClick={() => trackButtonClick("ReadyCTA Button", "Ready Section")}
                 className="inline-flex items-center gap-3 bg-[#111111] text-white px-8 py-4 rounded-full text-lg font-bold transition-all hover:bg-medical-blue hover:shadow-lg"
             >
                 {t.readyCta.cta}

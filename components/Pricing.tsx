@@ -3,7 +3,7 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-
+import { trackButtonClick } from "@/lib/analytics";
 export default function Pricing() {
     const { t } = useLanguage();
 
@@ -34,7 +34,11 @@ export default function Pricing() {
                             </ul>
                         </div>
 
-                        <Link href="/quiz" className="block w-full py-3 rounded-xl border border-gray-200 text-gray-900 font-medium hover:bg-gray-50 transition-colors">
+                        <Link
+                            href="/quiz"
+                            onClick={() => trackButtonClick("Pricing: IP Builder", "Pricing Section")}
+                            className="block w-full py-3 rounded-xl border border-gray-200 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
+                        >
                             {t.pricing.tier1Cta}
                         </Link>
                     </div>
@@ -59,7 +63,11 @@ export default function Pricing() {
                             </ul>
                         </div>
 
-                        <Link href="/quiz" className="block w-full py-4 rounded-xl bg-medical-blue text-white font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/20">
+                        <Link
+                            href="/quiz"
+                            onClick={() => trackButtonClick("Pricing: Market Launch", "Pricing Section")}
+                            className="block w-full py-4 rounded-xl bg-medical-blue text-white font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/20"
+                        >
                             {t.pricing.tier2Cta}
                         </Link>
                     </div>
@@ -81,7 +89,11 @@ export default function Pricing() {
                             </ul>
                         </div>
 
-                        <Link href="/quiz" className="block w-full py-3 rounded-xl border border-gray-200 text-gray-900 font-medium hover:bg-gray-50 transition-colors">
+                        <Link
+                            href="/quiz"
+                            onClick={() => trackButtonClick("Pricing: Enterprise", "Pricing Section")}
+                            className="block w-full py-3 rounded-xl border border-gray-200 text-gray-900 font-medium hover:bg-gray-50 transition-colors"
+                        >
                             {t.pricing.tier3Cta}
                         </Link>
                     </div>
