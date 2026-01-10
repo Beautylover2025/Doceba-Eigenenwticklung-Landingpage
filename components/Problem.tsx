@@ -14,13 +14,10 @@ export default function Problem() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 text-gray-600 leading-relaxed">
                         <p>
-                            Du hast die Vision. Du hast das Marketing. Du investierst Zeit und Geld.
-                            Aber hast du dich schon mal gefragt, was dir am Ende wirklich gehört?
+                            Du bist bereit für den nächsten Schritt. Du investierst in deine Vision, um etwas Bleibendes zu schaffen. Doch ohne Eigentum an deiner Rezeptur baust du dein Haus auf gemietetem Grund.
                         </p>
                         <p>
-                            Die traurige Realität im Private Label Markt: Du zahlst Tausende für die Entwicklung,
-                            baust einen Kundenstamm auf, aber wenn du wachsen willst, kommt das Erwachen.
-                            Die Rezeptur ist plötzlich "Betriebsgeheimnis".
+                            Wir finden: Wer das Investment tätigt, muss auch der Inhaber sein. Schluss mit intransparenten Verträgen und versteckten Abhängigkeiten. Wir entwickeln – du besitzt. So sichern wir gemeinsam dein Wachstum, ohne dass dir später Steine in den Weg gelegt werden.
                         </p>
                     </div>
 
