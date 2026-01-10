@@ -5,6 +5,7 @@ import { ArrowRight, ShieldCheck, Award } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { trackButtonClick } from "@/lib/analytics";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const INGREDIENTS = ["Ectoin", "Niedermolekulares Hyaluron", "Peptide"];
 
@@ -20,6 +21,7 @@ const PREMIUM_INGREDIENTS = [
 ];
 
 export default function Hero() {
+    const { t } = useLanguage();
     const [index, setIndex] = useState(0);
     const [visibleLabels, setVisibleLabels] = useState<number[]>([0, 1]);
 
@@ -60,7 +62,7 @@ export default function Hero() {
                     <div className="flex flex-wrap gap-4 mb-10">
                         <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-gray-50 to-gray-100 rounded-lg border border-gray-200 shadow-sm transition-transform hover:scale-105 cursor-default">
                             <ShieldCheck className="w-5 h-5 text-gray-700" strokeWidth={1.5} />
-                            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">GMP Zertifiziert</span>
+                            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">{t.hero.badge1}</span>
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-b from-gray-50 to-gray-100 rounded-lg border border-gray-200 shadow-sm transition-transform hover:scale-105 cursor-default">
                             {/* Germany Flag Circle */}
@@ -69,22 +71,21 @@ export default function Hero() {
                                 <div className="h-1/3 bg-red-600" />
                                 <div className="h-1/3 bg-yellow-400" />
                             </div>
-                            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">Made in Germany</span>
+                            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">{t.hero.badge2}</span>
                         </div>
                     </div>
 
                     <h1 className="font-display text-4xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tight text-[#111111]">
-                        COSMETIC ENGINEERING <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">OHNE REGULATORISCHEN STRESS.</span>
+                        {t.hero.headline} <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">{t.hero.headlineGradient}</span>
                     </h1>
 
                     <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">
-                        Deine Marke. Deine Rezeptur.
+                        {t.hero.subheadline}
                     </h2>
 
                     <p className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed font-medium">
-                        Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor.
-                        Ohne Knebelverträge. Ohne Buyout-Kosten. <strong className="text-gray-900 font-bold">Mit 100% Eigentumsrecht.</strong>
+                        {t.hero.description} <strong className="text-gray-900 font-bold">{t.hero.descriptionBold}</strong>
                     </p>
 
                     <Link
@@ -92,7 +93,7 @@ export default function Hero() {
                         onClick={() => trackButtonClick("Hero CTA", "Hero Section")}
                         className="group inline-flex items-center gap-3 bg-[#111111] text-white px-10 py-5 rounded-full text-lg font-bold transition-all hover:bg-medical-blue hover:shadow-xl hover:shadow-medical-blue/20 hover:-translate-y-1 relative overflow-hidden"
                     >
-                        <span className="relative z-10">Entwicklung anfragen</span>
+                        <span className="relative z-10">{t.hero.cta}</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black opacity-0 group-hover:opacity-100 transition-opacity" />
                         <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 relative z-10" />
                     </Link>
