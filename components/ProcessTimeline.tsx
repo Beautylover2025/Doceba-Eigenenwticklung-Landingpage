@@ -119,10 +119,10 @@ export default function ProcessTimeline() {
                         Der Prozess
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">
-                        Von der Idee zum fertigen Produkt.
+                        In 8 Development-Zyklen zum Markterfolg.
                     </h2>
                     <p className="text-lg text-gray-600 font-medium max-w-3xl mx-auto">
-                        8 präzise Schritte. Volle Transparenz. Wissenschaftliche Exzellenz.
+                        Ein strukturierter Zeitplan für wissenschaftliche Präzision und maximale Sicherheit. Wir betrachten die Produktentstehung nicht als einfache Liste, sondern als aufeinander aufbauende Zyklen – von der ersten molekularen Idee bis zur finalen Stabilitätsprüfung und Marktreife.
                     </p>
                 </motion.div>
 

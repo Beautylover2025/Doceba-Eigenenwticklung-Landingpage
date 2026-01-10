@@ -55,20 +55,26 @@ export default function AboutUs() {
                             Das Team hinter DOCEBA
                         </span>
                         <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 leading-tight">
-                            Drei Köpfe. Ein Versprechen:{" "}
+                            Expertise aus dem Labor:{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-medical-blue to-cyan-500">
                                 Dein Erfolg ist unser Maßstab.
                             </span>
                         </h2>
-                        <p className="text-xl text-gray-600 font-semibold mb-6">
-                            Hinter DOCEBA steht kein anonymer Konzern, sondern ein hochspezialisiertes 3-Personen-Team aus Bielefeld.
+                        <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                            Hinter DOCEBA steht jahrzehntelange Erfahrung in der kosmetischen Forschung und Entwicklung. Seit über 10 Jahren konzentriert sich unser Fokus darauf, hochwirksame Rezepturen mit deutscher Entwicklungskunst zu formulieren. Wir haben bereits für zahlreiche namhafte Brands komplexe Wirkstoffkonzepte realisiert und setzen dabei höchste wissenschaftliche Standards an.
                         </p>
                         <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                            Unsere Reise begann nicht im Marketing, sondern im Labor. Nachdem wir unsere eigene Marke unter die Top 10 in Deutschland geführt haben, wussten wir: Der Markt braucht echte Partner, keine reinen Abfüller.
+                            Wir reden nicht nur über Erfolg, wir belegen ihn: Mit unserer Expertise haben wir eine eigene Marke bis in die Top 10 in TikTok in Deutschland geführt. Dieses tiefgreifende Verständnis für den Markt und die Chemie nutzen wir auch, um für dich Produkte zu entwickeln, die nicht nur auf dem Papier glänzen, sondern echte Ergebnisse liefern. In unserem GMP-zertifizierten Labor in Bielefeld vereinen wir kosmetische Präzision mit modernem Markenverständnis.
                         </p>
-                        <p className="text-lg text-gray-600 leading-relaxed">
-                            In unserem GMP-zertifizierten Labor vereinen wir Präzision mit modernem Markenverständnis. Hier sprichst du direkt mit den Experten, die deine Rezeptur entwickeln.
-                        </p>
+
+                        {/* GMP Certificate */}
+                        <div className="mt-8">
+                            <img
+                                src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Gmp-zertifikat..avif"
+                                alt="GMP Zertifikat"
+                                className="w-full max-w-md rounded-2xl shadow-lg border border-gray-200"
+                            />
+                        </div>
                     </motion.div>
                 </div>
 

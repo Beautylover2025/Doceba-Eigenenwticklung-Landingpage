@@ -163,6 +163,7 @@ export default function QuizFunnel() {
                                     <div className="space-y-4">
                                         <OptionButton label="Ich bin ganz am Anfang (Idee & Konzept)" selected={data.status === "idea"} onClick={() => handleNext("status", "idea")} />
                                         <OptionButton label="Ich bin bereits selbstständig (Kosmetikerin/Heilpraktiker)" selected={data.status === "self-employed"} onClick={() => handleNext("status", "self-employed")} />
+                                        <OptionButton label="Unternehmer / E-Commerce Brand-Owner" selected={data.status === "ecommerce-owner"} onClick={() => handleNext("status", "ecommerce-owner")} />
                                         <OptionButton label="Ich habe bereits eine Marke (Wechsel)" selected={data.status === "brand-owner"} onClick={() => handleNext("status", "brand-owner")} />
                                         <OptionButton label="Influencer / Creator" selected={data.status === "creator"} onClick={() => handleNext("status", "creator")} />
                                     </div>

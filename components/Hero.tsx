@@ -74,8 +74,8 @@ export default function Hero() {
                     </div>
 
                     <h1 className="font-display text-5xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tight text-[#111111]">
-                        SCHLUSS MIT <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">MIET-KOSMETIK.</span>
+                        COSMETIC ENGINEERING <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">OHNE REGULATORISCHEN STRESS.</span>
                     </h1>
 
                     <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">

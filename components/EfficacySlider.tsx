@@ -26,7 +26,7 @@ export default function EfficacySlider() {
                     <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">Proof of Efficacy</span>
                     <h2 className="text-3xl lg:text-4xl font-display font-extrabold mb-4">Wissenschaft, die man sehen kann.</h2>
                     <p className="text-gray-500 font-medium max-w-2xl mx-auto">
-                        Pure Bright C7 Serum: Neutralisierung von Hyperpigmentierung in Echtzeit.
+                        „Wissenschaft, die man sehen kann. Das Pure Bright C7 Serum dient hier als Veranschaulichungsbeispiel: Die sofortige Neutralisierung der Hyperpigmentierung im Labor-Experiment visualisiert die molekulare Kraft unserer Formeln. Es ist der Beweis dafür, wie hochkonzentrierte Wirkstoffe zu echten, sichtbaren Ergebnissen führen – ein Standard, den wir individuell für deine Brand und deine Zielgruppe entwickeln."
                     </p>
                 </div>
 

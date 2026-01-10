@@ -5,9 +5,9 @@ export default function Problem() {
         <section className="py-24 px-6 bg-[#FAFAFA]" id="problem">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight">Der Industriestandard ist kaputt.</h2>
+                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight">Das Problem herkömmlicher Private-Label-Modelle.</h2>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                        Warum die meisten „eigenen Marken“ in Wahrheit nur geliehen sind.
+                        Die meisten „eigenen Marken" sind rechtlich gesehen nur geliehen. Herkömmliche Hersteller behalten die Rezeptur als Betriebsgeheimnis unter Verschluss. Das bedeutet: Wenn du den Produzenten wechseln willst, verlierst du dein Produkt und fängst bei Null an. Wir nennen das die „Vendor Lock-in" Falle – eine künstliche Abhängigkeit, die dein Wachstum blockiert.
                     </p>
                 </div>
 
