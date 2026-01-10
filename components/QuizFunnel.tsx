@@ -70,10 +70,21 @@ export default function QuizFunnel() {
         setCurrentStep((prev) => Math.max(0, prev - 1));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         trackStep("submission_completed", { ...data, locale });
         setIsSubmitted(true);
+
+        // Send email notification
+        try {
+            await fetch('/api/notify-lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...data, locale }),
+            });
+        } catch (error) {
+            console.error('Failed to send lead notification:', error);
+        }
     };
 
     const variants = {
