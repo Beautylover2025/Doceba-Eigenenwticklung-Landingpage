@@ -28,6 +28,7 @@ export default function AdminDashboard() {
     });
     const [quizAnswers, setQuizAnswers] = useState<any[]>([]);
     const [buttonClicks, setButtonClicks] = useState<any[]>([]);
+    const [funnelSteps, setFunnelSteps] = useState<{ step: string, label: string, count: number }[]>([]);
 
     useEffect(() => {
         checkAuth();
@@ -125,6 +126,47 @@ export default function AdminDashboard() {
             .gte("created_at", start)
             .lte("created_at", end)
             .order("created_at", { ascending: false });
+
+        // Funnel Steps - count unique sessions per step
+        const stepCounts: Record<number, Set<string>> = {};
+        answersData?.forEach((answer) => {
+            const stepIdx = answer.question_index;
+            if (!stepCounts[stepIdx]) stepCounts[stepIdx] = new Set();
+            stepCounts[stepIdx].add(answer.session_id);
+        });
+
+        // Count submissions (users who completed all 5 questions)
+        const sessionsWithAll5Steps = new Set<string>();
+        answersData?.forEach((answer) => {
+            if (stepCounts[0]?.has(answer.session_id) &&
+                stepCounts[1]?.has(answer.session_id) &&
+                stepCounts[2]?.has(answer.session_id) &&
+                stepCounts[3]?.has(answer.session_id) &&
+                stepCounts[4]?.has(answer.session_id)) {
+                sessionsWithAll5Steps.add(answer.session_id);
+            }
+        });
+
+        const stepLabels = [
+            "Frage 1: Status",
+            "Frage 2: Produkttyp",
+            "Frage 3: Herausforderung",
+            "Frage 4: Budget",
+            "Frage 5: Zeitraum",
+        ];
+
+        const funnelData = [
+            { step: "page_view", label: "Landing Page", count: pageViewCount || 0 },
+            { step: "quiz_start", label: "Quiz gestartet", count: quizStartCount || 0 },
+            ...stepLabels.map((label, idx) => ({
+                step: `step_${idx + 1}`,
+                label,
+                count: stepCounts[idx]?.size || 0,
+            })),
+            { step: "form_completed", label: "Formular abgeschickt", count: sessionsWithAll5Steps.size },
+        ];
+
+        setFunnelSteps(funnelData);
 
         const conversionRate = pageViewCount ? ((quizStartCount || 0) / pageViewCount) * 100 : 0;
 
@@ -282,25 +324,68 @@ export default function AdminDashboard() {
                 {/* Funnel Visualization */}
                 <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8">
                     <h2 className="text-2xl font-display font-bold text-gray-900 mb-6">Conversion Funnel</h2>
-                    <div className="space-y-4">
-                        <div className="relative">
-                            <div className="flex items-center justify-between mb-2">
-                                <span className="text-sm font-bold text-gray-700">Landing Page Views</span>
-                                <span className="text-lg font-bold text-gray-900">{metrics.pageViews}</span>
-                            </div>
-                            <div className="h-12 bg-medical-blue rounded-lg" style={{ width: "100%" }} />
+                    {funnelSteps.length === 0 ? (
+                        <p className="text-gray-500 text-center py-8">Keine Daten im gewählten Zeitraum</p>
+                    ) : (
+                        <div className="space-y-3">
+                            {funnelSteps.map((step, index) => {
+                                const maxCount = funnelSteps[0]?.count || 1;
+                                const prevCount = index > 0 ? funnelSteps[index - 1].count : step.count;
+                                const dropOff = prevCount > 0 ? Math.round(((prevCount - step.count) / prevCount) * 100) : 0;
+                                const widthPercent = maxCount > 0 ? (step.count / maxCount) * 100 : 0;
+
+                                // Color gradient from blue to cyan
+                                const colors = [
+                                    "bg-medical-blue",
+                                    "bg-blue-500",
+                                    "bg-blue-400",
+                                    "bg-cyan-500",
+                                    "bg-cyan-400",
+                                    "bg-teal-400",
+                                    "bg-teal-300",
+                                    "bg-green-400",
+                                ];
+                                const bgColor = colors[index % colors.length];
+
+                                return (
+                                    <div key={step.step} className="relative">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <div className="flex items-center gap-3">
+                                                <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-600">
+                                                    {index + 1}
+                                                </span>
+                                                <span className="text-sm font-bold text-gray-700">{step.label}</span>
+                                            </div>
+                                            <div className="flex items-center gap-4">
+                                                {index > 0 && dropOff > 0 && (
+                                                    <span className="text-xs font-medium text-red-500">
+                                                        -{dropOff}% Abbruch
+                                                    </span>
+                                                )}
+                                                <span className="text-lg font-bold text-gray-900 min-w-[60px] text-right">
+                                                    {step.count}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="relative h-10 bg-gray-100 rounded-lg overflow-hidden">
+                                            <div
+                                                className={`h-full ${bgColor} rounded-lg transition-all duration-500`}
+                                                style={{ width: `${widthPercent}%`, minWidth: step.count > 0 ? '2%' : '0%' }}
+                                            />
+                                            {/* Percentage label inside bar */}
+                                            {step.count > 0 && (
+                                                <div className="absolute inset-0 flex items-center px-3">
+                                                    <span className="text-xs font-bold text-white drop-shadow-sm">
+                                                        {Math.round(widthPercent)}%
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
-                        <div className="relative">
-                            <div className="flex items-center justify-between mb-2">
-                                <span className="text-sm font-bold text-gray-700">Quiz Starts</span>
-                                <span className="text-lg font-bold text-gray-900">{metrics.quizStarts}</span>
-                            </div>
-                            <div
-                                className="h-12 bg-cyan-500 rounded-lg"
-                                style={{ width: `${metrics.pageViews ? (metrics.quizStarts / metrics.pageViews) * 100 : 0}%` }}
-                            />
-                        </div>
-                    </div>
+                    )}
                 </div>
 
                 {/* Button Clicks Section */}
