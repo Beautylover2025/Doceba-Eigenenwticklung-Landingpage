@@ -24,14 +24,14 @@ const STEPS = [
         phaseLabel: "CREATION",
         step: 3,
         title: "Entwicklung Sample",
-        description: "Du erhältst ein physisches Muster. Fühlen, Riechen, Testen."
+        description: "Du erhältst ein physisches Muster. <br />Fühlen, Riechen, Testen."
     },
     {
         phase: 1,
         phaseLabel: "CREATION",
         step: 4,
         title: "Finale Freigabe",
-        description: "Optimierung bis zu deiner 100%igen Zufriedenheit."
+        description: "Optimierung bis zu deiner <br />100%igen Zufriedenheit."
     },
     {
         phase: 2,
@@ -52,7 +52,7 @@ const STEPS = [
         phaseLabel: "VALIDATION",
         step: 7,
         title: "Sicherheitsbericht (CPSR)",
-        description: "Erstellung der gesetzlichen Dokumente für den EU-Verkauf."
+        description: "Erstellung der gesetzlichen Dokumente <br />für den EU-Verkauf."
     },
     {
         phase: 2,
@@ -210,9 +210,7 @@ export default function ProcessTimeline() {
                                     <h3 className="text-xl md:text-3xl font-display font-bold mb-2 md:mb-4 text-gray-900">
                                         {STEPS[currentStep].title}
                                     </h3>
-                                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                                        {STEPS[currentStep].description}
-                                    </p>
+                                    <p className="text-sm md:text-base text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: STEPS[currentStep].description }} />
                                 </motion.div>
                             </AnimatePresence>
                         </div>
