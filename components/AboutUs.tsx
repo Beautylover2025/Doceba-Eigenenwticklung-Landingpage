@@ -8,6 +8,7 @@ const TEAM_IMAGES = [
     "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Natalie%20Labor%20bild.png",
     "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Alexandra_Anita_labor.JPG",
     "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Natalie_Labor.JPG",
+    "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Natalie_bild_2.JPG"
 ];
 
 export default function AboutUs() {

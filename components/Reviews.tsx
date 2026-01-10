@@ -50,7 +50,8 @@ export default function Reviews() {
                 <div>
                     <div className="text-center mb-16">
                         <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">B2B Partnerschaften</span>
-                        <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">Was Markeninhaber sagen.</h2>
+                        <h2 className="text-4xl lg:text-5xl font-display font-black mb-4 tracking-tight">Was Markeninhaber sagen.</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">Das sind echte Menschen, die mit uns ihre eigene Marke umgesetzt haben.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
