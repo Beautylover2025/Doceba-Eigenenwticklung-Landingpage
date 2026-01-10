@@ -13,7 +13,7 @@ type FunnelData = {
     status: string;
     interest: string;
     painPoint: string;
-    budget: "yes" | "unsure" | "no";
+    budget: "yes" | "unsure" | "no" | "";
     timeline: string;
     firstName: string;
     lastName: string;
@@ -34,7 +34,7 @@ export default function QuizFunnel() {
         status: "",
         interest: "",
         painPoint: "",
-        budget: "unsure",
+        budget: "",
         timeline: "",
         firstName: "",
         lastName: "",
@@ -143,7 +143,7 @@ export default function QuizFunnel() {
                     <Link href="/" className="text-medical-blue font-medium hover:underline">{t.quiz?.success?.cta || "Zurück zur Startseite"}</Link>
                 </div>
             ) : isSubmitted ? (
-                // Success View
+                // Success View with Calendly
                 <div className="text-center animate-in fade-in zoom-in duration-500 py-6">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <Check className="w-8 h-8 text-green-600" />
@@ -152,8 +152,15 @@ export default function QuizFunnel() {
                     <p className="text-gray-600 mb-8">
                         {t.quiz?.success?.subheadline}
                     </p>
-                    <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm h-[600px] flex items-center justify-center text-gray-400">
-                        Calendly Inline Widget würde hier laden...
+                    {/* Calendly Inline Widget */}
+                    <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                        <iframe
+                            src="https://calendly.com/doceba/kennenlerngesprach-deine-eigene-kosmetikmarke-klon-1"
+                            width="100%"
+                            height="700"
+                            frameBorder="0"
+                            title="Calendly Booking"
+                        />
                     </div>
                 </div>
             ) : (

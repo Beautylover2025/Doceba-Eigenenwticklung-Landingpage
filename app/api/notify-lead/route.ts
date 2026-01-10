@@ -30,9 +30,9 @@ export async function POST(request: NextRequest) {
         const emailHtml = `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                 <div style="background: linear-gradient(135deg, #0047AB, #06B6D4); padding: 30px; border-radius: 12px 12px 0 0;">
-                    <h1 style="color: white; margin: 0; font-size: 24px;">🎉 Neuer Lead über das Quiz!</h1>
-                    <p style="color: rgba(255,255,255,0.8); margin: 10px 0 0 0;">
-                        Sprache: <strong style="color: white;">${locale === 'en' ? '🇬🇧 Englisch' : '🇩🇪 Deutsch'}</strong>
+                    <h1 style="color: white; margin: 0; font-size: 24px;">🎉 Neuer Lead Eigenentwicklung</h1>
+                    <p style="color: white; margin: 10px 0 0 0;">
+                        Sprache: <strong>${locale === 'en' ? '🇬🇧 Englisch' : '🇩🇪 Deutsch'}</strong>
                     </p>
                 </div>
                 
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
         const { data: emailData, error } = await resend.emails.send({
             from: FROM_EMAIL,
             to: [NOTIFICATION_EMAIL],
-            subject: `🎯 Neuer Lead: ${firstName} ${lastName} (${locale === 'en' ? 'EN' : 'DE'})`,
+            subject: `🎯 Neuer Lead Eigenentwicklung: ${firstName} ${lastName} (${locale === 'en' ? 'EN' : 'DE'})`,
             html: emailHtml,
         });
 
