@@ -315,6 +315,9 @@
         "cta": "Book Free Initial Consultation",
         "disclaimer": "No obligation. Free. In 15 minutes you will know if we are a good fit."
     },
+    "ctaButton": {
+        "text": "Book Free Consultation Now"
+    },
     "efficacyLabels": {
         "before": "Before: Hyper-Pigmentation",
         "after": "After: Even Skin Tone"

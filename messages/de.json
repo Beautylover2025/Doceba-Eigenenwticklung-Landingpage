@@ -315,6 +315,9 @@
         "cta": "Kostenloses Erstgespräch buchen",
         "disclaimer": "Unverbindlich. Kostenlos. In 15 Minuten weißt du, ob wir zusammenpassen."
     },
+    "ctaButton": {
+        "text": "Jetzt kostenloses Gespräch buchen"
+    },
     "efficacyLabels": {
         "before": "Vorher: Hyper-Pigmentierung",
         "after": "Nachher: Ebenmäßiges Hautbild"
