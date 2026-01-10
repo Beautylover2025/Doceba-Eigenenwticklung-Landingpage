@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const STEPS = [
     {
@@ -64,6 +65,7 @@ const STEPS = [
 ];
 
 export default function ProcessTimeline() {
+    const { t } = useLanguage();
     const [currentStep, setCurrentStep] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -116,13 +118,13 @@ export default function ProcessTimeline() {
                     className="text-center mb-16"
                 >
                     <span className="text-medical-blue font-bold tracking-widest text-xs uppercase mb-4 block">
-                        Der Prozess
+                        {t.process.badge}
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-display font-black mb-6 tracking-tight">
-                        In 8 Development-Zyklen zum Markterfolg.
+                        {t.process.headline}
                     </h2>
                     <p className="text-lg text-gray-600 font-medium max-w-3xl mx-auto">
-                        Ein strukturierter Zeitplan für wissenschaftliche Präzision und maximale Sicherheit. Wir betrachten die Produktentstehung nicht als einfache Liste, sondern als aufeinander aufbauende Zyklen – von der ersten molekularen Idee bis zur finalen Stabilitätsprüfung und Marktreife.
+                        {t.process.subheadline}
                     </p>
                 </motion.div>
 

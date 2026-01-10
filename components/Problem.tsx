@@ -1,24 +1,25 @@
+"use client";
+
 import { AlertTriangle, Lock, RefreshCcw } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Problem() {
+    const { t } = useLanguage();
+
     return (
         <section className="py-24 px-6 bg-[#FAFAFA]" id="problem">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight">Das Problem herkömmlicher Private-Label-Modelle.</h2>
+                    <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight">{t.problem.headline}</h2>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                        Die meisten „eigenen Marken" sind rechtlich gesehen nur geliehen. Herkömmliche Hersteller behalten die Rezeptur als Betriebsgeheimnis unter Verschluss. Das bedeutet: Wenn du den Produzenten wechseln willst, verlierst du dein Produkt und fängst bei Null an. Wir nennen das die „Vendor Lock-in" Falle – eine künstliche Abhängigkeit, die dein Wachstum blockiert.
+                        {t.problem.subheadline}
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 text-gray-600 leading-relaxed">
-                        <p>
-                            Du bist bereit für den nächsten Schritt. Du investierst in deine Vision, um etwas Bleibendes zu schaffen. Doch ohne Eigentum an deiner Rezeptur baust du dein Haus auf gemietetem Grund.
-                        </p>
-                        <p>
-                            Wir finden: Wer das Investment tätigt, muss auch der Inhaber sein. Schluss mit intransparenten Verträgen und versteckten Abhängigkeiten. Wir entwickeln – du besitzt. So sichern wir gemeinsam dein Wachstum, ohne dass dir später Steine in den Weg gelegt werden.
-                        </p>
+                        <p>{t.problem.text1}</p>
+                        <p>{t.problem.text2}</p>
                     </div>
 
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6">
@@ -27,8 +28,8 @@ export default function Problem() {
                                 <Lock className="w-6 h-6" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-1">Die "Vendor-Lock-in" Falle</h4>
-                                <p className="text-sm text-gray-500">Willst du den Hersteller wechseln, verlierst du dein Produkt. Die Rezeptur bleibt beim Labor.</p>
+                                <h4 className="font-bold text-gray-900 mb-1">{t.problem.box1Title}</h4>
+                                <p className="text-sm text-gray-500">{t.problem.box1Text}</p>
                             </div>
                         </div>
 
@@ -39,8 +40,8 @@ export default function Problem() {
                                 <RefreshCcw className="w-6 h-6" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-1">Du fängst bei Null an</h4>
-                                <p className="text-sm text-gray-500">Ohne Rezeptur musst du das Produkt woanders neu entwickeln lassen – auf gut Glück.</p>
+                                <h4 className="font-bold text-gray-900 mb-1">{t.problem.box2Title}</h4>
+                                <p className="text-sm text-gray-500">{t.problem.box2Text}</p>
                             </div>
                         </div>
 
@@ -51,8 +52,8 @@ export default function Problem() {
                                 <AlertTriangle className="w-6 h-6" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-1">Die Buyout-Erpressung</h4>
-                                <p className="text-sm text-gray-500">Oft werden 5.000€ - 10.000€ Ablöse fällig, nur um ein Blatt Papier zu erhalten.</p>
+                                <h4 className="font-bold text-gray-900 mb-1">{t.problem.box3Title}</h4>
+                                <p className="text-sm text-gray-500">{t.problem.box3Text}</p>
                             </div>
                         </div>
                     </div>
