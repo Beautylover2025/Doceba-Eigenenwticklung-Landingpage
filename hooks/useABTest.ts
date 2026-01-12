@@ -43,6 +43,17 @@ export function useABTest(testName: string): {
             return;
         }
 
+        // Check URL parameter for testing (highest priority)
+        const urlParams = new URLSearchParams(window.location.search);
+        const variantParam = urlParams.get('variant')?.toUpperCase() as ABVariant | null;
+
+        if (variantParam === 'A' || variantParam === 'B') {
+            setVariant(variantParam);
+            console.log(`🧪 A/B Test "${testName}": Forced variant ${variantParam} via URL`);
+            setIsLoaded(true);
+            return; // Don't persist forced variant
+        }
+
         // Check if we have a stored variant
         let storedVariant = localStorage.getItem(storageKey) as ABVariant | null;
 
