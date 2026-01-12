@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const EXCLUSIVITY_EVENTS = [
+const EXCLUSIVITY_EVENTS_DE = [
     "Mareike L. (Influencerin) aus Köln hat gerade ihr Erstgespräch gebucht.",
     "Markengründer aus München prüft die IP-Verfügbarkeit für ein eigenes Rezeptur-Asset.",
     "Thomas K. (Unternehmer) aus Hamburg hat sich einen der limitierten Beratungsslots gesichert.",
@@ -12,11 +13,21 @@ const EXCLUSIVITY_EVENTS = [
     "Heilpraktikerin aus Stuttgart sichert sich den nächsten freien Entwicklungsslot im Labor.",
 ];
 
+const EXCLUSIVITY_EVENTS_EN = [
+    "Mareike L. (Influencer) from Cologne just booked her initial consultation.",
+    "Brand founder from Munich is checking IP availability for their own formula asset.",
+    "Thomas K. (Entrepreneur) from Hamburg secured one of the limited consulting slots.",
+    "Brand builder from Frankfurt is investing in their first own brand asset.",
+    "Entrepreneur from Berlin is excited about her development and has reserved her slot.",
+    "Holistic practitioner from Stuttgart is securing the next available development slot in the lab.",
+];
+
 const MAX_TOASTS_PER_SESSION = 2;
 const FIRST_TOAST_DELAY = 15000; // 15 seconds
 const SECOND_TOAST_DELAY = 50000; // 50 seconds after first disappears
 
 export default function SocialProofToast() {
+    const { locale } = useLanguage();
     const [currentToast, setCurrentToast] = useState<string | null>(null);
     const [toastCount, setToastCount] = useState(0);
 
@@ -30,10 +41,12 @@ export default function SocialProofToast() {
 
         setToastCount(sessionCount);
 
+        const events = locale === "de" ? EXCLUSIVITY_EVENTS_DE : EXCLUSIVITY_EVENTS_EN;
+
         // First toast
         const firstTimer = setTimeout(() => {
             if (sessionCount < MAX_TOASTS_PER_SESSION) {
-                const randomEvent = EXCLUSIVITY_EVENTS[Math.floor(Math.random() * EXCLUSIVITY_EVENTS.length)];
+                const randomEvent = events[Math.floor(Math.random() * events.length)];
                 setCurrentToast(randomEvent);
 
                 const newCount = sessionCount + 1;
@@ -47,7 +60,7 @@ export default function SocialProofToast() {
                     // Second toast
                     if (newCount < MAX_TOASTS_PER_SESSION) {
                         setTimeout(() => {
-                            const randomEvent2 = EXCLUSIVITY_EVENTS[Math.floor(Math.random() * EXCLUSIVITY_EVENTS.length)];
+                            const randomEvent2 = events[Math.floor(Math.random() * events.length)];
                             setCurrentToast(randomEvent2);
 
                             const finalCount = newCount + 1;
@@ -65,7 +78,7 @@ export default function SocialProofToast() {
         }, FIRST_TOAST_DELAY);
 
         return () => clearTimeout(firstTimer);
-    }, []);
+    }, [locale]);
 
     return (
         <AnimatePresence>

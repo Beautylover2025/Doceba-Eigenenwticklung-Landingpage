@@ -44,10 +44,16 @@ export default function Solution() {
                         </h2>
                         <div className="prose text-gray-500 leading-relaxed mb-8">
                             <p className="mb-4">
-                                {t.solution.text1}
+                                {t.solution.text1Part1}
+                                <strong className="font-bold text-gray-700">{t.solution.text1Bold}</strong>
+                                {t.solution.text1Part2}
                             </p>
                             <p>
-                                {t.solution.text2}
+                                {t.solution.text2Part1}
+                                <strong className="font-bold text-gray-700">{t.solution.text2Bold1}</strong>
+                                {t.solution.text2Part2}
+                                {t.solution.text2Bold2 && <strong className="font-bold text-gray-700">{t.solution.text2Bold2}</strong>}
+                                {t.solution.text2Part3}
                             </p>
                         </div>
                     </div>
@@ -92,7 +98,11 @@ export default function Solution() {
                             {t.solution.assetHeadline}
                         </h3>
                         <p className="text-gray-600 leading-relaxed text-lg">
-                            {t.solution.assetText}
+                            {t.solution.assetTextPart1}
+                            <strong className="font-bold text-gray-900">{t.solution.assetTextBold1}</strong>
+                            {t.solution.assetTextPart2}
+                            <strong className="font-bold text-gray-900">{t.solution.assetTextBold2}</strong>
+                            {t.solution.assetTextPart3}
                         </p>
                     </motion.div>
 

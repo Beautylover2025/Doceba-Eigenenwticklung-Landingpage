@@ -127,7 +127,7 @@ export default function EfficacySlider() {
                                 playsInline
                                 className="w-full h-auto"
                             >
-                                <source src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Labor%20Video%20-%20Pure%20Bright%20C7%20Efficacy.mp4" type="video/mp4" />
+                                <source src="https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Pigmentflecken_Veranschaulichung.mp4" type="video/mp4" />
                             </video>
                             <button
                                 onClick={() => setIsVideoOpen(false)}

@@ -8,15 +8,18 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const B2B_REVIEWS = [
     {
         name: "LuHair",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/LuHair_Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Luhair_Rezension_thumbnail.png"
     },
     {
         name: "Mesinger",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Mesinger_Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Kathrin%20Rezension_thumbnail.png"
     },
     {
         name: "Waxhofer",
-        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4"
+        url: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Testimonial.mp4",
+        thumbnail: "https://gfdyjjpkhmciwhwhiddh.supabase.co/storage/v1/object/public/Videos/Waxhofer%20Rezension_thumbnail.png"
     },
 ];
 
@@ -72,7 +75,7 @@ export default function Reviews() {
                                     }}
                                     playsInline
                                     preload="metadata"
-                                    poster={`${review.url}#t=0.1`}
+                                    poster={review.thumbnail}
                                     className="w-full h-full object-cover"
                                     onEnded={() => setPlayingVideo(null)}
                                 >
