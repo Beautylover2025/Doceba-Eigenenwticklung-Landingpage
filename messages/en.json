@@ -227,12 +227,13 @@
             "cta": "Secure Free Consultation Now"
         },
         "success": {
-            "headline": "Great, we have received your answers!",
-            "subheadline": "Secure your slot now for a free initial consultation.",
+            "headline": "Great, we've received your answers!",
+            "subheadline": "Secure your appointment for a free initial consultation now.",
+            "scrollHint": "Scroll down to see available appointment times.",
             "cta": "Back to Homepage"
         },
         "disqualified": {
-            "headline": "Unfortunately, this does not fit right now.",
+            "headline": "Unfortunately, this doesn't fit right now.",
             "text": "Since we develop each project individually, our service is only available from a budget of 5,000 Euro. We recommend our White Label partner list or our newsletter for starters."
         },
         "back": "Back"

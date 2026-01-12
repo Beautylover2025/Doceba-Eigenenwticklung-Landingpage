@@ -229,6 +229,7 @@
         "success": {
             "headline": "Super, wir haben deine Antworten empfangen!",
             "subheadline": "Sichere dir jetzt deinen Termin für ein kostenloses Erstgespräch.",
+            "scrollHint": "Scrolle weiter nach unten, um die freien Termine zu sehen.",
             "cta": "Zurück zur Startseite"
         },
         "disqualified": {
