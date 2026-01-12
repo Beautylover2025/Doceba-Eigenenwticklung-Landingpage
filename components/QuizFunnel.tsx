@@ -44,6 +44,7 @@ export default function QuizFunnel() {
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [acceptedTerms, setAcceptedTerms] = useState(false);
+    const [phoneError, setPhoneError] = useState("");
 
     // Get quiz questions from translations
     const questions = t.quiz?.questions || [];
@@ -79,6 +80,16 @@ export default function QuizFunnel() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Validate phone number
+        const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/;
+        if (!phoneRegex.test(data.phone)) {
+            setPhoneError(locale === 'de'
+                ? 'Bitte gib eine gültige Telefonnummer ein.'
+                : 'Please enter a valid phone number.');
+            return;
+        }
+
         trackStep("submission_completed", { ...data, locale });
         setIsSubmitted(true);
 
@@ -156,8 +167,12 @@ export default function QuizFunnel() {
                         <Check className="w-8 h-8 text-green-600" />
                     </div>
                     <h3 className="text-3xl font-display font-bold mb-4">{t.quiz?.success?.headline}</h3>
-                    <p className="text-gray-600 mb-8">
+                    <p className="text-gray-600 mb-2">
                         {t.quiz?.success?.subheadline}
+                    </p>
+                    <p className="text-sm text-gray-500 mb-8 flex items-center justify-center gap-2">
+                        <span className="inline-block animate-bounce">↓</span>
+                        {t.quiz?.success?.scrollHint}
                     </p>
                     {/* Calendly Inline Widget */}
                     <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
@@ -232,11 +247,27 @@ export default function QuizFunnel() {
                                             className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
                                             value={data.email} onChange={e => setData({ ...data, email: e.target.value })}
                                         />
-                                        <input
-                                            type="tel" required placeholder={t.quiz?.leadCapture?.phone}
-                                            className="w-full p-4 bg-gray-50 rounded-xl border border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue transition-all"
-                                            value={data.phone} onChange={e => setData({ ...data, phone: e.target.value })}
-                                        />
+                                        <div>
+                                            <input
+                                                type="tel"
+                                                required
+                                                placeholder={t.quiz?.leadCapture?.phone}
+                                                className={clsx(
+                                                    "w-full p-4 bg-gray-50 rounded-xl border transition-all",
+                                                    phoneError
+                                                        ? "border-red-500 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                                                        : "border-gray-200 focus:outline-none focus:border-medical-blue focus:ring-1 focus:ring-medical-blue"
+                                                )}
+                                                value={data.phone}
+                                                onChange={e => {
+                                                    setData({ ...data, phone: e.target.value });
+                                                    setPhoneError(""); // Clear error on input
+                                                }}
+                                            />
+                                            {phoneError && (
+                                                <p className="text-red-500 text-sm mt-2">{phoneError}</p>
+                                            )}
+                                        </div>
 
                                         {/* Terms Checkbox */}
                                         <label className="flex items-start gap-3 cursor-pointer">
