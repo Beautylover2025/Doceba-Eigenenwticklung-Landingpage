@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Script from "next/script";
+import { useCookieConsent } from "@/hooks/useCookieConsent";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
@@ -12,6 +13,20 @@ declare global {
 }
 
 export default function FacebookPixel() {
+    const { hasConsent, isLoaded } = useCookieConsent();
+    const [shouldLoad, setShouldLoad] = useState(false);
+
+    useEffect(() => {
+        // Only load pixel if user has granted marketing consent
+        if (isLoaded && hasConsent('marketing')) {
+            setShouldLoad(true);
+        }
+    }, [isLoaded, hasConsent]);
+
+    if (!shouldLoad) {
+        return null;
+    }
+
     return (
         <>
             <Script
@@ -28,6 +43,7 @@ export default function FacebookPixel() {
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
+            fbq('track', 'PageView');
           `,
                 }}
             />

@@ -244,6 +244,12 @@
         "terms": "AGB",
         "imprint": "Impressum"
     },
+    "cookieConsent": {
+        "title": "Cookie-Einstellungen",
+        "description": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und unsere Marketing-Maßnahmen zu optimieren. Mit 'Alle akzeptieren' stimmen Sie der Verwendung von Marketing-Cookies (Facebook Pixel) zu.",
+        "acceptAll": "Alle akzeptieren",
+        "necessary": "Nur notwendige"
+    },
     "faq": {
         "badge": "Häufige Fragen",
         "headline": "Alles, was du wissen musst.",
