@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { LogOut, TrendingUp, Users, MousePointerClick, MessageSquare } from "lucide-react";
 import { getStartOfToday, getEndOfToday, getStartOfYesterday, getEndOfYesterday, formatGermanDate } from "@/lib/dateUtils";
 import ABTestPanel from "@/components/ABTestPanel";
+import TrafficSourcePanel from "@/components/TrafficSourcePanel";
 
 type TimeFilter = "today" | "yesterday" | "last7days" | "last14days" | "last30days" | "last45days" | "last60days" | "custom";
 
@@ -322,9 +323,13 @@ export default function AdminDashboard() {
                     ))}
                 </div>
 
-                {/* A/B Test Panel */}
-                <div className="mb-8">
+                {/* A/B Test Panel + Traffic Source Panel */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     <ABTestPanel
+                        startDate={getDateRange().start}
+                        endDate={getDateRange().end}
+                    />
+                    <TrafficSourcePanel
                         startDate={getDateRange().start}
                         endDate={getDateRange().end}
                     />

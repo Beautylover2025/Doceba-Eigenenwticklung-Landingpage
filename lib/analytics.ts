@@ -1,4 +1,5 @@
 import { supabase } from './supabaseClient';
+import { getUTMDataForTracking } from './utmTracking';
 
 /**
  * Get or create a session ID for tracking
@@ -41,18 +42,21 @@ export async function trackEvent(eventType: string, eventData: any = {}) {
             localStorage.setItem('last_page_view', now);
         }
 
+        // Get UTM data for traffic source attribution
+        const utmData = getUTMDataForTracking();
+
         const { error } = await supabase
             .from('analytics_events')
             .insert({
                 session_id: sessionId,
                 event_type: eventType,
-                event_data: eventData,
+                event_data: { ...eventData, ...utmData },
             });
 
         if (error) {
             console.error('Analytics tracking error:', error);
         } else {
-            console.log('✅ Tracked event:', eventType, eventData);
+            console.log('✅ Tracked event:', eventType, { ...eventData, traffic_source: utmData.traffic_source });
         }
     } catch (err) {
         console.error('Failed to track event:', err);
