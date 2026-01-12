@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { trackButtonClick } from "@/lib/analytics";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useABTest } from "@/hooks/useABTest";
 
 const INGREDIENTS = ["Ectoin", "Niedermolekulares Hyaluron", "Peptide"];
 
@@ -22,8 +23,18 @@ const PREMIUM_INGREDIENTS = [
 
 export default function Hero() {
     const { t } = useLanguage();
+    const { variant } = useABTest('hero_headline');
     const [index, setIndex] = useState(0);
     const [visibleLabels, setVisibleLabels] = useState<number[]>([0, 1]);
+
+    // Get variant-specific content
+    const heroContent = t.hero.variants?.[variant] || t.hero.variants?.A || {
+        headline: t.hero.headline || "COSMETIC ENGINEERING",
+        headlineGradient: t.hero.headlineGradient || "OHNE REGULATORISCHEN STRESS.",
+        subheadline: t.hero.subheadline || "Deine Marke. Deine Rezeptur. Ab 5.000€.",
+        description: t.hero.description || "",
+        descriptionBold: t.hero.descriptionBold || ""
+    };
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -76,16 +87,16 @@ export default function Hero() {
                     </div>
 
                     <h1 className="font-display text-4xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tight text-[#111111]">
-                        {t.hero.headline} <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">{t.hero.headlineGradient}</span>
+                        {heroContent.headline} <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200">{heroContent.headlineGradient}</span>
                     </h1>
 
                     <h2 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">
-                        {t.hero.subheadline}
+                        {heroContent.subheadline}
                     </h2>
 
                     <p className="text-lg text-gray-500 mb-10 max-w-lg leading-relaxed font-medium">
-                        {t.hero.description} <strong className="text-gray-900 font-bold">{t.hero.descriptionBold}</strong>
+                        {heroContent.description} <strong className="text-gray-900 font-bold">{heroContent.descriptionBold}</strong>
                     </p>
 
                     <Link
