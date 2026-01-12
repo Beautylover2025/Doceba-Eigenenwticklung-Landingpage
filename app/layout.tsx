@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { clsx } from "clsx";
 import FacebookPixel from "@/components/FacebookPixel";
+import CookieConsent from "@/components/CookieConsent";
 import { Suspense } from "react";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         </Suspense>
         <LanguageProvider>
           {children}
+          <CookieConsent />
         </LanguageProvider>
       </body>
     </html>

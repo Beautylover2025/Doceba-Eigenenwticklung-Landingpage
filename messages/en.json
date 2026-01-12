@@ -244,6 +244,12 @@
         "terms": "Terms",
         "imprint": "Imprint"
     },
+    "cookieConsent": {
+        "title": "Cookie Settings",
+        "description": "We use cookies to improve your experience and optimize our marketing efforts. By clicking 'Accept All', you consent to the use of marketing cookies (Facebook Pixel).",
+        "acceptAll": "Accept All",
+        "necessary": "Necessary Only"
+    },
     "faq": {
         "badge": "Frequently Asked Questions",
         "headline": "Everything You Need to Know.",
