@@ -225,3 +225,145 @@ You have the right to complain to a data protection supervisory authority about 
 
 Unless a more specific storage period has been specified within this privacy policy, your personal data will remain with us until the purpose for data processing no longer applies. If you assert a legitimate request for deletion or revoke consent for data processing, your data will be deleted unless we have other legally permissible reasons for storage (e.g., tax or commercial retention periods).
 `;
+
+export const TERMS_DE = `
+# Allgemeine Geschäftsbedingungen (AGB)
+
+## 1. Geltungsbereich
+
+Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung der Website **kosmetikentwicklung.com** der Doceba GmbH, Wilhelmstraße 9, 33602 Bielefeld.
+
+## 2. Leistungsgegenstand
+
+Diese Website dient ausschließlich der **Information und Kontaktanbahnung** für unsere Dienstleistungen im Bereich der Kosmetikentwicklung. Es werden auf dieser Website **keine Produkte verkauft** und **keine kostenpflichtigen Verträge** abgeschlossen.
+
+### Angebotene Funktionen:
+
+- **Informationen** über unsere Kosmetikentwicklungs-Dienstleistungen
+- **Kontaktformular / Quiz** zur Erfassung Ihrer Anfrage
+- **Terminbuchung** für ein unverbindliches Beratungsgespräch
+
+## 3. Kontaktaufnahme & Anfragen
+
+Durch das Ausfüllen des Kontaktformulars oder Quiz übermitteln Sie uns Ihre Daten (Name, E-Mail, Telefonnummer, Projektdetails) zur Kontaktaufnahme. Dies stellt **kein verbindliches Angebot** dar, sondern lediglich eine Anfrage.
+
+Wir werden uns nach Erhalt Ihrer Anfrage mit Ihnen in Verbindung setzen, um Ihr Projekt zu besprechen. Ein Vertrag über unsere Dienstleistungen kommt erst durch eine separate, schriftliche Vereinbarung zustande.
+
+## 4. Terminbuchung
+
+Die Buchung eines Beratungstermins über Calendly ist **unverbindlich und kostenlos**. Sie können gebuchte Termine jederzeit über den in der Bestätigungsmail enthaltenen Link stornieren.
+
+## 5. Keine Gewährleistung für Verfügbarkeit
+
+Wir bemühen uns, die Website durchgehend verfügbar zu halten. Eine Gewährleistung für die ständige Verfügbarkeit übernehmen wir jedoch nicht. Wartungsarbeiten können zu vorübergehenden Unterbrechungen führen.
+
+## 6. Haftung
+
+### Haftung für Inhalte
+
+Die Inhalte unserer Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+
+### Haftung für Links
+
+Unsere Website enthält Links zu externen Websites Dritter (z.B. Calendly, Typeform). Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+
+### Haftungsbeschränkung
+
+Wir haften nur für Vorsatz und grobe Fahrlässigkeit. Die Haftung für leichte Fahrlässigkeit ist ausgeschlossen, soweit nicht Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit oder aus der Verletzung wesentlicher Vertragspflichten betroffen sind.
+
+## 7. Urheberrecht
+
+Die durch uns erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen unserer schriftlichen Zustimmung.
+
+## 8. Änderungen der AGB
+
+Wir behalten uns vor, diese AGB jederzeit zu ändern. Die jeweils aktuelle Fassung ist auf unserer Website abrufbar.
+
+## 9. Schlussbestimmungen
+
+Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.
+
+Gerichtsstand für alle Streitigkeiten aus und im Zusammenhang mit diesem Vertragsverhältnis ist Bielefeld, sofern der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen ist.
+
+## 10. Kontakt
+
+Bei Fragen zu diesen AGB kontaktieren Sie uns bitte unter:
+
+**Doceba GmbH**  
+Wilhelmstraße 9  
+33602 Bielefeld  
+E-Mail: info@docebabeauty.com  
+Telefon: 01743625730
+`;
+
+export const TERMS_EN = `
+# Terms and Conditions
+
+## 1. Scope
+
+These Terms and Conditions apply to the use of the website **kosmetikentwicklung.com** operated by Doceba GmbH, Wilhelmstraße 9, 33602 Bielefeld, Germany.
+
+## 2. Subject Matter
+
+This website serves exclusively for **information and contact initiation** for our cosmetic development services. **No products are sold** on this website and **no paid contracts** are concluded.
+
+### Offered Functions:
+
+- **Information** about our cosmetic development services
+- **Contact form / Quiz** to capture your inquiry
+- **Appointment booking** for a non-binding consultation
+
+## 3. Contact & Inquiries
+
+By filling out the contact form or quiz, you submit your data (name, email, phone number, project details) to us for contact purposes. This does **not constitute a binding offer**, but merely an inquiry.
+
+We will contact you after receiving your inquiry to discuss your project. A contract for our services is only concluded through a separate, written agreement.
+
+## 4. Appointment Booking
+
+Booking a consultation appointment via Calendly is **non-binding and free of charge**. You can cancel booked appointments at any time via the link provided in the confirmation email.
+
+## 5. No Guarantee of Availability
+
+We strive to keep the website continuously available. However, we do not guarantee constant availability. Maintenance work may lead to temporary interruptions.
+
+## 6. Liability
+
+### Liability for Content
+
+The content of our website has been created with the greatest care. However, we cannot guarantee the accuracy, completeness, and timeliness of the content.
+
+### Liability for Links
+
+Our website contains links to external third-party websites (e.g., Calendly, Typeform). We have no influence on their content. The respective provider or operator is always responsible for the content of the linked pages.
+
+### Limitation of Liability
+
+We are only liable for intent and gross negligence. Liability for slight negligence is excluded, unless damages from injury to life, body, or health or from breach of essential contractual obligations are concerned.
+
+## 7. Copyright
+
+The content and works created by us on this website are subject to German copyright law. Reproduction, editing, distribution, and any kind of exploitation outside the limits of copyright law require our written consent.
+
+## 8. Changes to the Terms and Conditions
+
+We reserve the right to change these Terms and Conditions at any time. The current version is available on our website.
+
+## 9. Final Provisions
+
+German law applies, excluding the UN Convention on Contracts for the International Sale of Goods.
+
+The place of jurisdiction for all disputes arising from and in connection with this contractual relationship is Bielefeld, provided the customer is a merchant, a legal entity under public law, or a special fund under public law.
+
+## 10. Contact
+
+If you have any questions about these Terms and Conditions, please contact us at:
+
+**Doceba GmbH**  
+Wilhelmstraße 9  
+33602 Bielefeld  
+Germany  
+Email: info@docebabeauty.com  
+Phone: +49 174 3625730
+`;
+

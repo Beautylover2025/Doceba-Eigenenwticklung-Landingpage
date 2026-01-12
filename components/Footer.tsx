@@ -3,15 +3,17 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LegalModal from "./LegalModal";
-import { IMPRINT_DE, IMPRINT_EN, PRIVACY_DE, PRIVACY_EN } from "@/lib/legal-content";
+import { IMPRINT_DE, IMPRINT_EN, PRIVACY_DE, PRIVACY_EN, TERMS_DE, TERMS_EN } from "@/lib/legal-content";
 
 export default function Footer() {
     const { t, locale } = useLanguage();
     const [showImprint, setShowImprint] = useState(false);
     const [showPrivacy, setShowPrivacy] = useState(false);
+    const [showTerms, setShowTerms] = useState(false);
 
     const imprintContent = locale === 'de' ? IMPRINT_DE : IMPRINT_EN;
     const privacyContent = locale === 'de' ? PRIVACY_DE : PRIVACY_EN;
+    const termsContent = locale === 'de' ? TERMS_DE : TERMS_EN;
 
     return (
         <>
@@ -39,6 +41,12 @@ export default function Footer() {
                         >
                             {t.footer.privacy}
                         </button>
+                        <button
+                            onClick={() => setShowTerms(true)}
+                            className="hover:text-gray-600 transition-colors"
+                        >
+                            {t.footer.terms}
+                        </button>
                     </div>
                 </div>
             </footer>
@@ -55,6 +63,12 @@ export default function Footer() {
                 onClose={() => setShowPrivacy(false)}
                 title={t.footer.privacy}
                 content={privacyContent}
+            />
+            <LegalModal
+                isOpen={showTerms}
+                onClose={() => setShowTerms(false)}
+                title={t.footer.terms}
+                content={termsContent}
             />
         </>
     );
