@@ -12,7 +12,13 @@ export default function Problem() {
                 <div className="text-center mb-16">
                     <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 tracking-tight">{t.problem.headline}</h2>
                     <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-                        {t.problem.subheadline}
+                        {t.problem.subheadlinePart1}
+                        <strong className="font-bold text-gray-700">{t.problem.subheadlineBold1}</strong>
+                        {t.problem.subheadlinePart2}
+                        <strong className="font-bold text-gray-700">{t.problem.subheadlineBold2}</strong>
+                        {t.problem.subheadlinePart3}
+                        <strong className="font-bold text-gray-700">{t.problem.subheadlineBold3}</strong>
+                        {t.problem.subheadlinePart4}
                     </p>
                 </div>
 
