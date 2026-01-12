@@ -5,6 +5,7 @@ import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
 import { LogOut, TrendingUp, Users, MousePointerClick, MessageSquare } from "lucide-react";
 import { getStartOfToday, getEndOfToday, getStartOfYesterday, getEndOfYesterday, formatGermanDate } from "@/lib/dateUtils";
+import ABTestPanel from "@/components/ABTestPanel";
 
 type TimeFilter = "today" | "yesterday" | "last7days" | "last14days" | "last30days" | "last45days" | "last60days" | "custom";
 
@@ -319,6 +320,14 @@ export default function AdminDashboard() {
                             <p className="text-3xl font-display font-bold text-gray-900">{card.value}</p>
                         </div>
                     ))}
+                </div>
+
+                {/* A/B Test Panel */}
+                <div className="mb-8">
+                    <ABTestPanel
+                        startDate={getDateRange().start}
+                        endDate={getDateRange().end}
+                    />
                 </div>
 
                 {/* Funnel Visualization */}

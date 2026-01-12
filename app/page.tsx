@@ -22,11 +22,15 @@ import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import SocialProofToast from "@/components/SocialProofToast";
 import FacebookPixel from "@/components/FacebookPixel";
+import { getABVariant } from "@/hooks/useABTest";
 
 export default function Home() {
   useEffect(() => {
-    // Analytics tracking
-    trackEvent('page_view', { page: 'landing' });
+    // Get A/B variant for tracking
+    const abVariant = getABVariant('hero_headline');
+
+    // Analytics tracking with variant
+    trackEvent('page_view', { page: 'landing', ab_variant: abVariant });
 
     // Facebook Pixel PageView
     trackFBPageView();

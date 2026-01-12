@@ -6,6 +6,7 @@ import { ArrowRight, Check, X, Lock } from "lucide-react";
 import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
 import { trackQuizAnswer } from "@/lib/analytics";
+import { getABVariant } from "@/hooks/useABTest";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -90,7 +91,8 @@ export default function QuizFunnel() {
             return;
         }
 
-        trackStep("submission_completed", { ...data, locale });
+        const abVariant = getABVariant('hero_headline');
+        trackStep("submission_completed", { ...data, locale, ab_variant: abVariant });
         setIsSubmitted(true);
 
         // Send email notification
@@ -98,7 +100,7 @@ export default function QuizFunnel() {
             await fetch('/api/notify-lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...data, locale }),
+                body: JSON.stringify({ ...data, locale, ab_variant: abVariant }),
             });
         } catch (error) {
             console.error('Failed to send lead notification:', error);

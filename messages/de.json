@@ -5,13 +5,24 @@
     "hero": {
         "badge1": "GMP Zertifiziert",
         "badge2": "Made in Germany",
-        "headline": "COSMETIC ENGINEERING",
-        "headlineGradient": "OHNE REGULATORISCHEN STRESS.",
-        "subheadline": "Deine Marke. Deine Rezeptur. Ab 5.000€.",
-        "description": "Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor. Ohne Knebelverträge. Ohne Buyout-Kosten.",
-        "descriptionBold": "Mit 100% Eigentumsrecht.",
         "cta": "Entwicklung anfragen",
-        "labSlots": "Aktuell 3 Labor-Plätze für diesen Monat verfügbar."
+        "labSlots": "Aktuell 3 Labor-Plätze für diesen Monat verfügbar.",
+        "variants": {
+            "A": {
+                "headline": "COSMETIC ENGINEERING",
+                "headlineGradient": "OHNE REGULATORISCHEN STRESS.",
+                "subheadline": "Deine Marke. Deine Rezeptur. Ab 5.000€.",
+                "description": "Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor. Ohne Knebelverträge. Ohne Buyout-Kosten.",
+                "descriptionBold": "Mit 100% Eigentumsrecht."
+            },
+            "B": {
+                "headline": "DEIN NAME AUF DEM ETIKETT.",
+                "headlineGradient": "DEIN STOLZ IN JEDEM FLAKON.",
+                "subheadline": "Erschaffe mehr als nur ein Produkt. Erschaffe deine eigene High-End Brand – ab 5.000€.",
+                "description": "Spürst du den Moment, in dem du zum ersten Mal über dein eigenes Label streichst? Wir machen diesen Traum wahr. In unserem GMP-zertifizierten Labor in Deutschland entwickeln wir deine Vision zu einem marktreifen Asset. Ohne Knebelverträge, ohne versteckte Kosten.",
+                "descriptionBold": "Du behältst 100% der Rechte – weil es dein Erfolg ist."
+            }
+        }
     },
     "barriers": {
         "headline": "Deine Vision.",

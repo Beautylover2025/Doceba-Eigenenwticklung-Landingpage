@@ -21,6 +21,26 @@ export async function trackEvent(eventType: string, eventData: any = {}) {
     try {
         const sessionId = getOrCreateSessionId();
 
+        // For page_view events, check if we already tracked this session today
+        if (eventType === 'page_view') {
+            const lastPageView = localStorage.getItem('last_page_view');
+            const now = new Date().toISOString();
+
+            // If we tracked a page view in the last 30 minutes, skip it
+            if (lastPageView) {
+                const lastViewTime = new Date(lastPageView);
+                const diffMinutes = (new Date().getTime() - lastViewTime.getTime()) / 1000 / 60;
+
+                if (diffMinutes < 30) {
+                    console.log('⏭️ Skipping duplicate page_view (last view was', Math.round(diffMinutes), 'minutes ago)');
+                    return;
+                }
+            }
+
+            // Update last page view timestamp
+            localStorage.setItem('last_page_view', now);
+        }
+
         const { error } = await supabase
             .from('analytics_events')
             .insert({
@@ -31,11 +51,14 @@ export async function trackEvent(eventType: string, eventData: any = {}) {
 
         if (error) {
             console.error('Analytics tracking error:', error);
+        } else {
+            console.log('✅ Tracked event:', eventType, eventData);
         }
     } catch (err) {
         console.error('Failed to track event:', err);
     }
 }
+
 
 /**
  * Track a quiz answer

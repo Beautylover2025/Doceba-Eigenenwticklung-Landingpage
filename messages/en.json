@@ -5,13 +5,24 @@
     "hero": {
         "badge1": "GMP Certified",
         "badge2": "Made in Germany",
-        "headline": "COSMETIC ENGINEERING",
-        "headlineGradient": "WITHOUT REGULATORY STRESS.",
-        "subheadline": "Your Brand. Your Formula. From €5,000.",
-        "description": "Develop your own high-end cosmetics in our GMP-certified laboratory. No restrictive contracts. No buyout costs.",
-        "descriptionBold": "With 100% ownership rights.",
         "cta": "Request Development",
-        "labSlots": "Currently 3 lab slots available for this month."
+        "labSlots": "Currently 3 lab slots available for this month.",
+        "variants": {
+            "A": {
+                "headline": "COSMETIC ENGINEERING",
+                "headlineGradient": "WITHOUT REGULATORY STRESS.",
+                "subheadline": "Your Brand. Your Formula. From €5,000.",
+                "description": "Develop your own high-end cosmetics in our GMP-certified laboratory. No restrictive contracts. No buyout costs.",
+                "descriptionBold": "With 100% ownership rights."
+            },
+            "B": {
+                "headline": "YOUR NAME ON THE LABEL.",
+                "headlineGradient": "YOUR PRIDE IN EVERY BOTTLE.",
+                "subheadline": "Create more than just a product. Create your own high-end brand – from €5,000.",
+                "description": "Can you feel the moment when you first run your hand over your own label? We make this dream come true. In our GMP-certified laboratory in Germany, we develop your vision into a market-ready asset. No restrictive contracts, no hidden costs.",
+                "descriptionBold": "You keep 100% of the rights – because it's your success."
+            }
+        }
     },
     "barriers": {
         "headline": "Your Vision.",
