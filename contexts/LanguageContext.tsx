@@ -19,12 +19,26 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         // Load initial messages
         const loadMessages = async () => {
-            const saved = localStorage.getItem('locale') as Locale;
-            const initialLocale = (saved === 'de' || saved === 'en') ? saved : 'de';
+            // Check URL parameter first (highest priority)
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang') as Locale;
+
+            let initialLocale: Locale = 'de';
+
+            if (langParam === 'de' || langParam === 'en') {
+                // URL parameter takes priority
+                initialLocale = langParam;
+                localStorage.setItem('locale', langParam); // Save for future visits
+            } else {
+                // Fall back to localStorage
+                const saved = localStorage.getItem('locale') as Locale;
+                initialLocale = (saved === 'de' || saved === 'en') ? saved : 'de';
+            }
 
             const msgs = await import(`@/messages/${initialLocale}.json`);
             setMessages(msgs.default);
             setLocaleState(initialLocale);
+            document.documentElement.lang = initialLocale;
         };
 
         loadMessages();

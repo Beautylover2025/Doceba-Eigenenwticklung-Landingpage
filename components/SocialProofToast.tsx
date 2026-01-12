@@ -19,11 +19,11 @@ const EXCLUSIVITY_EVENTS_EN = [
     "Thomas K. (Entrepreneur) from Hamburg secured one of the limited consulting slots.",
     "Brand builder from Frankfurt is investing in their first own brand asset.",
     "Entrepreneur from Berlin is excited about her development and has reserved her slot.",
-    "Naturopath from Stuttgart is securing the next available development slot in the lab.",
+    "Holistic practitioner from Stuttgart is securing the next available development slot in the lab.",
 ];
 
 const MAX_TOASTS_PER_SESSION = 2;
-const FIRST_TOAST_DELAY = 10000; // 10 seconds (changed from 15)
+const FIRST_TOAST_DELAY = 15000; // 15 seconds
 const SECOND_TOAST_DELAY = 50000; // 50 seconds after first disappears
 
 export default function SocialProofToast() {
