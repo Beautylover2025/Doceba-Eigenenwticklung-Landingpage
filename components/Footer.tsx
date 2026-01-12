@@ -26,7 +26,7 @@ export default function Footer() {
                             alt="DOCEBA"
                             className="h-8 w-auto"
                         />
-                        <span className="text-gray-400">&copy; 2024 Made in Bielefeld.</span>
+                        <span className="text-gray-400">&copy; 2026 Made in Bielefeld.</span>
                     </div>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <button
