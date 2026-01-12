@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ShieldCheck, Award } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { trackButtonClick } from "@/lib/analytics";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useABTest } from "@/hooks/useABTest";
@@ -23,18 +23,23 @@ const PREMIUM_INGREDIENTS = [
 
 export default function Hero() {
     const { t } = useLanguage();
-    const { variant } = useABTest('hero_headline');
+    const { variant, isLoaded } = useABTest('hero_headline');
     const [index, setIndex] = useState(0);
     const [visibleLabels, setVisibleLabels] = useState<number[]>([0, 1]);
 
-    // Get variant-specific content
-    const heroContent = t.hero.variants?.[variant] || t.hero.variants?.A || {
-        headline: t.hero.headline || "COSMETIC ENGINEERING",
-        headlineGradient: t.hero.headlineGradient || "OHNE REGULATORISCHEN STRESS.",
-        subheadline: t.hero.subheadline || "Deine Marke. Deine Rezeptur. Ab 5.000€.",
-        description: t.hero.description || "",
-        descriptionBold: t.hero.descriptionBold || ""
-    };
+    // Get variant-specific content - recalculate when variant changes
+    const heroContent = useMemo(() => {
+        const content = t.hero?.variants?.[variant] || t.hero?.variants?.A || {
+            headline: "COSMETIC ENGINEERING",
+            headlineGradient: "OHNE REGULATORISCHEN STRESS.",
+            subheadline: "Deine Marke. Deine Rezeptur. Ab 5.000€.",
+            description: "",
+            descriptionBold: ""
+        };
+
+        console.log(`🧪 Hero rendering with variant: ${variant}`, content.headline);
+        return content;
+    }, [variant, t.hero?.variants]);
 
     useEffect(() => {
         const timer = setInterval(() => {
