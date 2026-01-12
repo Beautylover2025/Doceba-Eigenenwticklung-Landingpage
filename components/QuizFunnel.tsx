@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { useFunnelTracker } from "@/hooks/useFunnelTracker";
 import { trackQuizAnswer } from "@/lib/analytics";
 import { getABVariant } from "@/hooks/useABTest";
+import { getUTMDataForTracking } from "@/lib/utmTracking";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -92,7 +93,9 @@ export default function QuizFunnel() {
         }
 
         const abVariant = getABVariant('hero_headline');
-        trackStep("submission_completed", { ...data, locale, ab_variant: abVariant });
+        const utmData = getUTMDataForTracking();
+
+        trackStep("submission_completed", { ...data, locale, ab_variant: abVariant, ...utmData });
         setIsSubmitted(true);
 
         // Send email notification
@@ -100,7 +103,7 @@ export default function QuizFunnel() {
             await fetch('/api/notify-lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...data, locale, ab_variant: abVariant }),
+                body: JSON.stringify({ ...data, locale, ab_variant: abVariant, ...utmData }),
             });
         } catch (error) {
             console.error('Failed to send lead notification:', error);
