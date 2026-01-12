@@ -10,7 +10,8 @@
         "subheadline": "Deine Marke. Deine Rezeptur. Ab 5.000€.",
         "description": "Entwickle deine eigene High-End Kosmetik im GMP-zertifizierten Labor. Ohne Knebelverträge. Ohne Buyout-Kosten.",
         "descriptionBold": "Mit 100% Eigentumsrecht.",
-        "cta": "Entwicklung anfragen"
+        "cta": "Entwicklung anfragen",
+        "labSlots": "Aktuell 3 Labor-Plätze für diesen Monat verfügbar."
     },
     "barriers": {
         "headline": "Deine Vision.",

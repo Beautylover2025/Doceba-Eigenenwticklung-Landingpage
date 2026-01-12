@@ -100,7 +100,7 @@ export default function Hero() {
 
                     <p className="mt-6 text-xs text-gray-400 flex items-center gap-2 font-medium">
                         <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                        Aktuell 2 Labor-Plätze für diesen Monat verfügbar.
+                        {t.hero.labSlots}
                     </p>
                 </motion.div>
             </div>
