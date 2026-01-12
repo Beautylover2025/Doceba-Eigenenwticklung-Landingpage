@@ -19,37 +19,76 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         // Load initial messages
         const loadMessages = async () => {
-            // Check URL parameter first (highest priority)
-            const urlParams = new URLSearchParams(window.location.search);
-            const langParam = urlParams.get('lang') as Locale;
+            try {
+                // Safety check for client-side only
+                if (typeof window === 'undefined') {
+                    // Fallback to German on server
+                    const msgs = await import('@/messages/de.json');
+                    setMessages(msgs.default);
+                    return;
+                }
 
-            let initialLocale: Locale = 'de';
+                // Check URL parameter first (highest priority)
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang');
 
-            if (langParam === 'de' || langParam === 'en') {
-                // URL parameter takes priority
-                initialLocale = langParam;
-                localStorage.setItem('locale', langParam); // Save for future visits
-            } else {
-                // Fall back to localStorage
-                const saved = localStorage.getItem('locale') as Locale;
-                initialLocale = (saved === 'de' || saved === 'en') ? saved : 'de';
+                let initialLocale: Locale = 'de';
+
+                if (langParam === 'de' || langParam === 'en') {
+                    // URL parameter takes priority
+                    initialLocale = langParam;
+                    try {
+                        localStorage.setItem('locale', langParam); // Save for future visits
+                    } catch (e) {
+                        // localStorage might not be available
+                    }
+                } else {
+                    // Fall back to localStorage
+                    try {
+                        const saved = localStorage.getItem('locale') as Locale;
+                        initialLocale = (saved === 'de' || saved === 'en') ? saved : 'de';
+                    } catch (e) {
+                        // localStorage might not be available
+                    }
+                }
+
+                const msgs = await import(`@/messages/${initialLocale}.json`);
+                setMessages(msgs.default);
+                setLocaleState(initialLocale);
+
+                if (typeof document !== 'undefined') {
+                    document.documentElement.lang = initialLocale;
+                }
+            } catch (error) {
+                console.error('Error loading language:', error);
+                // Fallback to German on error
+                try {
+                    const msgs = await import('@/messages/de.json');
+                    setMessages(msgs.default);
+                    setLocaleState('de');
+                } catch (e) {
+                    console.error('Failed to load fallback language:', e);
+                }
             }
-
-            const msgs = await import(`@/messages/${initialLocale}.json`);
-            setMessages(msgs.default);
-            setLocaleState(initialLocale);
-            document.documentElement.lang = initialLocale;
         };
 
         loadMessages();
     }, []);
 
     const setLocale = async (newLocale: Locale) => {
-        const msgs = await import(`@/messages/${newLocale}.json`);
-        setMessages(msgs.default);
-        setLocaleState(newLocale);
-        localStorage.setItem('locale', newLocale);
-        document.documentElement.lang = newLocale;
+        try {
+            const msgs = await import(`@/messages/${newLocale}.json`);
+            setMessages(msgs.default);
+            setLocaleState(newLocale);
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('locale', newLocale);
+            }
+            if (typeof document !== 'undefined') {
+                document.documentElement.lang = newLocale;
+            }
+        } catch (error) {
+            console.error('Error changing language:', error);
+        }
     };
 
     if (!messages) return null; // Loading state
