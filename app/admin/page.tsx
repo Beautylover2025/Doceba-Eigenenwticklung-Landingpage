@@ -137,17 +137,13 @@ export default function AdminDashboard() {
             stepCounts[stepIdx].add(answer.session_id);
         });
 
-        // Count submissions (users who completed all 5 questions)
-        const sessionsWithAll5Steps = new Set<string>();
-        answersData?.forEach((answer) => {
-            if (stepCounts[0]?.has(answer.session_id) &&
-                stepCounts[1]?.has(answer.session_id) &&
-                stepCounts[2]?.has(answer.session_id) &&
-                stepCounts[3]?.has(answer.session_id) &&
-                stepCounts[4]?.has(answer.session_id)) {
-                sessionsWithAll5Steps.add(answer.session_id);
-            }
-        });
+        // Count actual form submissions from funnel_submissions
+        const { count: submissionCount } = await supabase
+            .from("funnel_submissions")
+            .select("*", { count: "exact", head: true })
+            .eq("last_step", "submission_completed")
+            .gte("updated_at", start)
+            .lte("updated_at", end);
 
         const stepLabels = [
             "Frage 1: Status",
@@ -165,7 +161,7 @@ export default function AdminDashboard() {
                 label,
                 count: stepCounts[idx]?.size || 0,
             })),
-            { step: "form_completed", label: "Formular abgeschickt", count: sessionsWithAll5Steps.size },
+            { step: "form_completed", label: "Formular abgeschickt", count: submissionCount || 0 },
         ];
 
         setFunnelSteps(funnelData);
