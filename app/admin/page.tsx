@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
-import { LogOut, TrendingUp, Users, MousePointerClick, MessageSquare } from "lucide-react";
+import { LogOut, TrendingUp, Users, MousePointerClick, MessageSquare, UserCheck } from "lucide-react";
 import { getStartOfToday, getEndOfToday, getStartOfYesterday, getEndOfYesterday, formatGermanDate } from "@/lib/dateUtils";
 import ABTestPanel from "@/components/ABTestPanel";
 import TrafficSourcePanel from "@/components/TrafficSourcePanel";
@@ -31,6 +31,7 @@ export default function AdminDashboard() {
     const [quizAnswers, setQuizAnswers] = useState<any[]>([]);
     const [buttonClicks, setButtonClicks] = useState<any[]>([]);
     const [funnelSteps, setFunnelSteps] = useState<{ step: string, label: string, count: number }[]>([]);
+    const [leads, setLeads] = useState<any[]>([]);
 
     useEffect(() => {
         checkAuth();
@@ -137,13 +138,14 @@ export default function AdminDashboard() {
             stepCounts[stepIdx].add(answer.session_id);
         });
 
-        // Count actual form submissions from funnel_submissions
-        const { count: submissionCount } = await supabase
+        // Fetch all leads with details
+        const { data: leadsData, count: submissionCount } = await supabase
             .from("funnel_submissions")
-            .select("*", { count: "exact", head: true })
+            .select("*", { count: "exact" })
             .eq("last_step", "submission_completed")
             .gte("updated_at", start)
-            .lte("updated_at", end);
+            .lte("updated_at", end)
+            .order("updated_at", { ascending: false });
 
         const stepLabels = [
             "Frage 1: Status",
@@ -176,6 +178,7 @@ export default function AdminDashboard() {
 
         setQuizAnswers(answersData || []);
         setButtonClicks(clicksData || []);
+        setLeads(leadsData || []);
     };
 
     if (loading) {
@@ -394,6 +397,87 @@ export default function AdminDashboard() {
                                     </div>
                                 );
                             })}
+                        </div>
+                    )}
+                </div>
+
+                {/* Leads Table with Attribution */}
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8">
+                    <div className="flex items-center gap-3 mb-6">
+                        <UserCheck className="w-6 h-6 text-green-600" />
+                        <h2 className="text-2xl font-display font-bold text-gray-900">Leads ({leads.length})</h2>
+                    </div>
+                    {leads.length === 0 ? (
+                        <p className="text-gray-500 text-center py-8">Keine Leads im gewählten Zeitraum</p>
+                    ) : (
+                        <div className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="border-b border-gray-200">
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Datum</th>
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Name</th>
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">E-Mail</th>
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">A/B Variante</th>
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Traffic Source</th>
+                                        <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Herkunft</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {leads.map((lead, index) => (
+                                        <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                                            <td className="py-3 px-4 text-sm text-gray-600">
+                                                {formatGermanDate(new Date(lead.updated_at), "dd.MM.yyyy HH:mm")}
+                                            </td>
+                                            <td className="py-3 px-4 text-sm text-gray-900 font-medium">
+                                                {lead.first_name || lead.firstName} {lead.last_name || lead.lastName}
+                                            </td>
+                                            <td className="py-3 px-4 text-sm text-gray-700">
+                                                {lead.email}
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                {lead.ab_variant ? (
+                                                    <span className={`px-2 py-1 text-xs font-medium rounded-full ${lead.ab_variant === 'A'
+                                                        ? 'bg-blue-100 text-blue-700'
+                                                        : 'bg-purple-100 text-purple-700'
+                                                        }`}>
+                                                        Variante {lead.ab_variant}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-xs text-gray-400">—</span>
+                                                )}
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                {lead.traffic_source ? (
+                                                    <div>
+                                                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${lead.traffic_source === 'Direct'
+                                                                ? 'bg-gray-100 text-gray-700'
+                                                                : lead.traffic_source?.includes('Facebook') || lead.traffic_source?.includes('Instagram')
+                                                                    ? 'bg-blue-100 text-blue-700'
+                                                                    : 'bg-green-100 text-green-700'
+                                                            }`}>
+                                                            {lead.traffic_source}
+                                                        </span>
+                                                        {lead.utm_campaign && (
+                                                            <div className="text-xs text-gray-400 mt-1">{lead.utm_campaign}</div>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    <span className="text-xs text-gray-400">—</span>
+                                                )}
+                                            </td>
+                                            <td className="py-3 px-4">
+                                                {lead.source_page ? (
+                                                    <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-700">
+                                                        {lead.source_page}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-xs text-gray-400">—</span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     )}
                 </div>
